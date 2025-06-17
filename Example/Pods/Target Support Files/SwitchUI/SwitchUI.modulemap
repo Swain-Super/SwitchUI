@@ -1,0 +1,6 @@
+framework module SwitchUI {
+  umbrella header "SwitchUI-umbrella.h"
+
+  export *
+  module * { export * }
+}

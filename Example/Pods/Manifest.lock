@@ -1,0 +1,16 @@
+PODS:
+  - SwitchUI (1.2.0)
+
+DEPENDENCIES:
+  - SwitchUI (from `../`)
+
+EXTERNAL SOURCES:
+  SwitchUI:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwitchUI: 1079449a78e8f87af3261ee7d52bd1883c000a3b
+
+PODFILE CHECKSUM: 54bf244c14766c8763c0a4e4a901bb24cc82b935
+
+COCOAPODS: 1.15.0

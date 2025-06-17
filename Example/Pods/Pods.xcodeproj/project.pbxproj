@@ -1,0 +1,1037 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		032874EF454B31D8963C484A91A63A6A /* SButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D04B955AD2D28C0BEF6721D333FAD123 /* SButton.swift */; };
+		055B3DF707D56A37CA6BDE471477FA16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		062A43D6F050B1FE85D9D804A1EA84EC /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0242728AC9CDE48727DBFDD5E15E5DF /* String+Size.swift */; };
+		0C0C6CB8B28E52FFEBC9AF957F130A97 /* UIView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A682681A842583B6A0A74C8997AAB226 /* UIView+UI.swift */; };
+		0FB384B09C63039717D9D19DA7387979 /* SColum.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EE8976089B0E64344C10F9D98F9977 /* SColum.swift */; };
+		1CF82CFD6410337D0CDFF115C6BB0F81 /* UIButton+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08864361795C372E06890F515668FE4F /* UIButton+UI.swift */; };
+		24D4ED1144F15580B2583517F3F8F2FA /* SList.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED704015B7405B76130AA969FF507191 /* SList.swift */; };
+		29DB2EAE7D2B03624565EA5FEBB056BB /* String+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E15045D12AF349B652B9EFEFD50DA92 /* String+swchain.swift */; };
+		2F5589EAB60EF845E662FAB8C5B51EE1 /* UIControl+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA81986410777DA7001EC182FE0EDFE7 /* UIControl+UI.swift */; };
+		300195103A920160C6218C8177F9D073 /* UITextView+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFA573D08B46B0A0683513550707F18 /* UITextView+swchain.swift */; };
+		342C4B129A26C1A02A75569D495F1A80 /* UISwitch+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999FE717A4324DF070509E97B3DADFE /* UISwitch+swchain.swift */; };
+		37669D7E20490E857C6DFF4045E55E47 /* SUIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A73DC7AC2DFCF7B876584C9F560683 /* SUIManager.swift */; };
+		388F52A5C1ED3428AF561B4B6CAD83B8 /* UIButton+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFF0A13491B041C68DC4119B3AE8F195 /* UIButton+swchain.swift */; };
+		3FC70506E81E96A02F1260EF12F447F9 /* UIStackView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4321459605F3CE00C5B3971071FACD18 /* UIStackView+UI.swift */; };
+		46302C0A7D434E0D84FDEFB1B43C4505 /* UIStackView+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA909A69E8108BDF4C25CADA09574349 /* UIStackView+swchain.swift */; };
+		48BC3EFF7DD65A5997262C41EEC61C59 /* UIImageView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A26A13DFF4E7A8F987A6A47F8B28A5E /* UIImageView+UI.swift */; };
+		4CE2C9EED7708095AF4B404949FD9988 /* SView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DB66EAFB54FE3D1E6C6BFFDFC5F1D7D /* SView+Draw.swift */; };
+		4ED57B1DE1637E7F6B068E9CE2FCDA63 /* Pods-SwitchUI_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 113EF9EAAFEA0A7F02DC6367B6C5313B /* Pods-SwitchUI_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4F00BAACD5BDE0D55193C74BB4395CB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		56582E00ED5595D00A497DE8460F35A9 /* SListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0338AD6047C0492D476DF99DDCAD4356 /* SListItem.swift */; };
+		5ED8E8E0917A3C9F35F0A07E690F8152 /* SBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09A5CCB92C686538DC49E6B9BEE74E7 /* SBlank.swift */; };
+		6230EF5461BA202C84475882B287FA85 /* SwitchUI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B06D99C64E1A9B0D1B137B46DCF5AC01 /* SwitchUI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		71DF878E1C643DF58DC58A9A5954AD4D /* UIImageView+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F5A2B7998E279E0EEC5209C7CFE064 /* UIImageView+swchain.swift */; };
+		7740607BB5EB80F7ACC231191C09EF0E /* UITableView+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03CCD60582E8FBC760D41613A4A48A61 /* UITableView+swchain.swift */; };
+		8002F0933619EBD743A7C5B05547BD73 /* SWeakRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0949C0B97CC4CBB87669D79062ECBCE3 /* SWeakRef.swift */; };
+		851554F5A536382A9FE944B00ADF0DF2 /* SWBorderDrawing.m in Sources */ = {isa = PBXBuildFile; fileRef = 2567CB6733301F416B3CE5ABD07B9EF1 /* SWBorderDrawing.m */; };
+		8C5B5E32EA9E26993BC7F7EA5354E7C8 /* SwitchUI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4D2120BF51E16F5C3832F2FBFFDE97 /* SwitchUI-dummy.m */; };
+		8F132793133C5C002EC0C783F8F2846A /* UILabel+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00BF8253FDD21F281B3027D3D12B995 /* UILabel+UI.swift */; };
+		93784DCE0E0C573D04007B4B7F1F46B3 /* UIView+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F20AC23B890307658CB7DA107982A44 /* UIView+swchain.swift */; };
+		9690DCDF3CAE703CA6703EA6719F4BBB /* Pods-SwitchUI_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0942E66879AE43E30BA3DC7AB6409EC5 /* Pods-SwitchUI_Example-dummy.m */; };
+		979FB4C2EE749235EDD05794BDD902B9 /* SLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B3C3F70767CCF9174B572852F8BCC5 /* SLabel.swift */; };
+		9A75B4F880799FD05E398B60A515B04C /* SState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0015CA4C91D4363B87773E85439354AE /* SState.swift */; };
+		9AFAC4D45985BC4D3863D8958B98B413 /* SGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F524FA764643B755F1FF5689D13FD52 /* SGrid.swift */; };
+		A282ADC837FE2970BD967584C97F09DB /* Pods-SwitchUI_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2503659D39B06158670582AD539A8D37 /* Pods-SwitchUI_Tests-dummy.m */; };
+		A5531BEC3853724399BC5991393A76EC /* UILabel+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288AD0A3957D71EF77639D23686E665 /* UILabel+swchain.swift */; };
+		A782148C08CAFB19C5B061950D78E472 /* UITableView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242B72AD45EDD005DB0E110140B41F4A /* UITableView+UI.swift */; };
+		A866B7B1BE28D8FCA9C0DCE2CB8915F3 /* SReloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42204189C3FCD9EDA76C6F257ABBFCB0 /* SReloader.swift */; };
+		B085206689AB8038229815EA0AFD621F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		B36A0622DF84CD1E705E447DA4ED17CD /* UITextView+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDAA6EC7563C381015B8B1439596210E /* UITextView+UI.swift */; };
+		B7863DC5CBFD293265B2B8ADC38D90B2 /* UIControl+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781CDC27B5BE0F6EF7FDA412325CFCDE /* UIControl+swchain.swift */; };
+		C2119638766BB696F09C7769EE1BD99C /* SWUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175779DAA2FEB74859FF7B2F9482608 /* SWUtils.swift */; };
+		C9694E30103722EB59EFA20546CD73CD /* UISwitch+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929529AB911CEB03A5936413BF1FD870 /* UISwitch+UI.swift */; };
+		C9FA4DC62585ECEF841EFF90D21FB219 /* SLazyForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA74ED66D49FB71773916D6EEFB015D1 /* SLazyForEach.swift */; };
+		DC035E967D1E046C36FE777E2AF80919 /* SContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2DAE0F7224B8A835FDEC23DE8E9E290 /* SContainer.swift */; };
+		DC30FD37761A2320242448BCCCD42098 /* SView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3828AFB85A8446B942094354C7562B64 /* SView.swift */; };
+		DCE1979E6ABE4E68C48BAEBAB161E57C /* SWBorderDrawing.h in Headers */ = {isa = PBXBuildFile; fileRef = 22B3F4E165B940EEF92BF46C7A45D203 /* SWBorderDrawing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DF97D9CE69FE433746A7F472D5C964D6 /* UIActivityIndicatorView+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1422E0AF2F88FCCFE7C223C0E857441C /* UIActivityIndicatorView+swchain.swift */; };
+		EA545A09439C25D4EEF1C9743DC629CE /* SForEach.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6798B0488E7FD2335B49B00C33ED3B07 /* SForEach.swift */; };
+		ED1CBAC49E5FEB9494470C5326B3B512 /* SRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 528C9F60F9368E559AFF60D41FCABAC3 /* SRow.swift */; };
+		ED75BB69FF2E947E74D41547D61B40A0 /* SListGroupItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC737BFC4CD12EA73EAF3D243B4F57B1 /* SListGroupItem.swift */; };
+		F033C99450E8173EB917AB323FBC949C /* SStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6162BCD707460A8EFB28E3FD0F39BF9 /* SStack.swift */; };
+		F6C3C2CDD5E8432C61DBE21F2BCFC7AB /* UITextField+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EECF99641B0F601D52FD86078216FB7 /* UITextField+UI.swift */; };
+		F87CC6442436777F69324BCCB063A213 /* SRelativeContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 574216E48D2F878C61A430FED9334795 /* SRelativeContainer.swift */; };
+		FCA41AB20BC1A7CA10FD2FE881A20829 /* UITextField+swchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF829438F8EC9134824A121871A95B3 /* UITextField+swchain.swift */; };
+		FD13AA8EF2927F30AA62EFA3AF5D9307 /* Pods-SwitchUI_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E0EE08C3177AE7FF9BD8CDD8FE32986D /* Pods-SwitchUI_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		32733371CFEE5F2622FD92A29C1AD3A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 18280E5307ED8A9F458FEA9CD700F8DA;
+			remoteInfo = SwitchUI;
+		};
+		742D63550D69C0A802A701930119BEAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC178005A7E32D802E1A4DFDFE9ADE6C;
+			remoteInfo = "Pods-SwitchUI_Example";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0015CA4C91D4363B87773E85439354AE /* SState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SState.swift; sourceTree = "<group>"; };
+		0338AD6047C0492D476DF99DDCAD4356 /* SListItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SListItem.swift; sourceTree = "<group>"; };
+		03CCD60582E8FBC760D41613A4A48A61 /* UITableView+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITableView+swchain.swift"; sourceTree = "<group>"; };
+		079EF453828CC2CAB3B67A232400F2A4 /* Pods-SwitchUI_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SwitchUI_Example"; path = Pods_SwitchUI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		08864361795C372E06890F515668FE4F /* UIButton+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIButton+UI.swift"; sourceTree = "<group>"; };
+		0942E66879AE43E30BA3DC7AB6409EC5 /* Pods-SwitchUI_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwitchUI_Example-dummy.m"; sourceTree = "<group>"; };
+		0949C0B97CC4CBB87669D79062ECBCE3 /* SWeakRef.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SWeakRef.swift; sourceTree = "<group>"; };
+		0EECF99641B0F601D52FD86078216FB7 /* UITextField+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextField+UI.swift"; sourceTree = "<group>"; };
+		113EF9EAAFEA0A7F02DC6367B6C5313B /* Pods-SwitchUI_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwitchUI_Example-umbrella.h"; sourceTree = "<group>"; };
+		1422E0AF2F88FCCFE7C223C0E857441C /* UIActivityIndicatorView+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+swchain.swift"; sourceTree = "<group>"; };
+		1CECB20F8E2AD6588395D6B23A6E556E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		21F9FC6D5ECFFE22342C17266B5D6182 /* Pods-SwitchUI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwitchUI_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		22B3F4E165B940EEF92BF46C7A45D203 /* SWBorderDrawing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SWBorderDrawing.h; sourceTree = "<group>"; };
+		242B72AD45EDD005DB0E110140B41F4A /* UITableView+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITableView+UI.swift"; sourceTree = "<group>"; };
+		2503659D39B06158670582AD539A8D37 /* Pods-SwitchUI_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwitchUI_Tests-dummy.m"; sourceTree = "<group>"; };
+		2567CB6733301F416B3CE5ABD07B9EF1 /* SWBorderDrawing.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SWBorderDrawing.m; sourceTree = "<group>"; };
+		2EBFC527E52F3B7B4D41A3A1FEF6F132 /* SwitchUI-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwitchUI-prefix.pch"; sourceTree = "<group>"; };
+		31A2A008CB161B829588F0F0E09C29FF /* Pods-SwitchUI_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwitchUI_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		36CD5502C2F4C720D7791E9CD5F40BB3 /* Pods-SwitchUI_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwitchUI_Example.release.xcconfig"; sourceTree = "<group>"; };
+		3828AFB85A8446B942094354C7562B64 /* SView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SView.swift; sourceTree = "<group>"; };
+		3A26A13DFF4E7A8F987A6A47F8B28A5E /* UIImageView+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+UI.swift"; sourceTree = "<group>"; };
+		3DB66EAFB54FE3D1E6C6BFFDFC5F1D7D /* SView+Draw.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "SView+Draw.swift"; sourceTree = "<group>"; };
+		3F20AC23B890307658CB7DA107982A44 /* UIView+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+swchain.swift"; sourceTree = "<group>"; };
+		42204189C3FCD9EDA76C6F257ABBFCB0 /* SReloader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SReloader.swift; sourceTree = "<group>"; };
+		42600DE776B6B9A5B752E4A9451CD899 /* SwitchUI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwitchUI.modulemap; sourceTree = "<group>"; };
+		4321459605F3CE00C5B3971071FACD18 /* UIStackView+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIStackView+UI.swift"; sourceTree = "<group>"; };
+		4BD5B8FD8661F0C20EAB9AF2ED412325 /* Pods-SwitchUI_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwitchUI_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		502B1E68C5E8A837091451C2A08C8807 /* Pods-SwitchUI_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwitchUI_Example-Info.plist"; sourceTree = "<group>"; };
+		528C9F60F9368E559AFF60D41FCABAC3 /* SRow.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SRow.swift; sourceTree = "<group>"; };
+		52A11F612E0D076865C800B0FF7D1CDC /* SwitchUI */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwitchUI; path = SwitchUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		574216E48D2F878C61A430FED9334795 /* SRelativeContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SRelativeContainer.swift; sourceTree = "<group>"; };
+		59F56010ACB2C297FA5FF1FAF52EE121 /* Pods-SwitchUI_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SwitchUI_Tests"; path = Pods_SwitchUI_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F524FA764643B755F1FF5689D13FD52 /* SGrid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SGrid.swift; sourceTree = "<group>"; };
+		60E7B8829DAB0656C9A6FC43E251B96D /* Pods-SwitchUI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwitchUI_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		6798B0488E7FD2335B49B00C33ED3B07 /* SForEach.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SForEach.swift; sourceTree = "<group>"; };
+		69DE9ED9E48633F32FAB4290DC47FF51 /* Pods-SwitchUI_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwitchUI_Tests-Info.plist"; sourceTree = "<group>"; };
+		6C995CF126055A755360930DD44C0675 /* Pods-SwitchUI_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwitchUI_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		781CDC27B5BE0F6EF7FDA412325CFCDE /* UIControl+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIControl+swchain.swift"; sourceTree = "<group>"; };
+		786D274F0992ED5705BEBEAC7ABF8E71 /* Pods-SwitchUI_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwitchUI_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		7E15045D12AF349B652B9EFEFD50DA92 /* String+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+swchain.swift"; sourceTree = "<group>"; };
+		929529AB911CEB03A5936413BF1FD870 /* UISwitch+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UISwitch+UI.swift"; sourceTree = "<group>"; };
+		95D4A29F58135BBDC6C515FAA59E21ED /* Pods-SwitchUI_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwitchUI_Example-frameworks.sh"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A052B6DF4E19D9C60E0528B9DBF5DC48 /* SwitchUI.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = SwitchUI.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A682681A842583B6A0A74C8997AAB226 /* UIView+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIView+UI.swift"; sourceTree = "<group>"; };
+		A6B3C3F70767CCF9174B572852F8BCC5 /* SLabel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SLabel.swift; sourceTree = "<group>"; };
+		AA81986410777DA7001EC182FE0EDFE7 /* UIControl+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIControl+UI.swift"; sourceTree = "<group>"; };
+		AA909A69E8108BDF4C25CADA09574349 /* UIStackView+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIStackView+swchain.swift"; sourceTree = "<group>"; };
+		AE8B8438D7FF7AB5A856F9BF6AE75860 /* Pods-SwitchUI_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwitchUI_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		B06D99C64E1A9B0D1B137B46DCF5AC01 /* SwitchUI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwitchUI-umbrella.h"; sourceTree = "<group>"; };
+		B33245D4A54C3BC6C9031C2CFC66F194 /* Pods-SwitchUI_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwitchUI_Tests.modulemap"; sourceTree = "<group>"; };
+		BDAA6EC7563C381015B8B1439596210E /* UITextView+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextView+UI.swift"; sourceTree = "<group>"; };
+		BFF0A13491B041C68DC4119B3AE8F195 /* UIButton+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIButton+swchain.swift"; sourceTree = "<group>"; };
+		C0242728AC9CDE48727DBFDD5E15E5DF /* String+Size.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
+		C09A5CCB92C686538DC49E6B9BEE74E7 /* SBlank.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SBlank.swift; sourceTree = "<group>"; };
+		C3A73DC7AC2DFCF7B876584C9F560683 /* SUIManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SUIManager.swift; sourceTree = "<group>"; };
+		C9F5A2B7998E279E0EEC5209C7CFE064 /* UIImageView+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+swchain.swift"; sourceTree = "<group>"; };
+		CA4D2120BF51E16F5C3832F2FBFFDE97 /* SwitchUI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwitchUI-dummy.m"; sourceTree = "<group>"; };
+		CC737BFC4CD12EA73EAF3D243B4F57B1 /* SListGroupItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SListGroupItem.swift; sourceTree = "<group>"; };
+		CCBDC7CCFA1CD0A66B8E85F4C8B2593C /* SwitchUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwitchUI.debug.xcconfig; sourceTree = "<group>"; };
+		CEF829438F8EC9134824A121871A95B3 /* UITextField+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextField+swchain.swift"; sourceTree = "<group>"; };
+		D04B955AD2D28C0BEF6721D333FAD123 /* SButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SButton.swift; sourceTree = "<group>"; };
+		D175779DAA2FEB74859FF7B2F9482608 /* SWUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SWUtils.swift; sourceTree = "<group>"; };
+		D288AD0A3957D71EF77639D23686E665 /* UILabel+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UILabel+swchain.swift"; sourceTree = "<group>"; };
+		D5757F4344BB9CFD676340C39C310014 /* SwitchUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwitchUI.release.xcconfig; sourceTree = "<group>"; };
+		D6162BCD707460A8EFB28E3FD0F39BF9 /* SStack.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SStack.swift; sourceTree = "<group>"; };
+		D999FE717A4324DF070509E97B3DADFE /* UISwitch+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UISwitch+swchain.swift"; sourceTree = "<group>"; };
+		D9A6FC54000D73C909CD960B4817B03D /* Pods-SwitchUI_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwitchUI_Example.modulemap"; sourceTree = "<group>"; };
+		E00BF8253FDD21F281B3027D3D12B995 /* UILabel+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UILabel+UI.swift"; sourceTree = "<group>"; };
+		E0EE08C3177AE7FF9BD8CDD8FE32986D /* Pods-SwitchUI_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwitchUI_Tests-umbrella.h"; sourceTree = "<group>"; };
+		EA74ED66D49FB71773916D6EEFB015D1 /* SLazyForEach.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SLazyForEach.swift; sourceTree = "<group>"; };
+		EAFA573D08B46B0A0683513550707F18 /* UITextView+swchain.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UITextView+swchain.swift"; sourceTree = "<group>"; };
+		ED704015B7405B76130AA969FF507191 /* SList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SList.swift; sourceTree = "<group>"; };
+		F2DAE0F7224B8A835FDEC23DE8E9E290 /* SContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SContainer.swift; sourceTree = "<group>"; };
+		F2EE8976089B0E64344C10F9D98F9977 /* SColum.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SColum.swift; sourceTree = "<group>"; };
+		F33CB5821EBA12F932535098EB111898 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		FB4042A21500D46CAAA570B14C25486D /* SwitchUI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwitchUI-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0E5D027C081250DDF20D7E7BA1913A9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F00BAACD5BDE0D55193C74BB4395CB7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A5E3EBFD032D416956007D99D2D45DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				055B3DF707D56A37CA6BDE471477FA16 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7FD0C984C10BD8D66E177DECF9896CDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B085206689AB8038229815EA0AFD621F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DD5478BFBC9E2AE670C113BE0B7E414 /* Pods-SwitchUI_Example */ = {
+			isa = PBXGroup;
+			children = (
+				D9A6FC54000D73C909CD960B4817B03D /* Pods-SwitchUI_Example.modulemap */,
+				786D274F0992ED5705BEBEAC7ABF8E71 /* Pods-SwitchUI_Example-acknowledgements.markdown */,
+				AE8B8438D7FF7AB5A856F9BF6AE75860 /* Pods-SwitchUI_Example-acknowledgements.plist */,
+				0942E66879AE43E30BA3DC7AB6409EC5 /* Pods-SwitchUI_Example-dummy.m */,
+				95D4A29F58135BBDC6C515FAA59E21ED /* Pods-SwitchUI_Example-frameworks.sh */,
+				502B1E68C5E8A837091451C2A08C8807 /* Pods-SwitchUI_Example-Info.plist */,
+				113EF9EAAFEA0A7F02DC6367B6C5313B /* Pods-SwitchUI_Example-umbrella.h */,
+				21F9FC6D5ECFFE22342C17266B5D6182 /* Pods-SwitchUI_Example.debug.xcconfig */,
+				36CD5502C2F4C720D7791E9CD5F40BB3 /* Pods-SwitchUI_Example.release.xcconfig */,
+			);
+			name = "Pods-SwitchUI_Example";
+			path = "Target Support Files/Pods-SwitchUI_Example";
+			sourceTree = "<group>";
+		};
+		1CB021F106DAF1BB3DD753949230F163 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				450E6D53C860A66100A7E997144F7937 /* SwitchUI */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		4467F293E3FD0F35E0934BCED5774FAF /* List */ = {
+			isa = PBXGroup;
+			children = (
+				6798B0488E7FD2335B49B00C33ED3B07 /* SForEach.swift */,
+				EA74ED66D49FB71773916D6EEFB015D1 /* SLazyForEach.swift */,
+				ED704015B7405B76130AA969FF507191 /* SList.swift */,
+				CC737BFC4CD12EA73EAF3D243B4F57B1 /* SListGroupItem.swift */,
+				0338AD6047C0492D476DF99DDCAD4356 /* SListItem.swift */,
+			);
+			name = List;
+			path = List;
+			sourceTree = "<group>";
+		};
+		450E6D53C860A66100A7E997144F7937 /* SwitchUI */ = {
+			isa = PBXGroup;
+			children = (
+				DCE1A9746FD7F6958E52EA460577452C /* Categories */,
+				564F77CF397C521B46ABF0E216B4FFA3 /* Components */,
+				6BCC3078295650BB1075F628A6324D37 /* Container */,
+				7BD8B415A0F82C37ADF8FCB3F750B005 /* Pod */,
+				5921614E74AC6434166BB7960EF7476A /* Support Files */,
+				F3C42ED76882C7B7B118E46E984A2C4B /* UIRefresh */,
+				E9C7A8172AF44BA91B78E430E3C7C3FC /* Utils */,
+			);
+			name = SwitchUI;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		564F77CF397C521B46ABF0E216B4FFA3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				C09A5CCB92C686538DC49E6B9BEE74E7 /* SBlank.swift */,
+				D04B955AD2D28C0BEF6721D333FAD123 /* SButton.swift */,
+				A6B3C3F70767CCF9174B572852F8BCC5 /* SLabel.swift */,
+				EA535026FF625BC6F802D38388E64FA8 /* SView */,
+			);
+			name = Components;
+			path = SwitchUI/Classes/Components;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5921614E74AC6434166BB7960EF7476A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				42600DE776B6B9A5B752E4A9451CD899 /* SwitchUI.modulemap */,
+				CA4D2120BF51E16F5C3832F2FBFFDE97 /* SwitchUI-dummy.m */,
+				FB4042A21500D46CAAA570B14C25486D /* SwitchUI-Info.plist */,
+				2EBFC527E52F3B7B4D41A3A1FEF6F132 /* SwitchUI-prefix.pch */,
+				B06D99C64E1A9B0D1B137B46DCF5AC01 /* SwitchUI-umbrella.h */,
+				CCBDC7CCFA1CD0A66B8E85F4C8B2593C /* SwitchUI.debug.xcconfig */,
+				D5757F4344BB9CFD676340C39C310014 /* SwitchUI.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/SwitchUI";
+			sourceTree = "<group>";
+		};
+		6BCC3078295650BB1075F628A6324D37 /* Container */ = {
+			isa = PBXGroup;
+			children = (
+				F2EE8976089B0E64344C10F9D98F9977 /* SColum.swift */,
+				F2DAE0F7224B8A835FDEC23DE8E9E290 /* SContainer.swift */,
+				5F524FA764643B755F1FF5689D13FD52 /* SGrid.swift */,
+				574216E48D2F878C61A430FED9334795 /* SRelativeContainer.swift */,
+				528C9F60F9368E559AFF60D41FCABAC3 /* SRow.swift */,
+				D6162BCD707460A8EFB28E3FD0F39BF9 /* SStack.swift */,
+				4467F293E3FD0F35E0934BCED5774FAF /* List */,
+			);
+			name = Container;
+			path = SwitchUI/Classes/Container;
+			sourceTree = "<group>";
+		};
+		7983DB7E96A70ED5B8E3FDB1C37A8E80 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				079EF453828CC2CAB3B67A232400F2A4 /* Pods-SwitchUI_Example */,
+				59F56010ACB2C297FA5FF1FAF52EE121 /* Pods-SwitchUI_Tests */,
+				52A11F612E0D076865C800B0FF7D1CDC /* SwitchUI */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7BD8B415A0F82C37ADF8FCB3F750B005 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				1CECB20F8E2AD6588395D6B23A6E556E /* LICENSE */,
+				F33CB5821EBA12F932535098EB111898 /* README.md */,
+				A052B6DF4E19D9C60E0528B9DBF5DC48 /* SwitchUI.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		826B89631685E02B1BA7640F5167546E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1422E0AF2F88FCCFE7C223C0E857441C /* UIActivityIndicatorView+swchain.swift */,
+				BFF0A13491B041C68DC4119B3AE8F195 /* UIButton+swchain.swift */,
+				781CDC27B5BE0F6EF7FDA412325CFCDE /* UIControl+swchain.swift */,
+				C9F5A2B7998E279E0EEC5209C7CFE064 /* UIImageView+swchain.swift */,
+				D288AD0A3957D71EF77639D23686E665 /* UILabel+swchain.swift */,
+				AA909A69E8108BDF4C25CADA09574349 /* UIStackView+swchain.swift */,
+				D999FE717A4324DF070509E97B3DADFE /* UISwitch+swchain.swift */,
+				03CCD60582E8FBC760D41613A4A48A61 /* UITableView+swchain.swift */,
+				CEF829438F8EC9134824A121871A95B3 /* UITextField+swchain.swift */,
+				EAFA573D08B46B0A0683513550707F18 /* UITextView+swchain.swift */,
+				3F20AC23B890307658CB7DA107982A44 /* UIView+swchain.swift */,
+			);
+			name = UI;
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A7779DAA549B1850C89620F06902F081 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0DD5478BFBC9E2AE670C113BE0B7E414 /* Pods-SwitchUI_Example */,
+				CC8B4C66A413709EE57D5A59B8B12533 /* Pods-SwitchUI_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CC8B4C66A413709EE57D5A59B8B12533 /* Pods-SwitchUI_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B33245D4A54C3BC6C9031C2CFC66F194 /* Pods-SwitchUI_Tests.modulemap */,
+				4BD5B8FD8661F0C20EAB9AF2ED412325 /* Pods-SwitchUI_Tests-acknowledgements.markdown */,
+				31A2A008CB161B829588F0F0E09C29FF /* Pods-SwitchUI_Tests-acknowledgements.plist */,
+				2503659D39B06158670582AD539A8D37 /* Pods-SwitchUI_Tests-dummy.m */,
+				69DE9ED9E48633F32FAB4290DC47FF51 /* Pods-SwitchUI_Tests-Info.plist */,
+				E0EE08C3177AE7FF9BD8CDD8FE32986D /* Pods-SwitchUI_Tests-umbrella.h */,
+				6C995CF126055A755360930DD44C0675 /* Pods-SwitchUI_Tests.debug.xcconfig */,
+				60E7B8829DAB0656C9A6FC43E251B96D /* Pods-SwitchUI_Tests.release.xcconfig */,
+			);
+			name = "Pods-SwitchUI_Tests";
+			path = "Target Support Files/Pods-SwitchUI_Tests";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1CB021F106DAF1BB3DD753949230F163 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				7983DB7E96A70ED5B8E3FDB1C37A8E80 /* Products */,
+				A7779DAA549B1850C89620F06902F081 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D9525CCD5F5F9B3CA2618CCA7130B35B /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				7E15045D12AF349B652B9EFEFD50DA92 /* String+swchain.swift */,
+			);
+			name = Tool;
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		DCE1A9746FD7F6958E52EA460577452C /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D9525CCD5F5F9B3CA2618CCA7130B35B /* Tool */,
+				826B89631685E02B1BA7640F5167546E /* UI */,
+			);
+			name = Categories;
+			path = SwitchUI/Classes/Categories;
+			sourceTree = "<group>";
+		};
+		E9C7A8172AF44BA91B78E430E3C7C3FC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				42204189C3FCD9EDA76C6F257ABBFCB0 /* SReloader.swift */,
+				0015CA4C91D4363B87773E85439354AE /* SState.swift */,
+				C0242728AC9CDE48727DBFDD5E15E5DF /* String+Size.swift */,
+				C3A73DC7AC2DFCF7B876584C9F560683 /* SUIManager.swift */,
+				0949C0B97CC4CBB87669D79062ECBCE3 /* SWeakRef.swift */,
+				D175779DAA2FEB74859FF7B2F9482608 /* SWUtils.swift */,
+			);
+			name = Utils;
+			path = SwitchUI/Classes/Utils;
+			sourceTree = "<group>";
+		};
+		EA535026FF625BC6F802D38388E64FA8 /* SView */ = {
+			isa = PBXGroup;
+			children = (
+				3828AFB85A8446B942094354C7562B64 /* SView.swift */,
+				3DB66EAFB54FE3D1E6C6BFFDFC5F1D7D /* SView+Draw.swift */,
+				22B3F4E165B940EEF92BF46C7A45D203 /* SWBorderDrawing.h */,
+				2567CB6733301F416B3CE5ABD07B9EF1 /* SWBorderDrawing.m */,
+			);
+			name = SView;
+			path = SView;
+			sourceTree = "<group>";
+		};
+		F3C42ED76882C7B7B118E46E984A2C4B /* UIRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				08864361795C372E06890F515668FE4F /* UIButton+UI.swift */,
+				AA81986410777DA7001EC182FE0EDFE7 /* UIControl+UI.swift */,
+				3A26A13DFF4E7A8F987A6A47F8B28A5E /* UIImageView+UI.swift */,
+				E00BF8253FDD21F281B3027D3D12B995 /* UILabel+UI.swift */,
+				4321459605F3CE00C5B3971071FACD18 /* UIStackView+UI.swift */,
+				929529AB911CEB03A5936413BF1FD870 /* UISwitch+UI.swift */,
+				242B72AD45EDD005DB0E110140B41F4A /* UITableView+UI.swift */,
+				0EECF99641B0F601D52FD86078216FB7 /* UITextField+UI.swift */,
+				BDAA6EC7563C381015B8B1439596210E /* UITextView+UI.swift */,
+				A682681A842583B6A0A74C8997AAB226 /* UIView+UI.swift */,
+			);
+			name = UIRefresh;
+			path = SwitchUI/Classes/UIRefresh;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		439A8EFBB8B424BEE13923D9F2CBE18C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4ED57B1DE1637E7F6B068E9CE2FCDA63 /* Pods-SwitchUI_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9169AF4D9A1DF7D2565B5C81EBF0BB42 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCE1979E6ABE4E68C48BAEBAB161E57C /* SWBorderDrawing.h in Headers */,
+				6230EF5461BA202C84475882B287FA85 /* SwitchUI-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3EC993293F43F6B88DCA8C3AD64CC11 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD13AA8EF2927F30AA62EFA3AF5D9307 /* Pods-SwitchUI_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		18280E5307ED8A9F458FEA9CD700F8DA /* SwitchUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0FD81AB4C5AC66884FD1BDE252E45CAE /* Build configuration list for PBXNativeTarget "SwitchUI" */;
+			buildPhases = (
+				9169AF4D9A1DF7D2565B5C81EBF0BB42 /* Headers */,
+				D588D1AF20B163B35780B2B008F6BEB1 /* Sources */,
+				0E5D027C081250DDF20D7E7BA1913A9B /* Frameworks */,
+				E35AAE16F10FACCD14DF1093F26F2146 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwitchUI;
+			productName = SwitchUI;
+			productReference = 52A11F612E0D076865C800B0FF7D1CDC /* SwitchUI */;
+			productType = "com.apple.product-type.framework";
+		};
+		36C1D8BFE6512AECCA4DB62419DB3B4F /* Pods-SwitchUI_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99ABDC1889AB2A92906363C9CA8C7255 /* Build configuration list for PBXNativeTarget "Pods-SwitchUI_Tests" */;
+			buildPhases = (
+				D3EC993293F43F6B88DCA8C3AD64CC11 /* Headers */,
+				8E4F4CBBDDFC7D0B4AFD5242C8353035 /* Sources */,
+				7FD0C984C10BD8D66E177DECF9896CDE /* Frameworks */,
+				7837B6BD1959A18D395D25A5B90022FA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				645412CFCE477171EB072C3AB7965121 /* PBXTargetDependency */,
+			);
+			name = "Pods-SwitchUI_Tests";
+			productName = Pods_SwitchUI_Tests;
+			productReference = 59F56010ACB2C297FA5FF1FAF52EE121 /* Pods-SwitchUI_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+		EC178005A7E32D802E1A4DFDFE9ADE6C /* Pods-SwitchUI_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30659EF5F7C9983444EC5306274E2A4B /* Build configuration list for PBXNativeTarget "Pods-SwitchUI_Example" */;
+			buildPhases = (
+				439A8EFBB8B424BEE13923D9F2CBE18C /* Headers */,
+				719BF84EAB47DBDC3CFA934BEA8054CD /* Sources */,
+				3A5E3EBFD032D416956007D99D2D45DE /* Frameworks */,
+				E46F57D8675D46F8440D3E03887DF8DC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D75DA3B0ED3AB5E14C8913BDB793B47 /* PBXTargetDependency */,
+			);
+			name = "Pods-SwitchUI_Example";
+			productName = Pods_SwitchUI_Example;
+			productReference = 079EF453828CC2CAB3B67A232400F2A4 /* Pods-SwitchUI_Example */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 7983DB7E96A70ED5B8E3FDB1C37A8E80 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC178005A7E32D802E1A4DFDFE9ADE6C /* Pods-SwitchUI_Example */,
+				36C1D8BFE6512AECCA4DB62419DB3B4F /* Pods-SwitchUI_Tests */,
+				18280E5307ED8A9F458FEA9CD700F8DA /* SwitchUI */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7837B6BD1959A18D395D25A5B90022FA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E35AAE16F10FACCD14DF1093F26F2146 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E46F57D8675D46F8440D3E03887DF8DC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		719BF84EAB47DBDC3CFA934BEA8054CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9690DCDF3CAE703CA6703EA6719F4BBB /* Pods-SwitchUI_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E4F4CBBDDFC7D0B4AFD5242C8353035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A282ADC837FE2970BD967584C97F09DB /* Pods-SwitchUI_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D588D1AF20B163B35780B2B008F6BEB1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5ED8E8E0917A3C9F35F0A07E690F8152 /* SBlank.swift in Sources */,
+				032874EF454B31D8963C484A91A63A6A /* SButton.swift in Sources */,
+				0FB384B09C63039717D9D19DA7387979 /* SColum.swift in Sources */,
+				DC035E967D1E046C36FE777E2AF80919 /* SContainer.swift in Sources */,
+				EA545A09439C25D4EEF1C9743DC629CE /* SForEach.swift in Sources */,
+				9AFAC4D45985BC4D3863D8958B98B413 /* SGrid.swift in Sources */,
+				979FB4C2EE749235EDD05794BDD902B9 /* SLabel.swift in Sources */,
+				C9FA4DC62585ECEF841EFF90D21FB219 /* SLazyForEach.swift in Sources */,
+				24D4ED1144F15580B2583517F3F8F2FA /* SList.swift in Sources */,
+				ED75BB69FF2E947E74D41547D61B40A0 /* SListGroupItem.swift in Sources */,
+				56582E00ED5595D00A497DE8460F35A9 /* SListItem.swift in Sources */,
+				F87CC6442436777F69324BCCB063A213 /* SRelativeContainer.swift in Sources */,
+				A866B7B1BE28D8FCA9C0DCE2CB8915F3 /* SReloader.swift in Sources */,
+				ED1CBAC49E5FEB9494470C5326B3B512 /* SRow.swift in Sources */,
+				F033C99450E8173EB917AB323FBC949C /* SStack.swift in Sources */,
+				9A75B4F880799FD05E398B60A515B04C /* SState.swift in Sources */,
+				062A43D6F050B1FE85D9D804A1EA84EC /* String+Size.swift in Sources */,
+				29DB2EAE7D2B03624565EA5FEBB056BB /* String+swchain.swift in Sources */,
+				37669D7E20490E857C6DFF4045E55E47 /* SUIManager.swift in Sources */,
+				DC30FD37761A2320242448BCCCD42098 /* SView.swift in Sources */,
+				4CE2C9EED7708095AF4B404949FD9988 /* SView+Draw.swift in Sources */,
+				851554F5A536382A9FE944B00ADF0DF2 /* SWBorderDrawing.m in Sources */,
+				8002F0933619EBD743A7C5B05547BD73 /* SWeakRef.swift in Sources */,
+				8C5B5E32EA9E26993BC7F7EA5354E7C8 /* SwitchUI-dummy.m in Sources */,
+				C2119638766BB696F09C7769EE1BD99C /* SWUtils.swift in Sources */,
+				DF97D9CE69FE433746A7F472D5C964D6 /* UIActivityIndicatorView+swchain.swift in Sources */,
+				388F52A5C1ED3428AF561B4B6CAD83B8 /* UIButton+swchain.swift in Sources */,
+				1CF82CFD6410337D0CDFF115C6BB0F81 /* UIButton+UI.swift in Sources */,
+				B7863DC5CBFD293265B2B8ADC38D90B2 /* UIControl+swchain.swift in Sources */,
+				2F5589EAB60EF845E662FAB8C5B51EE1 /* UIControl+UI.swift in Sources */,
+				71DF878E1C643DF58DC58A9A5954AD4D /* UIImageView+swchain.swift in Sources */,
+				48BC3EFF7DD65A5997262C41EEC61C59 /* UIImageView+UI.swift in Sources */,
+				A5531BEC3853724399BC5991393A76EC /* UILabel+swchain.swift in Sources */,
+				8F132793133C5C002EC0C783F8F2846A /* UILabel+UI.swift in Sources */,
+				46302C0A7D434E0D84FDEFB1B43C4505 /* UIStackView+swchain.swift in Sources */,
+				3FC70506E81E96A02F1260EF12F447F9 /* UIStackView+UI.swift in Sources */,
+				342C4B129A26C1A02A75569D495F1A80 /* UISwitch+swchain.swift in Sources */,
+				C9694E30103722EB59EFA20546CD73CD /* UISwitch+UI.swift in Sources */,
+				7740607BB5EB80F7ACC231191C09EF0E /* UITableView+swchain.swift in Sources */,
+				A782148C08CAFB19C5B061950D78E472 /* UITableView+UI.swift in Sources */,
+				FCA41AB20BC1A7CA10FD2FE881A20829 /* UITextField+swchain.swift in Sources */,
+				F6C3C2CDD5E8432C61DBE21F2BCFC7AB /* UITextField+UI.swift in Sources */,
+				300195103A920160C6218C8177F9D073 /* UITextView+swchain.swift in Sources */,
+				B36A0622DF84CD1E705E447DA4ED17CD /* UITextView+UI.swift in Sources */,
+				93784DCE0E0C573D04007B4B7F1F46B3 /* UIView+swchain.swift in Sources */,
+				0C0C6CB8B28E52FFEBC9AF957F130A97 /* UIView+UI.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		645412CFCE477171EB072C3AB7965121 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SwitchUI_Example";
+			target = EC178005A7E32D802E1A4DFDFE9ADE6C /* Pods-SwitchUI_Example */;
+			targetProxy = 742D63550D69C0A802A701930119BEAE /* PBXContainerItemProxy */;
+		};
+		7D75DA3B0ED3AB5E14C8913BDB793B47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwitchUI;
+			target = 18280E5307ED8A9F458FEA9CD700F8DA /* SwitchUI */;
+			targetProxy = 32733371CFEE5F2622FD92A29C1AD3A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		04E59D4391258F5A3825318D75A90455 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60E7B8829DAB0656C9A6FC43E251B96D /* Pods-SwitchUI_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwitchUI_Tests/Pods-SwitchUI_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwitchUI_Tests/Pods-SwitchUI_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		0E7C94A83D4960ADFF77BA9FC8242C27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCBDC7CCFA1CD0A66B8E85F4C8B2593C /* SwitchUI.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwitchUI/SwitchUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwitchUI/SwitchUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwitchUI/SwitchUI.modulemap";
+				PRODUCT_MODULE_NAME = SwitchUI;
+				PRODUCT_NAME = SwitchUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3155143F13A1053AAA6E8C53AAF43BC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5757F4344BB9CFD676340C39C310014 /* SwitchUI.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwitchUI/SwitchUI-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwitchUI/SwitchUI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwitchUI/SwitchUI.modulemap";
+				PRODUCT_MODULE_NAME = SwitchUI;
+				PRODUCT_NAME = SwitchUI;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		335A6BC1D97DD01410F2AC1A36EB505C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CD5502C2F4C720D7791E9CD5F40BB3 /* Pods-SwitchUI_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwitchUI_Example/Pods-SwitchUI_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwitchUI_Example/Pods-SwitchUI_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		51994A8397FB7BA29C6880ADD32381B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C995CF126055A755360930DD44C0675 /* Pods-SwitchUI_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwitchUI_Tests/Pods-SwitchUI_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwitchUI_Tests/Pods-SwitchUI_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		F810EAA225EE4C14A8F1F81AC7B67B2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21F9FC6D5ECFFE22342C17266B5D6182 /* Pods-SwitchUI_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwitchUI_Example/Pods-SwitchUI_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwitchUI_Example/Pods-SwitchUI_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0FD81AB4C5AC66884FD1BDE252E45CAE /* Build configuration list for PBXNativeTarget "SwitchUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0E7C94A83D4960ADFF77BA9FC8242C27 /* Debug */,
+				3155143F13A1053AAA6E8C53AAF43BC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30659EF5F7C9983444EC5306274E2A4B /* Build configuration list for PBXNativeTarget "Pods-SwitchUI_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F810EAA225EE4C14A8F1F81AC7B67B2A /* Debug */,
+				335A6BC1D97DD01410F2AC1A36EB505C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99ABDC1889AB2A92906363C9CA8C7255 /* Build configuration list for PBXNativeTarget "Pods-SwitchUI_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				51994A8397FB7BA29C6880ADD32381B7 /* Debug */,
+				04E59D4391258F5A3825318D75A90455 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
