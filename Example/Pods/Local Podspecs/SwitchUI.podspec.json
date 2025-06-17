@@ -9,7 +9,7 @@
     "file": "LICENSE"
   },
   "authors": {
-    "kuilin": "shiwen@guanghe.tv"
+    "swain": "shiwen@guanghe.tv"
   },
   "source": {
     "git": "git@gitlab.yc345.tv:ios/ycmath-platform-ios/privateLibs/SwitchUI.git",
