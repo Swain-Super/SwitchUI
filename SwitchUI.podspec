@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/Swain-Super/SwitchUI'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'swain' => 'shiwen@guanghe.tv' }
-    s.source           = { :git => 'git@github.com:Swain-Super/SwitchUI.git',
+    s.source           = { :git => 'https://github.com/Swain-Super/SwitchUI.git',
         :tag => s.version.to_s
     }
     s.social_media_url = 'https://github.com/Swain-Super'
