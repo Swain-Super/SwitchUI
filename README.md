@@ -23,16 +23,16 @@
 
 <div align="center">
   <p>
-    <b>SwitchUI</b> 是一个基于 Swift 的声明式 UI 框架，提供了一套简单易用的布局系统，帮助开发者快速构建 iOS/macOS 应用界面。它采用声明式语法，让 UI 代码更加简洁直观，同时提供了丰富的布局容器，满足各种布局需求。
+    <b>SwitchUI</b> 是一个基于 Swift 的声明式 UI 框架，提供了一套类SwiftUI和ArkUI的布局系统和控件，最低支持 iOS 10.0+ 不依赖系统独立升级, 用不了SwiftUI的都可以来用这个
   </p>
 </div>
 
 ## 特性
 
 - �� 声明式语法，代码简洁直观
-- 📱 支持 iOS 10.0+ 不依赖系统独立升级
+- 📱 支持 iOS 10.0+
 - 🎨 布局容器基本和SwitchUI和ArkUI一致，满足各种布局需求
-- 🔄 支持动态布局和自动计算，UI自动刷新
+- 🔄 支持布局和属性发生变更UI自动刷新
 - 🛠 链式调用，使用便捷
 - 📦 支持 CocoaPods 集成
 
@@ -48,11 +48,12 @@ pod 'SwitchUI'
 
 ![](images/diagram.png)
 
+## 与Yoga、Masonry等框架的布局效率对比
+待补充
+
 ## 组件
 
 ### 数值设置
-
-**SValue**
 
 支持：
 
@@ -264,6 +265,219 @@ SButton()
 
 })
 ```
+#### SLabel
+
+提供比UILabel更丰富的基础能力
+
+#### SBlank
+
+布局占位控件
+
+#### SWAlertView
+
+弹框控件
+
+#### SWLoadingView
+
+loading控件
+
+#### SWToastView
+
+toast控件
+
+#### SWSegmentView
+
+滑块控件
+
+#### SWSheetView
+
+基础弹框控件
+
+## 布局容器通用属性
+
+#### padding
+
+`设置上下左右边距`
+
+示意
+
+```swift
+SColum()
+.padding(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
+.paddingTop(10.0)
+.paddingLeft(10.0)
+.paddingRight(10.0)
+.paddingBottom(10.0)
+.paddingVertical(10.0)
+.paddingHorizontal(10.0)
+```
+
+#### s_radius
+`设置上下左右自定义圆角，可同时搭配 s_borderColor、s_borderWidth、s_backgroundColor使用`
+
+示意
+
+```swift
+SColum()
+.s_radius(SRadius.init(topLeft: 22.0, topRight: 22.0, bottomLeft: 0, bottomRight: 0))
+```
+#### s_borderColor
+
+`设置上下左右自定义边框颜色，可同时搭配 s_radius、s_borderWidth、s_backgroundColor使用`
+
+示意
+
+```swift
+SColum()
+.s_borderColor(SBorderColor.init(left: "0x000000", right: "0x000000", top: "0x000000", bottom: "0x000000"))
+```
+#### s_borderWidth
+
+`设置上下左右自定义边框颜色，可同时搭配 s_radius、s_borderColor、s_backgroundColor使用`
+
+示意
+
+```swift
+SColum()
+.s_borderWidth(SBorderWidth.init(left: 1.0, right: 0, top: 0, bottom: 1))
+```
+
+#### s_backgroundColor
+
+`设置背景自定义颜色，需同时搭配 s_radius、s_borderColor、s_borderWidth使用才好使`
+
+示意
+
+```swift
+SColum()
+.s_backgroundColor("0x000000")
+```
+
+## 布局容器构造器
+
+#### 数组构造器
+
+`通过数组的方式构造容器`
+
+示意
+
+```swift
+SRelativeContainer([
+            SColum([
+                UILabel()
+                    .text(self.title)
+                    .numberOfLines(0)
+                    .textColor(.white)
+                    .bottom(10.0)
+                    .numberOfLines(0),
+                UIActivityIndicatorView(style: .white)
+                    .width(30)
+                    .height(30)
+                    .callSelf(&self.activity)
+                    .start()
+            ])
+            .alignContent(.center)
+            .cornerRadius(10)
+            .padding(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
+            .width("100")
+            .height("100%")
+            .alignRules([
+                .centerX : [SAnchor: SSuperContainer, SAlign: SWPositionType.centerX],
+                .centerY : [SAnchor: SSuperContainer, SAlign: SWPositionType.centerY]
+            ])
+        ])
+        .width("100%")
+        .height("100%")
+```
+
+#### 闭包构造器
+
+`通过闭包的方式构造容器`
+
+示意
+
+```swift
+            SRow({ elements in
+                
+                    elements.append(
+                    UILabel()
+                    .text(self.title)
+                    .numberOfLines(0)
+                    .textColor(.white)
+                    .top(30.0)
+                    .numberOfLines(0)
+                    )
+                }),
+```
+
+#### Reloader构造器
+
+`通过Reloader绑定SState变量自动刷新子view构造容器`
+
+示意
+
+```swift
+            SGrid(
+                SReloader({
+                var sender: [UIView] = []
+                var index: Int = 0
+                _ = self.sentenceTypes.map({ model in
+                    sender.append(
+                        UIButton()
+                            .setTitle(model.name, state: .normal)
+                            .setTitleColor(UIColor.white, state: .normal)
+                            .titleFont(UIFont(name: SYSTEM_Medium_FONT, size: 10)!)
+                            .backgroundColor({ sender in
+                                self.selectIndex.intValue == sender.tag ? UIColor.init(hexString: model.selectColor) : UIColor.black.withAlphaComponent(0.25)
+                            }, [self.selectIndex])
+                            .left(10)
+                            .width(50)
+                            .height(15)
+                            .cornerRadius(7.5)
+                            .tag(index)
+                            .onClick({ [weak self] x in
+                                self?.selectIndex.value = x.tag
+                            })
+                    )
+                    index+=1
+                })
+                return sender
+            }, [reloadList]))
+```
+
+#### SForEach对象
+
+`通过ForEach对象创建批量子view`
+
+示意
+
+```swift
+// 列表
+                SList(SForEach(list: self.rateList, { item, index in
+                    SListItem([
+                        UILabel()
+                            .text(String("x \(item)"))
+                            .font(UIFont.init(name: SYSTEM_Medium_FONT, size: 10)!)
+                            .textColor({ _ in
+                                if self.rateIndex.intValue == index {
+                                    return "#FFA500"
+                                } else {
+                                    return "#6D7278"
+                                }
+                            }, [self.rateIndex])
+                            .width("100%")
+                            .height(30)
+                            .textAlignment(.center)
+                            .onClick { [weak self] _ in
+                                guard let self = self else {return}
+                                
+                            }
+                    ])
+                }))
+                .width("100%")
+                .height(150.0),
+```
+
 
 ## 布局容器
 
@@ -381,6 +595,52 @@ SColumn([
     .onClick { _ in
 
     }
+```
+
+### RelativeContainer布局
+
+> 关系型相对布局，可以添加控件之间的关于约束来相对布局
+
+相对布局示意图
+![](images/relativecontainer.png)
+
+子元素并不完全是上图中的依赖关系。比如，Item4可以以Item2为依赖锚点，也可以以RelativeContainer父容器为依赖锚点。
+
+#### 使用
+
+```swift
+SRelativeContainer([
+
+            // 左上角广告
+            UIImageView(image: UIImage(named: "vip_alert_ad"))
+                .width(228.0)
+                .height(89.0)
+                .left(23.0)
+                .top(38.0)
+                .viewId("ad"),
+            // 钻石
+            UIImageView(image: UIImage(named: "vip_diamond"))
+                .width(85.0)
+                .height(66.0)
+                .left(18.0)
+                .viewId("diamond")
+                .alignRules([
+                    .left: [SAnchor: "ad", SAlign: SWPositionType.right],
+                    .top: [SAnchor: "ad", SAlign: SWPositionType.top]
+                ]),
+                // 关闭按钮
+            UIImageView(image: UIImage(named: "scene_ic_close"))
+                .width(35.0)
+                .height(35.0)
+                .viewId("close")
+                .right(5)
+                .alignRules([
+                .centerX: [SAnchor: SSuperContainer, SAlign: SWPositionType.centerX],
+                .centerY: [SAnchor: SSuperContainer, SAlign: SWPositionType.centerY]
+            ]),
+])
+
+
 ```
 
 ### Stack布局
@@ -600,6 +860,22 @@ SList([
 .space("10")
 ```
 
+### 绝对布局-position
+
+> 当我们要固定一个元素，不受其他布局限制和排版可以使用绝对布局属性
+
+#### 使用
+
+```swift
+SStack([])
+.width("100%")
+.height("100%")
+.position([.centerX: "50%", .top: "6"])
+.position([.top: -10])
+.position([.centerX: "50%", .centerY: "50%"])
+```
+
+
 ## 属性自动绑定 & UI自动刷新
 
 #### SState
@@ -610,7 +886,7 @@ SList([
 var selectIndex: SState = SState(0)
 ```
 
-自动绑定
+绑定属性变更触发器
 
 ```swift
 UIButton()
@@ -619,7 +895,7 @@ UIButton()
 }, [self.selectIndex])
 ```
 
-自动刷新绑定组件UI
+自动刷新绑定组件UI，数值发生改变的时候，属性就会触发自动刷新，如果涉及到UI的属性发生变更则刷新最小UI树
 
 ```swift
 self.selectIndex.value = x.tag
