@@ -7,23 +7,32 @@
 
 import UIKit
 
-class SLabel: UILabel {
+public class SLabel: UILabel {
     
-    var s_text: String?
-    var s_textColor: UIColor?
-    var s_fontName: String?
-    var s_fontSize: Float = 17
-    var s_fontWidth: String?
-    var s_linkBreakMode: NSLineBreakMode?
-    var s_lineSpace: Float?
-    var s_lineHeight: Float?
-    var s_textAlignment: NSTextAlignment?
+    // 文字内容
+    public var s_text: String?
+    // 文字颜色
+    public var s_textColor: UIColor?
+    // 字体名称
+    public var s_fontName: String?
+    // 字体大小
+    public var s_fontSize: Float = 17
+    // 字体字重
+    public var s_fontWeight: String?
+    // 隔断模式
+    public var s_linkBreakMode: NSLineBreakMode?
+    // 行间距
+    public var s_lineSpace: Float?
+    // 行高
+    public var s_lineHeight: Float?
+    // 文字横向排列方式
+    public var s_textAlignment: NSTextAlignment?
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    override var frame: CGRect {
+    public override var frame: CGRect {
         set {
             super.frame = newValue
         }
@@ -42,61 +51,61 @@ class SLabel: UILabel {
     }
     
     @discardableResult
-    func s_text(object: String) -> Self {
+    public func s_text(object: String) -> Self {
         self.s_text = object
         return self
     }
     
     @discardableResult
-    func s_textColor(object: String) -> Self {
+    public func s_textColor(object: String) -> Self {
         self.s_textColor = object.hexColor()
         return self
     }
     
     @discardableResult
-    func s_textAlignment(object: NSTextAlignment) -> Self {
+    public func s_textAlignment(object: NSTextAlignment) -> Self {
         self.s_textAlignment = object
         return self
     }
     
     @discardableResult
-    func s_fontName(object: String) -> Self {
+    public func s_fontName(object: String) -> Self {
         self.s_fontName = object
         return self
     }
     
     @discardableResult
-    func s_fontSize(object: Float) -> Self {
+    public func s_fontSize(object: Float) -> Self {
         self.s_fontSize = object
         return self
     }
     
     @discardableResult
-    func s_fontWidth(object: String) -> Self {
-        self.s_fontWidth = object
+    public func s_fontWeight(object: String) -> Self {
+        self.s_fontWeight = object
         return self
     }
     
     @discardableResult
-    func s_linkBreakMode(object: NSLineBreakMode) -> Self {
+    public func s_linkBreakMode(object: NSLineBreakMode) -> Self {
         self.s_linkBreakMode = object
         return self
     }
     
     @discardableResult
-    func s_lineSpace(object: Float) -> Self {
+    public func s_lineSpace(object: Float) -> Self {
         self.s_lineSpace = object
         return self
     }
     
     @discardableResult
-    func s_lineHeight(object: Float) -> Self {
+    public func s_lineHeight(object: Float) -> Self {
         self.s_lineHeight = object
         return self
     }
     
     @discardableResult
-    func s_render() -> Self {
+    public func s_render() -> Self {
         
         guard let text = s_text else { return self }
         
@@ -123,7 +132,7 @@ class SLabel: UILabel {
         } else {
             var font: UIFont?
             // 字重
-            if let fontWeight = s_fontWidth {
+            if let fontWeight = s_fontWeight {
                 // 字重 UIFontWeight枚举包含以下选项：
                 // ultraLight，thin，light，regular，medium，semibold，bold，heavy，black
                 var fontW = UIFont.Weight.bold
@@ -206,7 +215,7 @@ class SLabel: UILabel {
     }
     
 
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
     }
 }
