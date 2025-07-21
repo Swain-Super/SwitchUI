@@ -58,4 +58,10 @@ public extension UIButton {
         return self
     }
     
+    @discardableResult
+    func addEvent(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) -> Self {
+        self.addTarget(target, action: action, for: controlEvents)
+        return self
+    }
+    
 }
