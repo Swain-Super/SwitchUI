@@ -8,6 +8,7 @@
 import UIKit
 
 private var _enableSWUI: Void?
+private var _unVisibleInSWUI: Void?
 private var _viewId: Void?
 private var _width: Void?
 private var _height: Void?
@@ -251,6 +252,7 @@ public extension UIView {
     @discardableResult
     func visible(_ value: Bool) -> Self {
         self.isHidden = !value
+        self.unVisibleInSWUI = !value
         return self
     }
     
@@ -661,7 +663,7 @@ public extension UIView {
     /// 判断是否使用了SWUI，加入的会参与自动布局，没使用的，不会进行布局
     /// - Returns: 是否用SWUI进行布局
     @objc func isUseSWUI() -> Bool {
-        if enableSWUI || ((sWidth != nil) || (sHeight != nil) || (sLeft != nil) || (sRight != nil) || (sTop != nil) || (sBottom != nil) || (sCenterX != nil) || (sCenterY != nil)) {
+        if (enableSWUI || ((sWidth != nil) || (sHeight != nil) || (sLeft != nil) || (sRight != nil) || (sTop != nil) || (sBottom != nil) || (sCenterX != nil) || (sCenterY != nil))) && !unVisibleInSWUI {
             return true
         }
         return false
@@ -756,6 +758,16 @@ public extension UIView {
         }
         set {
             objc_setAssociatedObject(self, &_enableSWUI, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    /// 标记不可见, 默认为false
+    var unVisibleInSWUI: Bool {
+        get {
+            return objc_getAssociatedObject(self, &_unVisibleInSWUI) as? Bool ?? false
+        }
+        set {
+            objc_setAssociatedObject(self, &_unVisibleInSWUI, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
     

@@ -42,7 +42,7 @@ public class UIButtonUI {
         
         // titleFont
         let titleFontBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> UIFont, let view = view as? UIButton {
+            if let block = block as? (UIView) -> UIFont?, let view = view as? UIButton {
                 view.titleFont(block(view))
             }
         }

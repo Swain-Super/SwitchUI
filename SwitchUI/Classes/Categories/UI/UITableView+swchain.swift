@@ -11,6 +11,42 @@ import UIKit
 public extension UITableView {
     
     @discardableResult
+    func delegate(_ delegate: any UITableViewDelegate) -> Self {
+        self.delegate = delegate
+        return self
+    }
+    
+    @discardableResult
+    func dataSource(_ dataSource: any UITableViewDataSource) -> Self {
+        self.dataSource = dataSource
+        return self
+    }
+    
+    @discardableResult
+    func registerCell(_ cellClass: AnyClass?, forCellReuseIdentifier identifier: String) -> Self {
+        self.register(cellClass, forCellReuseIdentifier: identifier)
+        return self
+    }
+    
+    @discardableResult
+    func contentInset(_ inset: UIEdgeInsets) -> Self {
+        self.contentInset = contentInset
+        return self
+    }
+    
+    @discardableResult
+    func showsVerticalScrollIndicator(_ show: Bool) -> Self {
+        self.showsVerticalScrollIndicator = show
+        return self
+    }
+    
+    @discardableResult
+    func showsHorizontalScrollIndicator(_ show: Bool) -> Self {
+        self.showsHorizontalScrollIndicator = show
+        return self
+    }
+    
+    @discardableResult
     func separatorStyle(_ separatorStyle: UITableViewCell.SeparatorStyle) -> Self {
         self.separatorStyle = separatorStyle
         return self

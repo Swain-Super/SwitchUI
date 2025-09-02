@@ -46,7 +46,7 @@ public class UILabelUI {
         
         // font
         var fontBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> UIFont, let view = view as? UILabel {
+            if let block = block as? (UIView) -> UIFont?, let view = view as? UILabel {
                 view.font(block(view))
             }
         }

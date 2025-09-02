@@ -35,13 +35,13 @@ public extension UIButton {
     }
     
     @discardableResult
-    func titleFont(_ titleFont: UIFont) -> Self {
+    func titleFont(_ titleFont: UIFont?) -> Self {
         self.titleLabel?.font = titleFont
         return self
     }
     
     @discardableResult
-    func titleFont(_ block: @escaping (UIView) -> UIFont,_ states: [SState]? = nil) -> Self {
+    func titleFont(_ block: @escaping (UIView) -> UIFont?,_ states: [SState]? = nil) -> Self {
         self.autoBindAndRun(key: UIButtonKey.titleFont.rawValue, block: block, states: states)
         return self
     }

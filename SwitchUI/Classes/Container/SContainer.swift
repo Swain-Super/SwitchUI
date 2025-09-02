@@ -116,6 +116,20 @@ open class SContainer: UIScrollView {
                         index+=1
                     }
                 })
+            } else if let sif = view as? SIF {
+                if sif.condition, let trueBlock = sif.trueBlock {
+                    trueBlock.map { x in
+                        if let x = x as? UIView {
+                            subViewAppendBlk(x)
+                        }
+                    }
+                } else if !sif.condition, let falseBlock = sif.falseBlock {
+                    falseBlock.map { x in
+                        if let x = x as? UIView {
+                            subViewAppendBlk(x)
+                        }
+                    }
+                }
             }
         }
     }
@@ -159,6 +173,9 @@ open class SContainer: UIScrollView {
     }
     
     public override func isUseSWUI() -> Bool {
+        if unVisibleInSWUI {
+            return false
+        }
         return true
     }
     
