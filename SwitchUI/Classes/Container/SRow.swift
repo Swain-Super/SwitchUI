@@ -41,7 +41,7 @@ open class SRow: SContainer {
         // 子view自动计算尺寸
         var totalSubViewWidth: Float = Float(self.padding.left + self.padding.right)
         self.subviews.forEach { view in
-            if view.isUseSWUI(), !(view is SBlank) {
+            if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
                 view.sw_layoutSize(contentSize: self.sContentSize(), padding: self.padding)
                 

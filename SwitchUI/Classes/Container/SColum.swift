@@ -13,9 +13,12 @@ open class SColum: SContainer {
     
     /// 滚动配置
     var s_scrollType: SWScrollType = .none
-    
     /// 横向布局
     var s_alignContent: SWAlign = .left
+    /// 垂直布局
+    var s_justifyContent: SWJustify = .top
+    /// 内容排列计算区域
+    var contentRect: CGRect = .zero
     
     public override func layout() {
         
@@ -31,10 +34,12 @@ open class SColum: SContainer {
             self.n_width = superview?.n_width ?? 0
         }
         
+        contentRect = self.bounds
+        
         // 子view自动计算尺寸
         var totalSubViewHeight: Float = Float(self.padding.top + self.padding.bottom)
         self.subviews.forEach { view in
-            if view.isUseSWUI(), !(view is SBlank) {
+            if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
                 view.sw_layoutSize(contentSize: self.sContentSize(), padding: self.padding)
                 
@@ -65,11 +70,11 @@ open class SColum: SContainer {
         }
         
         // 左边的开始位置
-        let startLeft: Float = Float(padding.left)
+        let startLeft: Float = Float(0)
         // 右边的开始位置
-        let startRight: Float = Float(padding.right)
+        let startRight: Float = Float(0)
         // 顶部开始位置
-        var startTop: Float = Float(padding.top)
+        var startTop: Float = Float(0)
 
         self.subviews.forEach { view in
             if view.isUseSWUI(), view.sPosition == nil {
@@ -95,18 +100,38 @@ open class SColum: SContainer {
             }
         }
         
-        startTop += Float(padding.bottom)
+        contentRect.origin.x = padding.left
+        contentRect.origin.y = padding.top
+        contentRect.size.width = CGFloat(startLeft)
+        contentRect.size.height = CGFloat(startTop)
         
         // 高度自适应
         if !isConstHeight {
-            self.n_height = startTop
+            self.n_height = Float(contentRect.origin.y + contentRect.size.height + padding.bottom)
         } else {
             // 竖向自动滚动
-            if (s_scrollType == .scrolly || s_scrollType == .auto), self.n_height < startTop {
-                self.maskToBounds(true)
-                var size: CGSize = .zero
-                size.height = CGFloat(startTop)
-                self.contentSize = size
+            if (self.n_height < Float(CGRectGetMaxY(contentRect))) {
+                if (s_scrollType == .scrolly || s_scrollType == .auto) {
+                    self.maskToBounds(true)
+                    var size: CGSize = .zero
+                    size.height = CGRectGetMaxY(contentRect)
+                    self.contentSize = size
+                }
+            }
+        }
+        
+        // reset position
+        if self.s_justifyContent != .top {
+            if self.s_justifyContent == .center {
+                contentRect.origin.y = contentRect.origin.y + (CGFloat(self.n_height) - contentRect.size.height)/2
+            } else if self.s_justifyContent == .bottom {
+                contentRect.origin.y = contentRect.origin.y + (CGFloat(self.n_height) - contentRect.size.height)
+            }
+            self.subviews.forEach { view in
+                if view.isUseSWUI(), view.sPosition == nil {
+                    view.n_left = Float(contentRect.origin.x) + view.n_left
+                    view.n_top = Float(contentRect.origin.y) + view.n_top
+                }
             }
         }
         
@@ -126,4 +151,13 @@ open class SColum: SContainer {
         self.s_alignContent = value
         return self
     }
+    
+    /// 垂直对齐方式
+    /// param：value 对齐方式   top 上边 center 中间 bottom 下边(注意设置底部对齐一定要设置容器的高度，否则会不对)
+    @discardableResult
+    public func justifyContent(_ value: SWJustify) -> Self {
+        self.s_justifyContent = value
+        return self
+    }
+
 }
