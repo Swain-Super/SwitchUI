@@ -70,9 +70,9 @@ open class SColum: SContainer {
         }
         
         // 左边的开始位置
-        let startLeft: Float = Float(0)
+        let startLeft: Float = Float(padding.left)
         // 右边的开始位置
-        let startRight: Float = Float(0)
+        let startRight: Float = Float(padding.right)
         // 顶部开始位置
         var startTop: Float = Float(0)
 
@@ -102,8 +102,8 @@ open class SColum: SContainer {
         
         contentRect.origin.x = padding.left
         contentRect.origin.y = padding.top
-        contentRect.size.width = CGFloat(startLeft)
-        contentRect.size.height = CGFloat(startTop)
+        contentRect.size.width = CGFloat(startLeft - Float(padding.left))
+        contentRect.size.height = CGFloat(startTop - Float(padding.right))
         
         // 高度自适应
         if !isConstHeight {
