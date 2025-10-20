@@ -103,7 +103,7 @@ open class SColum: SContainer {
         contentRect.origin.x = padding.left
         contentRect.origin.y = padding.top
         contentRect.size.width = CGFloat(startLeft - Float(padding.left))
-        contentRect.size.height = CGFloat(startTop - Float(padding.right))
+        contentRect.size.height = CGFloat(startTop)
         
         // 高度自适应
         if !isConstHeight {
