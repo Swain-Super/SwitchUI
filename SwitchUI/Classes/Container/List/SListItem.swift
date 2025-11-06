@@ -15,7 +15,7 @@ open class SListItem: UIView {
     /// 行布局
     var rowContainer: SRow?
     /// 列布局
-    var columnContainer: SColum?
+    var columnContainer: SColumn?
     /// 子view
     var subViews: [Any]? = nil
     /// 内边距
@@ -66,7 +66,7 @@ open class SListItem: UIView {
         } else if scrollType == .scrollx {
             /// 水平排列
             if self.columnContainer == nil, let subViews = self.subViews {
-                self.columnContainer = SColum(subViews).height("100%")
+                self.columnContainer = SColumn(subViews).height("100%")
                 self.columnContainer?.padding = self.padding
                 self.addSubview(self.columnContainer!)
             }

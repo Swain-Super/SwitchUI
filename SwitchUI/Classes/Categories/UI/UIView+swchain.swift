@@ -746,6 +746,13 @@ public extension UIView {
         }
     }
 
+    @discardableResult
+    func overlay(_ value: UIView?) -> Self {
+        if let value = value {
+            self.addSubview(value)
+        }
+        return self
+    }
 }
 
 // MARK: 渲染

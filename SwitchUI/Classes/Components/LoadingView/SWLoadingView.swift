@@ -52,7 +52,7 @@ public class SWLoadingView: UIView {
     
     func build() -> SContainer {
         SRelativeContainer([
-            SColum([
+            SColumn([
                 UILabel()
                     .text(self.title)
                     .numberOfLines(0)

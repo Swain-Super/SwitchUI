@@ -380,6 +380,12 @@ open class SContainer: UIScrollView {
 extension SContainer {
 
     @discardableResult
+    public func padding(_ padding: Float) -> Self {
+        self.padding = UIEdgeInsets(top: CGFloat(padding), left: CGFloat(padding), bottom: CGFloat(padding), right: CGFloat(padding))
+        return self
+    }
+    
+    @discardableResult
     public func padding(_ padding: UIEdgeInsets) -> Self {
         self.padding = padding
         return self

@@ -34,4 +34,29 @@ public extension UIImageView {
         return self
     }
     
+    @discardableResult
+    func tintColor(_ color: UIColor) -> Self {
+        self.tintColor = color
+        return self
+    }
+    
+    @discardableResult
+    func tintColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
+        self.autoBindAndRun(key: UIImageViewKey.tintColor.rawValue, block: block, states: states)
+        return self
+    }
+    
+    @discardableResult
+    func tintColor(_ color: String) -> Self {
+        self.tintColor = color.hexColor()
+        return self
+    }
+    
+    @discardableResult
+    func tintColor(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
+        self.autoBindAndRun(key: UIImageViewKey.tintColor2.rawValue, block: block, states: states)
+        return self
+    }
+    
+    
 }

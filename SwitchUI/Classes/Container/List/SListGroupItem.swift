@@ -52,7 +52,7 @@ public class SListGroupItem: SListItem {
         } else if scrollType == .scrollx {
             /// 水平排列
             if self.columnContainer == nil, let subViews = self.subViews {
-                self.columnContainer = SColum(subViews).height("100%")
+                self.columnContainer = SColumn(subViews).height("100%")
                 self.columnContainer?.padding = self.padding
                 self.addSubview(self.columnContainer!)
             }

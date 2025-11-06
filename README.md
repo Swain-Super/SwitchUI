@@ -302,7 +302,7 @@ toast控件
 示意
 
 ```swift
-SColum()
+SColumn()
 .padding(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
 .paddingTop(10.0)
 .paddingLeft(10.0)
@@ -318,7 +318,7 @@ SColum()
 示意
 
 ```swift
-SColum()
+SColumn()
 .s_radius(SRadius.init(topLeft: 22.0, topRight: 22.0, bottomLeft: 0, bottomRight: 0))
 ```
 #### s_borderColor
@@ -328,7 +328,7 @@ SColum()
 示意
 
 ```swift
-SColum()
+SColumn()
 .s_borderColor(SBorderColor.init(left: "0x000000", right: "0x000000", top: "0x000000", bottom: "0x000000"))
 ```
 #### s_borderWidth
@@ -338,7 +338,7 @@ SColum()
 示意
 
 ```swift
-SColum()
+SColumn()
 .s_borderWidth(SBorderWidth.init(left: 1.0, right: 0, top: 0, bottom: 1))
 ```
 
@@ -349,7 +349,7 @@ SColum()
 示意
 
 ```swift
-SColum()
+SColumn()
 .s_backgroundColor("0x000000")
 ```
 
@@ -363,7 +363,7 @@ SColum()
 
 ```swift
 SRelativeContainer([
-            SColum([
+            SColumn([
                 UILabel()
                     .text(self.title)
                     .numberOfLines(0)

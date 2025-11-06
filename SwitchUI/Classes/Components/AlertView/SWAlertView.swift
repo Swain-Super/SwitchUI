@@ -61,7 +61,7 @@ public class SWAlertView: UIView {
     }
     
     func build() -> SContainer {
-            SColum([
+            SColumn([
                 
                 UILabel()
                     .text(self.title)

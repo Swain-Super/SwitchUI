@@ -11,6 +11,8 @@ import UIKit
 public enum UIImageViewKey: String {
     case image
     case imageName
+    case tintColor
+    case tintColor2
 }
 
 public class UIImageViewUI {
@@ -36,6 +38,22 @@ public class UIImageViewUI {
             }
         }
         reflect[UIImageViewKey.imageName.rawValue] = imageNameBlk
+        
+        // tintColor
+        let tintColorBlk: (UIView, Any) -> Void = { (view, block) -> Void in
+            if let block = block as? (UIView) -> UIColor, let view = view as? UIImageView {
+                view.tintColor(block(view))
+            }
+        }
+        reflect[UIImageViewKey.tintColor.rawValue] = tintColorBlk
+        
+        // tintColor2
+        let tintColor2Blk: (UIView, Any) -> Void = { (view, block) -> Void in
+            if let block = block as? (UIView) -> String, let view = view as? UIImageView {
+                view.tintColor(block(view))
+            }
+        }
+        reflect[UIImageViewKey.tintColor2.rawValue] = tintColor2Blk
         
         return reflect
     }
