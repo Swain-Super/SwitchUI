@@ -747,9 +747,14 @@ public extension UIView {
     }
 
     @discardableResult
-    func overlay(_ value: UIView?) -> Self {
-        if let value = value {
-            self.addSubview(value)
+    func overlay(_ view: UIView?) -> Self {
+        if let view = view as? SContainer {
+            self.addSubview(view)
+        } else {
+            let stack = SStack([
+                view
+            ])
+            self.addSubview(stack)
         }
         return self
     }
