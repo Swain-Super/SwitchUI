@@ -25,8 +25,9 @@ public class UIButtonUI {
         
         // image
         let imageBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> UIImage?, let view = view as? UIButton {
-                view.image(block(view), state: .normal)
+            if let block = block as? (UIView) -> (UIImage?, UIControl.State), let view = view as? UIButton {
+                let result = block(view)
+                view.image(result.0, state: result.1)
             }
         }
         reflect[UIButtonKey.image.rawValue] = imageBlk
@@ -50,8 +51,9 @@ public class UIButtonUI {
         
         // setTitleColor
         let setTitleColorBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> UIColor, let view = view as? UIButton {
-                view.setTitleColor(block(view) , state: .normal)
+            if let block = block as? (UIView) -> (UIColor, UIControl.State), let view = view as? UIButton {
+                let result = block(view)
+                view.setTitleColor(result.0, state: result.1)
             }
         }
         reflect[UIButtonKey.setTitleColor.rawValue] = setTitleColorBlk

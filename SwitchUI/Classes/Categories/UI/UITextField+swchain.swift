@@ -18,7 +18,11 @@ public extension UITextField {
     
     @discardableResult
     func text(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.text.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.text.rawValue, block: block, states: states)
+        } else {
+            self.text(block(self))
+        }
         return self
     }
     
@@ -30,7 +34,11 @@ public extension UITextField {
     
     @discardableResult
     func keyboardType(_ block: @escaping (UIView) -> UIKeyboardType,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.keyboardType.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.keyboardType.rawValue, block: block, states: states)
+        } else {
+            self.keyboardType(block(self))
+        }
         return self
     }
     
@@ -42,7 +50,11 @@ public extension UITextField {
     
     @discardableResult
     func font(_ block: @escaping (UIView) -> UIFont,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.font.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.font.rawValue, block: block, states: states)
+        } else {
+            self.font(block(self))
+        }
         return self
     }
     
@@ -54,7 +66,11 @@ public extension UITextField {
     
     @discardableResult
     func textColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.textColor.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.textColor.rawValue, block: block, states: states)
+        } else {
+            self.textColor(block(self))
+        }
         return self
     }
     
@@ -66,7 +82,11 @@ public extension UITextField {
     
     @discardableResult
     func textAlignment(_ block: @escaping (UIView) -> NSTextAlignment,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.textAlignment.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.textAlignment.rawValue, block: block, states: states)
+        } else {
+            self.textAlignment(block(self))
+        }
         return self
     }
     
@@ -78,7 +98,11 @@ public extension UITextField {
     
     @discardableResult
     func attributedText(_ block: @escaping (UIView) -> NSAttributedString?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.attributedText.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.attributedText.rawValue, block: block, states: states)
+        } else {
+            self.attributedText(block(self))
+        }
         return self
     }
     
@@ -90,7 +114,11 @@ public extension UITextField {
     
     @discardableResult
     func adjustsFontSizeToFitWidth(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.adjustsFontSizeToFitWidth.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.adjustsFontSizeToFitWidth.rawValue, block: block, states: states)
+        } else {
+            self.adjustsFontSizeToFitWidth(block(self))
+        }
         return self
     }
     
@@ -102,7 +130,11 @@ public extension UITextField {
     
     @discardableResult
     func placeholder(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.placeholder.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.placeholder.rawValue, block: block, states: states)
+        } else {
+            self.placeholder(block(self))
+        }
         return self
     }
     
@@ -114,7 +146,11 @@ public extension UITextField {
     
     @discardableResult
     func attributedPlaceholder(_ block: @escaping (UIView) -> NSAttributedString,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextFieldKey.attributedPlaceholder.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.attributedPlaceholder.rawValue, block: block, states: states)
+        } else {
+            self.attributedPlaceholder(block(self))
+        }
         return self
     }
     

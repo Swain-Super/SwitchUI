@@ -18,7 +18,11 @@ public extension UILabel {
     
     @discardableResult
     func text(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.text.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.text.rawValue, block: block, states: states)
+        } else {
+            self.text(block(self))
+        }
         return self
     }
     
@@ -30,7 +34,11 @@ public extension UILabel {
     
     @discardableResult
     func font(_ block: @escaping (UIView) -> UIFont?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.font.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.font.rawValue, block: block, states: states)
+        } else {
+            self.font(block(self))
+        }
         return self
     }
     
@@ -42,7 +50,11 @@ public extension UILabel {
     
     @discardableResult
     func textColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.textColorA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.textColorA.rawValue, block: block, states: states)
+        } else {
+            self.textColor(block(self))
+        }
         return self
     }
     
@@ -54,7 +66,11 @@ public extension UILabel {
     
     @discardableResult
     func textColor(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.textColorB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.textColorB.rawValue, block: block, states: states)
+        } else {
+            self.textColor(block(self))
+        }
         return self
     }
     
@@ -66,7 +82,11 @@ public extension UILabel {
     
     @discardableResult
     func textAlignment(_ block: @escaping (UIView) -> NSTextAlignment,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.textAlignment.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.textAlignment.rawValue, block: block, states: states)
+        } else {
+            self.textAlignment(block(self))
+        }
         return self
     }
     
@@ -78,7 +98,11 @@ public extension UILabel {
     
     @discardableResult
     func lineBreakMode(_ block: @escaping (UIView) -> NSLineBreakMode,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.lineBreakMode.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.lineBreakMode.rawValue, block: block, states: states)
+        } else {
+            self.lineBreakMode(block(self))
+        }
         return self
     }
     
@@ -90,7 +114,11 @@ public extension UILabel {
     
     @discardableResult
     func attributedText(_ block: @escaping (UIView) -> NSAttributedString?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.attributedText.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.attributedText.rawValue, block: block, states: states)
+        } else {
+            self.attributedText(block(self))
+        }
         return self
     }
     
@@ -102,7 +130,11 @@ public extension UILabel {
     
     @discardableResult
     func highlightedTextColor(_ block: @escaping (UIView) -> UIColor?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.highlightedTextColor.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.highlightedTextColor.rawValue, block: block, states: states)
+        } else {
+            self.highlightedTextColor(block(self))
+        }
         return self
     }
     
@@ -114,7 +146,11 @@ public extension UILabel {
     
     @discardableResult
     func numberOfLines(_ block: @escaping (UIView) -> Int,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.numberOfLines.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.numberOfLines.rawValue, block: block, states: states)
+        } else {
+            self.numberOfLines(block(self))
+        }
         return self
     }
     
@@ -126,7 +162,11 @@ public extension UILabel {
     
     @discardableResult
     func adjustsFontSizeToFitWidth(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.adjustsFontSizeToFitWidth.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.adjustsFontSizeToFitWidth.rawValue, block: block, states: states)
+        } else {
+            self.adjustsFontSizeToFitWidth(block(self))
+        }
         return self
     }
     
@@ -138,7 +178,11 @@ public extension UILabel {
     
     @discardableResult
     func baselineAdjustment(_ block: @escaping (UIView) -> UIBaselineAdjustment,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UILabelKey.baselineAdjustment.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UILabelKey.baselineAdjustment.rawValue, block: block, states: states)
+        } else {
+            self.baselineAdjustment(block(self))
+        }
         return self
     }
     

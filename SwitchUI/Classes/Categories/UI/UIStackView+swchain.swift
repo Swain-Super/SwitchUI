@@ -18,7 +18,11 @@ public extension UIStackView {
     
     @discardableResult
     func axis(_ block: @escaping (UIView) -> NSLayoutConstraint.Axis,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIStackViewKey.axis.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIStackViewKey.axis.rawValue, block: block, states: states)
+        } else {
+            self.axis(block(self))
+        }
         return self
     }
     
@@ -30,7 +34,11 @@ public extension UIStackView {
     
     @discardableResult
     func alignment(_ block: @escaping (UIView) -> UIStackView.Alignment,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIStackViewKey.alignment.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIStackViewKey.alignment.rawValue, block: block, states: states)
+        } else {
+            self.alignment(block(self))
+        }
         return self
     }
     
@@ -42,7 +50,11 @@ public extension UIStackView {
     
     @discardableResult
     func spacing(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIStackViewKey.spacing.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIStackViewKey.spacing.rawValue, block: block, states: states)
+        } else {
+            self.spacing(block(self))
+        }
         return self
     }
     
@@ -54,7 +66,11 @@ public extension UIStackView {
     
     @discardableResult
     func distribution(_ block: @escaping (UIView) -> UIStackView.Distribution,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIStackViewKey.distribution.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIStackViewKey.distribution.rawValue, block: block, states: states)
+        } else {
+            self.distribution(block(self))
+        }
         return self
     }
     
@@ -71,7 +87,11 @@ public extension UIStackView {
     
     @discardableResult
     func arrangedViews(_ block: @escaping (UIView) -> [UIView],_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIStackViewKey.arrangedViews.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIStackViewKey.arrangedViews.rawValue, block: block, states: states)
+        } else {
+            self.arrangedViews(block(self))
+        }
         return self
     }
 }

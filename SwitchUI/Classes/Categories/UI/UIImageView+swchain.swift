@@ -18,7 +18,11 @@ public extension UIImageView {
     
     @discardableResult
     func image(_ block: @escaping (UIView) -> UIImage?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIImageViewKey.image.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIImageViewKey.image.rawValue, block: block, states: states)
+        } else {
+            self.image(block(self))
+        }
         return self
     }
     
@@ -30,7 +34,11 @@ public extension UIImageView {
     
     @discardableResult
     func imageName(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIImageViewKey.imageName.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIImageViewKey.imageName.rawValue, block: block, states: states)
+        } else {
+            self.imageName(block(self))
+        }
         return self
     }
     
@@ -42,7 +50,11 @@ public extension UIImageView {
     
     @discardableResult
     func tintColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIImageViewKey.tintColor.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIImageViewKey.tintColor.rawValue, block: block, states: states)
+        } else {
+            self.tintColor(block(self))
+        }
         return self
     }
     
@@ -54,7 +66,11 @@ public extension UIImageView {
     
     @discardableResult
     func tintColor(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIImageViewKey.tintColor2.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIImageViewKey.tintColor2.rawValue, block: block, states: states)
+        } else {
+            self.tintColor(block(self))
+        }
         return self
     }
     

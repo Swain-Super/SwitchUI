@@ -19,7 +19,11 @@ public extension UISwitch {
     
     @discardableResult
     func setOn(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UISwitchKey.isOn.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UISwitchKey.isOn.rawValue, block: block, states: states)
+        } else {
+            self.setOn(block(self))
+        }
         return self
     }
     
@@ -32,7 +36,11 @@ public extension UISwitch {
     
     @discardableResult
     func setTintColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UISwitchKey.setTintColor.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UISwitchKey.setTintColor.rawValue, block: block, states: states)
+        } else {
+            self.tintColor = block(self)
+        }
         return self
     }
     
@@ -45,7 +53,11 @@ public extension UISwitch {
     
     @discardableResult
     func setOnTintColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UISwitchKey.setOnTintColor.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UISwitchKey.setOnTintColor.rawValue, block: block, states: states)
+        } else {
+            self.setOnTintColor(block(self))
+        }
         return self
     }
     
@@ -57,7 +69,11 @@ public extension UISwitch {
     
     @discardableResult
     func setThumbTintColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UISwitchKey.setThumbTintColor.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UISwitchKey.setThumbTintColor.rawValue, block: block, states: states)
+        } else {
+            self.setThumbTintColor(block(self))
+        }
         return self
     }
     
@@ -69,7 +85,11 @@ public extension UISwitch {
     
     @discardableResult
     func setTransform(_ block: @escaping (UIView) -> CGAffineTransform,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UISwitchKey.setTransform.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UISwitchKey.setTransform.rawValue, block: block, states: states)
+        } else {
+            self.setTransform(block(self))
+        }
         return self
     }
 }

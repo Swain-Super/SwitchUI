@@ -47,7 +47,11 @@ public extension UIView {
     
     @discardableResult
     func backgroundColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.backgroundColorA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.backgroundColorA.rawValue, block: block, states: states)
+        } else {
+            self.backgroundColor(block(self))
+        }
         return self
     }
     
@@ -59,7 +63,11 @@ public extension UIView {
     
     @discardableResult
     func backgroundColor(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.backgroundColorB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.backgroundColorB.rawValue, block: block, states: states)
+        } else {
+            self.backgroundColor(block(self))
+        }
         return self
     }
     
@@ -71,7 +79,11 @@ public extension UIView {
     
     @discardableResult
     func cornerRadius(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.cornerRadius.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.cornerRadius.rawValue, block: block, states: states)
+        } else {
+            self.cornerRadius(block(self))
+        }
         return self
     }
     
@@ -83,7 +95,11 @@ public extension UIView {
     
     @discardableResult
     func borderColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.borderColorA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.borderColorA.rawValue, block: block, states: states)
+        } else {
+            self.borderColor(block(self))
+        }
         return self
     }
     
@@ -95,7 +111,11 @@ public extension UIView {
     
     @discardableResult
     func borderColor(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.borderColorB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.borderColorB.rawValue, block: block, states: states)
+        } else {
+            self.borderColor(block(self))
+        }
         return self
     }
     
@@ -107,7 +127,11 @@ public extension UIView {
     
     @discardableResult
     func borderWidth(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.borderWidth.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.borderWidth.rawValue, block: block, states: states)
+        } else {
+            self.borderWidth(block(self))
+        }
         return self
     }
     
@@ -119,7 +143,11 @@ public extension UIView {
     
     @discardableResult
     func alpha(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.alpha.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.alpha.rawValue, block: block, states: states)
+        } else {
+            self.alpha(block(self))
+        }
         return self
     }
     
@@ -131,7 +159,11 @@ public extension UIView {
     
     @discardableResult
     func clipsToBounds(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.clipsToBounds.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.clipsToBounds.rawValue, block: block, states: states)
+        } else {
+            self.clipsToBounds(block(self))
+        }
         return self
     }
     
@@ -143,7 +175,11 @@ public extension UIView {
     
     @discardableResult
     func maskToBounds(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.maskToBounds.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.maskToBounds.rawValue, block: block, states: states)
+        } else {
+            self.maskToBounds(block(self))
+        }
         return self
     }
     
@@ -155,7 +191,11 @@ public extension UIView {
     
     @discardableResult
     func shadowOpacity(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.shadowOpacity.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.shadowOpacity.rawValue, block: block, states: states)
+        } else {
+            self.shadowOpacity(block(self))
+        }
         return self
     }
     
@@ -167,7 +207,11 @@ public extension UIView {
     
     @discardableResult
     func shadowRadius(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.shadowRadius.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.shadowRadius.rawValue, block: block, states: states)
+        } else {
+            self.shadowRadius(block(self))
+        }
         return self
     }
     
@@ -179,7 +223,11 @@ public extension UIView {
     
     @discardableResult
     func shadowColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.shadowColorA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.shadowColorA.rawValue, block: block, states: states)
+        } else {
+            self.shadowColor(block(self))
+        }
         return self
     }
     
@@ -191,7 +239,11 @@ public extension UIView {
     
     @discardableResult
     func shadowColor(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.shadowColorB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.shadowColorB.rawValue, block: block, states: states)
+        } else {
+            self.shadowColor(block(self))
+        }
         return self
     }
     
@@ -203,7 +255,11 @@ public extension UIView {
     
     @discardableResult
     func shadowOffset(_ block: @escaping (UIView) -> CGSize,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.shadowOffset.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.shadowOffset.rawValue, block: block, states: states)
+        } else {
+            self.shadowOffset(block(self))
+        }
         return self
     }
 
@@ -215,7 +271,11 @@ public extension UIView {
     
     @discardableResult
     func isUserInteractionEnabled(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.isUserInteractionEnabled.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.isUserInteractionEnabled.rawValue, block: block, states: states)
+        } else {
+            self.isUserInteractionEnabled(block(self))
+        }
         return self
     }
     
@@ -233,7 +293,11 @@ public extension UIView {
     
     @discardableResult
     func tag(_ block: @escaping (UIView) -> Int,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.tag.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.tag.rawValue, block: block, states: states)
+        } else {
+            self.tag(block(self))
+        }
         return self
     }
     
@@ -245,7 +309,11 @@ public extension UIView {
     
     @discardableResult
     func contentMode(_ block: @escaping (UIView) -> ContentMode,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.contentMode.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.contentMode.rawValue, block: block, states: states)
+        } else {
+            self.contentMode(block(self))
+        }
         return self
     }
     
@@ -258,7 +326,11 @@ public extension UIView {
     
     @discardableResult
     func visible(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.visible.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.visible.rawValue, block: block, states: states)
+        } else {
+            self.visible(block(self))
+        }
         return self
     }
     
@@ -432,7 +504,11 @@ public extension UIView {
     
     @discardableResult
     func width(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_widthA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_widthA.rawValue, block: block, states: states)
+        } else {
+            self.width(block(self))
+        }
         return self
     }
     
@@ -444,7 +520,11 @@ public extension UIView {
     
     @discardableResult
     func width(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_widthB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_widthB.rawValue, block: block, states: states)
+        } else {
+            self.width(block(self))
+        }
         return self
     }
     
@@ -456,7 +536,11 @@ public extension UIView {
     
     @discardableResult
     func height(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_widthA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_widthA.rawValue, block: block, states: states)
+        } else {
+            self.height(block(self))
+        }
         return self
     }
     
@@ -468,7 +552,11 @@ public extension UIView {
     
     @discardableResult
     func height(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_widthB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_widthB.rawValue, block: block, states: states)
+        } else {
+            self.height(block(self))
+        }
         return self
     }
     
@@ -480,7 +568,11 @@ public extension UIView {
     
     @discardableResult
     func left(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_leftA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_leftA.rawValue, block: block, states: states)
+        } else {
+            self.left(block(self))
+        }
         return self
     }
     
@@ -492,7 +584,11 @@ public extension UIView {
     
     @discardableResult
     func left(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_leftB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_leftB.rawValue, block: block, states: states)
+        } else {
+            self.left(block(self))
+        }
         return self
     }
 
@@ -504,7 +600,11 @@ public extension UIView {
     
     @discardableResult
     func top(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_topA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_topA.rawValue, block: block, states: states)
+        } else {
+            self.top(block(self))
+        }
         return self
     }
     
@@ -516,7 +616,11 @@ public extension UIView {
     
     @discardableResult
     func top(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_topA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_topA.rawValue, block: block, states: states)
+        } else {
+            self.top(block(self))
+        }
         return self
     }
     
@@ -528,7 +632,11 @@ public extension UIView {
     
     @discardableResult
     func right(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_rightA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_rightA.rawValue, block: block, states: states)
+        } else {
+            self.right(block(self))
+        }
         return self
     }
     
@@ -540,7 +648,11 @@ public extension UIView {
     
     @discardableResult
     func right(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_rightB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_rightB.rawValue, block: block, states: states)
+        } else {
+            self.right(block(self))
+        }
         return self
     }
 
@@ -552,7 +664,11 @@ public extension UIView {
     
     @discardableResult
     func bottom(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_bottomA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_bottomA.rawValue, block: block, states: states)
+        } else {
+            self.bottom(block(self))
+        }
         return self
     }
     
@@ -564,7 +680,11 @@ public extension UIView {
     
     @discardableResult
     func bottom(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_bottomB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_bottomB.rawValue, block: block, states: states)
+        } else {
+            self.bottom(block(self))
+        }
         return self
     }
     
@@ -576,7 +696,11 @@ public extension UIView {
     
     @discardableResult
     func centerX(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_centerXA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_centerXA.rawValue, block: block, states: states)
+        } else {
+            self.centerX(block(self))
+        }
         return self
     }
     
@@ -588,7 +712,11 @@ public extension UIView {
     
     @discardableResult
     func centerX(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_centerXB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_centerXB.rawValue, block: block, states: states)
+        } else {
+            self.centerX(block(self))
+        }
         return self
     }
     
@@ -600,7 +728,11 @@ public extension UIView {
     
     @discardableResult
     func centerY(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_centerYA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_centerYA.rawValue, block: block, states: states)
+        } else {
+            self.centerY(block(self))
+        }
         return self
     }
     
@@ -612,7 +744,11 @@ public extension UIView {
     
     @discardableResult
     func centerY(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_centerYB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_centerYB.rawValue, block: block, states: states)
+        } else {
+            self.centerY(block(self))
+        }
         return self
     }
     
@@ -637,13 +773,21 @@ public extension UIView {
     
     @discardableResult
     func position(_ block: @escaping (UIView) -> [SWPositionType: String]?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_positionA.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_positionA.rawValue, block: block, states: states)
+        } else {
+            self.position(block(self))
+        }
         return self
     }
     
     @discardableResult
     func position(_ block: @escaping (UIView) -> [SWPositionType: Float]?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_positionB.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_positionB.rawValue, block: block, states: states)
+        } else {
+            self.position(block(self))
+        }
         return self
     }
     
@@ -655,7 +799,11 @@ public extension UIView {
     
     @discardableResult
     func alignRules(_ block: @escaping (UIView) -> [SWPositionType: [String: Any]]?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIViewAKey.s_alignRules.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIViewAKey.s_alignRules.rawValue, block: block, states: states)
+        } else {
+            self.alignRules(block(self))
+        }
         return self
     }
     

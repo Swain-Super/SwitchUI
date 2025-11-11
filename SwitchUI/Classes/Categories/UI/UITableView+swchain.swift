@@ -54,7 +54,11 @@ public extension UITableView {
     
     @discardableResult
     func separatorStyle(_ block: @escaping (UIView) -> UITableViewCell.SeparatorStyle,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITableViewKey.separatorStyle.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITableViewKey.separatorStyle.rawValue, block: block, states: states)
+        } else {
+            self.separatorStyle(block(self))
+        }
         return self
     }
     
@@ -66,7 +70,11 @@ public extension UITableView {
     
     @discardableResult
     func rowHeight(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITableViewKey.rowHeight.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITableViewKey.rowHeight.rawValue, block: block, states: states)
+        } else {
+            self.rowHeight(block(self))
+        }
         return self
     }
     

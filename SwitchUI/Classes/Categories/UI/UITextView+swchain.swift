@@ -18,7 +18,11 @@ public extension UITextView {
     
     @discardableResult
     func text(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.text.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.text.rawValue, block: block, states: states)
+        } else {
+            self.text(block(self))
+        }
         return self
     }
     
@@ -30,7 +34,11 @@ public extension UITextView {
     
     @discardableResult
     func keyboardType(_ block: @escaping (UIView) -> UIKeyboardType,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.keyboardType.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.keyboardType.rawValue, block: block, states: states)
+        } else {
+            self.keyboardType(block(self))
+        }
         return self
     }
     
@@ -41,8 +49,12 @@ public extension UITextView {
     }
     
     @discardableResult
-    func font(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.font.rawValue, block: block, states: states)
+    func font(_ block: @escaping (UIView) -> UIFont,_ states: [SState]? = nil) -> Self {
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.font.rawValue, block: block, states: states)
+        } else {
+            self.font(block(self))
+        }
         return self
     }
     
@@ -54,7 +66,11 @@ public extension UITextView {
     
     @discardableResult
     func textColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.textColor.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.textColor.rawValue, block: block, states: states)
+        } else {
+            self.textColor(block(self))
+        }
         return self
     }
     
@@ -66,7 +82,11 @@ public extension UITextView {
     
     @discardableResult
     func textAlignment(_ block: @escaping (UIView) -> NSTextAlignment,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.textAlignment.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.textAlignment.rawValue, block: block, states: states)
+        } else {
+            self.textAlignment(block(self))
+        }
         return self
     }
     
@@ -78,7 +98,11 @@ public extension UITextView {
     
     @discardableResult
     func attributedText(_ block: @escaping (UIView) -> NSAttributedString?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.attributedText.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.attributedText.rawValue, block: block, states: states)
+        } else {
+            self.attributedText(block(self))
+        }
         return self
     }
     
@@ -90,7 +114,11 @@ public extension UITextView {
     
     @discardableResult
     func isEditable(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.isEditable.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.isEditable.rawValue, block: block, states: states)
+        } else {
+            self.isEditable(block(self))
+        }
         return self
     }
     
@@ -102,7 +130,11 @@ public extension UITextView {
     
     @discardableResult
     func isSelectable(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.isSelectable.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.isSelectable.rawValue, block: block, states: states)
+        } else {
+            self.isSelectable(block(self))
+        }
         return self
     }
     
@@ -114,7 +146,11 @@ public extension UITextView {
     
     @discardableResult
     func textContainerInset(_ block: @escaping (UIView) -> UIEdgeInsets,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UITextViewAKey.textContainerInset.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextViewAKey.textContainerInset.rawValue, block: block, states: states)
+        } else {
+            self.textContainerInset(block(self))
+        }
         return self
     }
     

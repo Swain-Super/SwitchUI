@@ -17,8 +17,13 @@ public extension UIButton {
     }
     
     @discardableResult
-    func image(_ block: @escaping (UIView) -> UIImage?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIButtonKey.image.rawValue, block: block, states: states)
+    func image(_ block: @escaping (UIView) -> (UIImage?, UIControl.State),_ states: [SState]? = nil) -> Self {
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIButtonKey.image.rawValue, block: block, states: states)
+        } else {
+            let (image, state) = block(self)
+            self.image(image, state: state)
+        }
         return self
     }
     
@@ -30,7 +35,12 @@ public extension UIButton {
     
     @discardableResult
     func setTitle(_ block: @escaping (UIView) -> (String, UIControl.State),_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIButtonKey.setTitle.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIButtonKey.setTitle.rawValue, block: block, states: states)
+        } else {
+            let (title, state) = block(self)
+            self.setTitle(title, state: state)
+        }
         return self
     }
     
@@ -42,7 +52,11 @@ public extension UIButton {
     
     @discardableResult
     func titleFont(_ block: @escaping (UIView) -> UIFont?,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIButtonKey.titleFont.rawValue, block: block, states: states)
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIButtonKey.titleFont.rawValue, block: block, states: states)
+        } else {
+            self.titleFont(block(self))
+        }
         return self
     }
     
@@ -53,8 +67,13 @@ public extension UIButton {
     }
     
     @discardableResult
-    func setTitleColor(_ block: @escaping (UIView) -> UIColor,_ states: [SState]? = nil) -> Self {
-        self.autoBindAndRun(key: UIButtonKey.setTitleColor.rawValue, block: block, states: states)
+    func setTitleColor(_ block: @escaping (UIView) -> (UIColor, UIControl.State),_ states: [SState]? = nil) -> Self {
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIButtonKey.setTitleColor.rawValue, block: block, states: states)
+        } else {
+            let (color, state) = block(self)
+            self.setTitleColor(color, state: state)
+        }
         return self
     }
     
