@@ -13,6 +13,7 @@ public enum UITextFieldKey: String {
     case keyboardType
     case font
     case textColor
+    case textColorB
     case textAlignment
     case attributedText
     case adjustsFontSizeToFitWidth
@@ -59,6 +60,14 @@ public class UITextFieldUI {
             }
         }
         reflect[UITextFieldKey.textColor.rawValue] = textColorBlk
+        
+        // textColorB
+        let textColorBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
+            if let block = block as? (UIView) -> String, let view = view as? UITextField {
+                view.textColor(block(view))
+            }
+        }
+        reflect[UITextFieldKey.textColorB.rawValue] = textColorBBlk
         
         // textAlignment
         let textAlignmentBlk: (UIView, Any) -> Void = { (view, block) -> Void in

@@ -75,6 +75,22 @@ public extension UITextField {
     }
     
     @discardableResult
+    func textColor(_ textColor: String) -> Self {
+        self.textColor = textColor.hexColor()
+        return self
+    }
+    
+    @discardableResult
+    func textColor(_ block: @escaping (UIView) -> String,_ states: [SState]? = nil) -> Self {
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.textColorB.rawValue, block: block, states: states)
+        } else {
+            self.textColor(block(self))
+        }
+        return self
+    }
+    
+    @discardableResult
     func textAlignment(_ textAlignment: NSTextAlignment) -> Self {
         self.textAlignment = textAlignment
         return self
@@ -154,4 +170,40 @@ public extension UITextField {
         return self
     }
     
+    
+}
+
+public extension UITextField {
+    
+    /// 添加文本编辑变化监听，并支持链式调用
+    /// - Parameter block: 文本变化时的回调，参数为当前文本
+    /// - Returns: Self，支持链式调用
+    @discardableResult
+    func onEditingChanged(_ block: @escaping (String) -> Void) -> Self {
+        // 存储闭包（避免强引用循环）
+        self.editingChangedHandler = block
+        
+        // 添加 target-action 监听 editingChanged 事件
+        self.addTarget(self, action: #selector(UITextField._editingChanged), for: .editingChanged)
+        
+        return self
+    }
+    
+    // MARK: - Private
+    
+    // 用于存储闭包的属性
+    private static var editingChangedKey: UInt8 = 0
+    private var editingChangedHandler: ((String) -> Void)? {
+        get {
+            return objc_getAssociatedObject(self, &Self.editingChangedKey) as? (String) -> Void
+        }
+        set {
+            objc_setAssociatedObject(self, &Self.editingChangedKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    // 响应方法
+    @objc private func _editingChanged() {
+        editingChangedHandler?(self.text ?? "")
+    }
 }

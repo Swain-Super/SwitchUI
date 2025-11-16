@@ -906,6 +906,13 @@ public extension UIView {
         }
         return self
     }
+    
+    @discardableResult
+    func zIndex(_ zIndex: Float) -> Self {
+        self.layer.zPosition = CGFloat(zIndex)
+        return self
+    }
+    
 }
 
 // MARK: 渲染

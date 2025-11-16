@@ -29,6 +29,8 @@ public class SLabel: UILabel {
     public var s_lineHeight: Float?
     // 文字横向排列方式
     public var s_textAlignment: NSTextAlignment?
+    // Label控件的内容Padding
+    public var padding: UIEdgeInsets = .zero
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -115,6 +117,21 @@ public class SLabel: UILabel {
     @discardableResult
     public func s_lineHeight(object: Float) -> Self {
         self.s_lineHeight = object
+        return self
+    }
+    
+    public func paddingHorizontal(_ object: Float) -> Self {
+        self.padding = UIEdgeInsets.init(top: padding.top, left: CGFloat(object), bottom: padding.bottom, right: CGFloat(object))
+        return self
+    }
+    
+    public func paddingVertical(_ object: Float) -> Self {
+        self.padding = UIEdgeInsets.init(top: CGFloat(object), left: padding.left, bottom: CGFloat(object), right: padding.right)
+        return self
+    }
+
+    public func padding(_ object: Float) -> Self {
+        self.padding = UIEdgeInsets.init(top: CGFloat(object), left: CGFloat(object), bottom: CGFloat(object), right: CGFloat(object))
         return self
     }
     
@@ -235,6 +252,14 @@ public class SLabel: UILabel {
         s_render()
     }
     
+    public override func drawText(in rect: CGRect) {
+        super.drawText(in: rect.inset(by: padding))
+    }
+    
+    public override func sizeThatFits(_ size: CGSize) -> CGSize {
+        var s = super.sizeThatFits(size)
+        return s
+    }
 
     public override func layoutSubviews() {
         super.layoutSubviews()
