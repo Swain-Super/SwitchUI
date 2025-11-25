@@ -47,7 +47,7 @@ public class UITextFieldUI {
         
         // font
         let fontBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> UIFont, let view = view as? UITextField {
+            if let block = block as? (UIView) -> UIFont?, let view = view as? UITextField {
                 view.font(block(view))
             }
         }

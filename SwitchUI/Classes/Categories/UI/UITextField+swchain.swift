@@ -43,13 +43,13 @@ public extension UITextField {
     }
     
     @discardableResult
-    func font(_ font: UIFont) -> Self {
+    func font(_ font: UIFont?) -> Self {
         self.font = font
         return self
     }
     
     @discardableResult
-    func font(_ block: @escaping (UIView) -> UIFont,_ states: [SState]? = nil) -> Self {
+    func font(_ block: @escaping (UIView) -> UIFont?,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UITextFieldKey.font.rawValue, block: block, states: states)
         } else {
@@ -167,6 +167,12 @@ public extension UITextField {
         } else {
             self.attributedPlaceholder(block(self))
         }
+        return self
+    }
+    
+    @discardableResult
+    func inputView(_ view: UIView) -> Self {
+        self.inputView = view
         return self
     }
     
