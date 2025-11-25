@@ -58,22 +58,22 @@ open class SGrid: SContainer {
         }
         
         // 左边的开始位置
-        var startLeft: Float = Float(padding.left)
+        var startLeft: CGFloat = CGFloat(padding.left)
         // 顶部开始位置
-        var startTop: Float = Float(padding.top)
+        var startTop: CGFloat = CGFloat(padding.top)
         // 行间距
-        var rowSpace: Float = countSWValue(value: rowSpace, contentSize: self.sContentSize())
+        var rowSpace: CGFloat = countSWValue(value: rowSpace, contentSize: self.sContentSize())
         // 列间距
-        var columSpace: Float = countSWValue(value: columSpace, contentSize: self.sContentSize())
+        var columSpace: CGFloat = countSWValue(value: columSpace, contentSize: self.sContentSize())
         
         var columIndex: Int = 0
         var rowIndex: Int = 0
-        var maxWidth: Float = 0
-        var maxHeight: Float = 0
+        var maxWidth: CGFloat = 0
+        var maxHeight: CGFloat = 0
         var index: Int = 0
         
-        var itemWidth: Float = countSWValue(value: itemWidth, contentSize: self.sContentSize())
-        var itemHeight: Float = countSWValue(value: itemHeight, contentSize: self.sContentSize())
+        var itemWidth: CGFloat = countSWValue(value: itemWidth, contentSize: self.sContentSize())
+        var itemHeight: CGFloat = countSWValue(value: itemHeight, contentSize: self.sContentSize())
         
         if (s_scrollType == .scrolly) {
             /// 高度自适应的
@@ -81,22 +81,22 @@ open class SGrid: SContainer {
             // 是否第一个item的宽高为所有 item 的宽高
             var isItemSizeDependFirstView: Bool = false
             if self.autoSplit {
-                let contentWidth = self.n_width - Float(padding.left) - Float(padding.right)
+                let contentWidth = self.n_width - CGFloat(padding.left) - CGFloat(padding.right)
                 if self.rowSpace != nil, self.itemWidth == nil {
-                    itemWidth = (contentWidth - (Float(self.rowsNumber - 1) * rowSpace)) / Float(self.rowsNumber)
+                    itemWidth = (contentWidth - (CGFloat(self.rowsNumber - 1) * rowSpace)) / CGFloat(self.rowsNumber)
                 } else if self.rowSpace != nil, self.itemWidth != nil {
                     
                 } else if self.rowSpace == nil, self.itemWidth == nil {
                     // 获取第一个item的宽高为所有 item 的宽高
-                    //splitWidth = (contentWidth - (Float(self.rowsNumber - 1) * rowSpace)) / Float(self.rowsNumber)
+                    //splitWidth = (contentWidth - (Float(self.rowsNumber - 1) * rowSpace)) / CGFloat(self.rowsNumber)
                     isItemSizeDependFirstView = true
                 } else if self.rowSpace == nil, self.itemWidth != nil {
                     
                     // rowSpace 为空的，先平均分
                     if (self.totalViewCount > 1 && self.totalViewCount < self.rowsNumber) {
-                        rowSpace = (contentWidth - Float(self.totalViewCount) * itemWidth)/Float(self.totalViewCount-1)
+                        rowSpace = (contentWidth - CGFloat(self.totalViewCount) * itemWidth)/CGFloat(self.totalViewCount-1)
                     } else if self.rowsNumber > 1 {
-                        rowSpace = (contentWidth - Float(self.rowsNumber) * itemWidth)/Float(self.rowsNumber-1)
+                        rowSpace = (contentWidth - CGFloat(self.rowsNumber) * itemWidth)/CGFloat(self.rowsNumber-1)
                     }
                 }
             }
@@ -123,8 +123,8 @@ open class SGrid: SContainer {
                     view.n_width = itemWidth
                     view.width(itemWidth)
                     
-                    view.n_left = Float(startLeft + (rowIndex > 0 ? rowSpace : 0))
-                    view.n_top = Float(startTop + (columIndex > 0 ? columSpace : 0))
+                    view.n_left = CGFloat(startLeft + (rowIndex > 0 ? rowSpace : 0))
+                    view.n_top = CGFloat(startTop + (columIndex > 0 ? columSpace : 0))
 
                     /// 高度最大值
                     if view.n_right > maxWidth {
@@ -137,39 +137,39 @@ open class SGrid: SContainer {
                     if rowIndex >= self.rowsNumber {
                         rowIndex = 0
                         columIndex += 1
-                        startTop = Float(view.n_bottom)
+                        startTop = CGFloat(view.n_bottom)
                         startLeft = 0
                     } else {
-                        startLeft = Float(view.n_right)
+                        startLeft = CGFloat(view.n_right)
                         // 最后一个了
                         if index == self.subviews.count-1 {
-                            startTop = Float(view.n_bottom)
+                            startTop = CGFloat(view.n_bottom)
                         }
                     }
                 }
                 index+=1
             }
-            startLeft = Float(maxWidth)
+            startLeft = CGFloat(maxWidth)
             
         } else if s_scrollType == .scrollx {
 
             // 是否第一个item的宽高为所有 item 的宽高
             var isItemSizeDependFirstView: Bool = false
             if self.autoSplit {
-                let contentHeight: Float = self.n_height - Float(padding.top) - Float(padding.bottom)
+                let contentHeight: CGFloat = self.n_height - padding.top - padding.bottom
                 if self.columSpace != nil, self.itemHeight == nil {
-                    itemHeight = (contentHeight - (Float(self.columsNumber - 1) * columSpace)) / Float(self.columsNumber)
+                    itemHeight = (contentHeight - (CGFloat(self.columsNumber - 1) * columSpace)) / CGFloat(self.columsNumber)
                 } else if self.columSpace != nil, self.itemHeight != nil {
                     
                 } else if self.columSpace == nil, self.itemHeight == nil {
                     // 获取第一个item的宽高为所有 item 的宽高
-                    // splitHeight = (contentHeight - (Float(self.columsNumber - 1) * columSpace)) / Float(self.columsNumber)
+                    // splitHeight = (contentHeight - (Float(self.columsNumber - 1) * columSpace)) / CGFloat(self.columsNumber)
                     isItemSizeDependFirstView = true
                 } else if self.columSpace == nil, self.itemHeight != nil {
                     if (self.totalViewCount > 1 && self.totalViewCount < self.columsNumber) {
-                        columSpace = (contentHeight - Float(self.totalViewCount) * itemHeight)/Float(self.totalViewCount-1)
+                        columSpace = (contentHeight - CGFloat(self.totalViewCount) * itemHeight)/CGFloat(self.totalViewCount-1)
                     } else if self.columsNumber > 1 {
-                        columSpace = (contentHeight - Float(self.columsNumber) * itemHeight)/Float(self.columsNumber-1)
+                        columSpace = (contentHeight - CGFloat(self.columsNumber) * itemHeight)/CGFloat(self.columsNumber-1)
                     }
                 }
             }
@@ -197,8 +197,8 @@ open class SGrid: SContainer {
                     view.height(itemHeight)
                     
                     
-                    view.n_left = Float(startLeft + (rowIndex > 0 ? rowSpace : 0))
-                    view.n_top = Float(startTop + (columIndex > 0 ? columSpace : 0))
+                    view.n_left = CGFloat(startLeft + (rowIndex > 0 ? rowSpace : 0))
+                    view.n_top = CGFloat(startTop + (columIndex > 0 ? columSpace : 0))
 
                     /// 高度最大值
                     if view.n_bottom > maxHeight {
@@ -211,19 +211,19 @@ open class SGrid: SContainer {
                     if columIndex >= self.columsNumber {
                         columIndex = 0
                         rowIndex += 1
-                        startLeft = Float(view.n_right)
+                        startLeft = CGFloat(view.n_right)
                         startTop = 0
                     } else {
-                        startTop = Float(view.n_bottom)
+                        startTop = CGFloat(view.n_bottom)
                         // 最后一个了
                         if index == self.subviews.count-1 {
-                            startLeft = Float(view.n_right)
+                            startLeft = CGFloat(view.n_right)
                         }
                     }
                 }
                 index+=1
             }
-            startTop = Float(maxHeight)
+            startTop = CGFloat(maxHeight)
         }
         
         contentRect.origin.x = padding.left
@@ -236,18 +236,18 @@ open class SGrid: SContainer {
          
         // 宽度自适应
         if !isConstWidth {
-            self.n_width = self.n_width + Float(padding.left) + Float(padding.right)
+            self.n_width = self.n_width + CGFloat(padding.left) + CGFloat(padding.right)
         } else {
-            if (s_scrollType == .scrollx || s_scrollType == .auto), Float(contentRect.size.width + padding.left + padding.right) > self.n_width  {
+            if (s_scrollType == .scrollx || s_scrollType == .auto), CGFloat(contentRect.size.width + padding.left + padding.right) > self.n_width  {
                 isScrollX = true
             }
             
         }
         // 高度自适应
         if !isConstHeight {
-            self.n_height = Float(contentRect.size.height + padding.top + padding.bottom)
+            self.n_height = CGFloat(contentRect.size.height + padding.top + padding.bottom)
         } else {
-            if (s_scrollType == .scrolly || s_scrollType == .auto), Float(contentRect.size.height + padding.top + padding.bottom) > self.n_height  {
+            if (s_scrollType == .scrolly || s_scrollType == .auto), CGFloat(contentRect.size.height + padding.top + padding.bottom) > self.n_height  {
                 isScrollY = true
             }
         }
@@ -278,8 +278,8 @@ open class SGrid: SContainer {
     }
     
     @discardableResult
-    public func rowSpace(_ value: Float) -> Self {
-        self.rowSpace = SWValue(value: String(value), .left)
+    public func rowSpace(_ value: CGFloat) -> Self {
+        self.rowSpace = SWValue(value: value.toString(), .left)
         return self
     }
     
@@ -290,8 +290,8 @@ open class SGrid: SContainer {
     }
     
     @discardableResult
-    public func columSpace(_ value: Float) -> Self {
-        self.columSpace = SWValue(value: String(value), .left)
+    public func columSpace(_ value: CGFloat) -> Self {
+        self.columSpace = SWValue(value: value.toString(), .left)
         return self
     }
     
@@ -327,8 +327,8 @@ open class SGrid: SContainer {
     }
     
     @discardableResult
-    public func itemWidth(_ value: Float) -> Self {
-        self.itemWidth = SWValue(value: String(value), .width)
+    public func itemWidth(_ value: CGFloat) -> Self {
+        self.itemWidth = SWValue(value: value.toString(), .width)
         return self
     }
     
@@ -339,8 +339,8 @@ open class SGrid: SContainer {
     }
     
     @discardableResult
-    public func itemHeight(_ value: Float) -> Self {
-        self.itemHeight = SWValue(value: String(value), .height)
+    public func itemHeight(_ value: CGFloat) -> Self {
+        self.itemHeight = SWValue(value: value.toString(), .height)
         return self
     }
 }

@@ -170,7 +170,6 @@ public extension UITextField {
         return self
     }
     
-    
 }
 
 public extension UITextField {

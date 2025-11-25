@@ -93,38 +93,38 @@ extension SListItem {
     }
     
     @discardableResult
-    public func paddingTop(_ value: Float) -> Self {
+    public func paddingTop(_ value: CGFloat) -> Self {
         self.padding.top = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingBottom(_ value: Float) -> Self {
+    public func paddingBottom(_ value: CGFloat) -> Self {
         self.padding.bottom = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingLeft(_ value: Float) -> Self {
+    public func paddingLeft(_ value: CGFloat) -> Self {
         self.padding.left = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingRight(_ value: Float) -> Self {
+    public func paddingRight(_ value: CGFloat) -> Self {
         self.padding.right = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingVertical(_ value: Float) -> Self {
+    public func paddingVertical(_ value: CGFloat) -> Self {
         self.padding.top = CGFloat(value)
         self.padding.bottom = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingHorizontal(_ value: Float) -> Self {
+    public func paddingHorizontal(_ value: CGFloat) -> Self {
         self.padding.left = CGFloat(value)
         self.padding.right = CGFloat(value)
         return self

@@ -59,19 +59,19 @@ public enum SWScrollType {
 
 /// 边框宽度
 public struct SBorderWidth {
-    var left: Float?
-    var right: Float?
-    var top: Float?
-    var bottom: Float?
+    var left: CGFloat?
+    var right: CGFloat?
+    var top: CGFloat?
+    var bottom: CGFloat?
 
-    public init(left: Float? = nil, right: Float? = nil, top: Float? = nil, bottom: Float? = nil) {
+    public init(left: CGFloat? = nil, right: CGFloat? = nil, top: CGFloat? = nil, bottom: CGFloat? = nil) {
         self.left = left
         self.right = right
         self.top = top
         self.bottom = bottom
     }
     
-    public init(color: Float) {
+    public init(color: CGFloat) {
         self.left = color
         self.right = color
         self.top = color
@@ -104,19 +104,19 @@ public struct SBorderColor {
 
 /// 圆角
 public struct SRadius {
-    var topLeft: Float?
-    var topRight: Float?
-    var bottomLeft: Float?
-    var bottomRight: Float?
+    var topLeft: CGFloat?
+    var topRight: CGFloat?
+    var bottomLeft: CGFloat?
+    var bottomRight: CGFloat?
 
-    public init(topLeft: Float? = nil, topRight: Float? = nil, bottomLeft: Float? = nil, bottomRight: Float? = nil) {
+    public init(topLeft: CGFloat? = nil, topRight: CGFloat? = nil, bottomLeft: CGFloat? = nil, bottomRight: CGFloat? = nil) {
         self.topLeft = topLeft
         self.topRight = topRight
         self.bottomLeft = bottomLeft
         self.bottomRight = bottomRight
     }
     
-    public init(radius: Float) {
+    public init(radius: CGFloat) {
         self.topLeft = radius
         self.topRight = radius
         self.bottomLeft = radius
@@ -132,7 +132,7 @@ public class SWValue: NSObject {
     /// 值
     var value: String = "auto"
     /// 偏差值
-    var offset: Float = 0
+    var offset: CGFloat = 0
     
     /// 布局的位置类型
     var position: SWPositionType?
@@ -141,9 +141,9 @@ public class SWValue: NSObject {
         
     }
     
-    init(value: String, _ position: SWPositionType, _ offset: Float = 0) {
+    init(value: String, _ position: SWPositionType, _ offset: CGFloat = 0) {
         self.position = position
-        let splitValue: (String, SWValueType, Float) = value.filterSizeValue(position: position)
+        let splitValue: (String, SWValueType, CGFloat) = value.filterSizeValue(position: position)
         self.value = splitValue.0
         self.type = splitValue.1
         self.offset = splitValue.2
@@ -200,28 +200,28 @@ public class SWPosition: NSObject {
         }
     }
     
-    init(value: [SWPositionType: Float]?) {
+    init(value: [SWPositionType: CGFloat]?) {
         super.init()
         if let value = value {
-            value.map { (key: SWPositionType, value: Float) in
+            value.map { (key: SWPositionType, value: CGFloat) in
                 switch key {
                 case .left:
-                    left =  SWValue(value: String(value), .left)
+                    left =  SWValue(value: value.toString(), .left)
                     break
                 case .right:
-                    right =  SWValue(value: String(value), .right)
+                    right =  SWValue(value: value.toString(), .right)
                     break
                 case .top:
-                    top =  SWValue(value: String(value), .top)
+                    top =  SWValue(value: value.toString(), .top)
                     break
                 case .bottom:
-                    bottom =  SWValue(value: String(value), .bottom)
+                    bottom =  SWValue(value: value.toString(), .bottom)
                     break
                 case .centerX:
-                    centerX =  SWValue(value: String(value), .centerX)
+                    centerX =  SWValue(value: value.toString(), .centerX)
                     break
                 case .centerY:
-                    centerY =  SWValue(value: String(value), .centerY)
+                    centerY =  SWValue(value: value.toString(), .centerY)
                     break
                 default:
                     break
@@ -315,28 +315,28 @@ public class SWAlignRules: NSObject {
 ///   - value: 值
 ///   - view: 布局的view
 /// - Returns: 计算好的值
-public func countSWValue(value: SWValue?, contentSize: CGSize, _ padding: UIEdgeInsets = .zero) -> Float {
+public func countSWValue(value: SWValue?, contentSize: CGSize, _ padding: UIEdgeInsets = .zero) -> CGFloat {
     
     guard let value = value else { return 0 }
     
-    var result: Float = 0
+    var result: CGFloat = 0
     switch value.type {
     case .point:
-        result = (value.value as NSString).floatValue + value.offset
+        result = (value.value as NSString).toCGFloat() + value.offset
         break
     case .percentw:
-        let superWidth = Float(contentSize.width - padding.left - padding.right)
-        result = (value.value as NSString).floatValue * 0.01 * superWidth + value.offset
+        let superWidth = CGFloat(contentSize.width - padding.left - padding.right)
+        result = (value.value as NSString).toCGFloat() * 0.01 * superWidth + value.offset
         break
     case .percenth:
-        let superHeight = Float(contentSize.height - padding.top - padding.bottom)
-        result = (value.value as NSString).floatValue * 0.01 * superHeight + value.offset
+        let superHeight = CGFloat(contentSize.height - padding.top - padding.bottom)
+        result = (value.value as NSString).toCGFloat() * 0.01 * superHeight + value.offset
         break
     case .screenvw:
-        result = (value.value as NSString).floatValue * 0.01 * Float(swScreenWidth) + value.offset
+        result = (value.value as NSString).toCGFloat() * 0.01 * CGFloat(swScreenWidth) + value.offset
         break
     case .screenvh:
-        result = (value.value as NSString).floatValue * 0.01 * Float(swScreenHeight) + value.offset
+        result = (value.value as NSString).toCGFloat() * 0.01 * CGFloat(swScreenHeight) + value.offset
         break
     default:
         break

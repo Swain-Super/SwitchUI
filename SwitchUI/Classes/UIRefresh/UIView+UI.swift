@@ -131,7 +131,7 @@ public class UIViewUI {
         
         // shadowOpacity
         let shadowOpacityBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 view.shadowOpacity(block(view))
             }
         }
@@ -218,7 +218,7 @@ public class UIViewUI {
         
         // s_widthB
         let s_widthBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sWidth
                 view.width(block(view))
                 var newValue = view.sWidth
@@ -246,7 +246,7 @@ public class UIViewUI {
         
         // s_heightB
         let s_heightBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sHeight
                 view.height(block(view))
                 var newValue = view.sHeight
@@ -274,7 +274,7 @@ public class UIViewUI {
         
         // s_leftB
         let s_leftBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sLeft
                 view.left(block(view))
                 var newValue = view.sLeft
@@ -302,7 +302,7 @@ public class UIViewUI {
         
         // s_topB
         let s_topBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sTop
                 view.top(block(view))
                 var newValue = view.sTop
@@ -330,7 +330,7 @@ public class UIViewUI {
         
         // s_rightB
         let s_rightBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sRight
                 view.right(block(view))
                 var newValue = view.sRight
@@ -358,7 +358,7 @@ public class UIViewUI {
         
         // s_bottomB
         let s_bottomBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sBottom
                 view.bottom(block(view))
                 var newValue = view.sBottom
@@ -386,7 +386,7 @@ public class UIViewUI {
         
         // s_centerXB
         let s_centerXBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sCenterX
                 view.centerX(block(view))
                 var newValue = view.sCenterX
@@ -414,7 +414,7 @@ public class UIViewUI {
         
         // s_centerYB
         let s_centerYBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> Float {
+            if let block = block as? (UIView) -> CGFloat {
                 var oldValue = view.sCenterY
                 view.centerY(block(view))
                 var newValue = view.sCenterY
@@ -438,7 +438,7 @@ public class UIViewUI {
         
         // s_positionB
         let s_positionBBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> [SWPositionType: Float]? {
+            if let block = block as? (UIView) -> [SWPositionType: CGFloat]? {
                 view.position(block(view))
                 
                 SUIManager.shared.addRefreshPool(view: view, attributeKey: UIViewAKey.s_positionB.rawValue)

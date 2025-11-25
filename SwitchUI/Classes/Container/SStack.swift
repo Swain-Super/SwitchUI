@@ -39,23 +39,23 @@ open class SStack: SContainer {
         self.subviews.forEach { view in
             if view.isUseSWUI(), view.sPosition == nil {
                 
-                let marginLeft: Float = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
-                let marginRight: Float = countSWValue(value: view.sRight, contentSize: self.sContentSize())
-                let marginTop: Float = countSWValue(value: view.sTop, contentSize: self.sContentSize())
-                let marginBottom: Float = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
+                let marginLeft: CGFloat = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
+                let marginRight: CGFloat = countSWValue(value: view.sRight, contentSize: self.sContentSize())
+                let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
+                let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                 
                 if view.sLeft != nil {
-                    view.n_left = marginLeft + Float(padding.left)
+                    view.n_left = marginLeft + CGFloat(padding.left)
                 } else if view.sRight != nil {
-                    view.n_right = self.n_width - marginRight - Float(padding.right)
+                    view.n_right = self.n_width - marginRight - CGFloat(padding.right)
                 } else {
                     view.n_centerX = self.n_width/2
                 }
                 
                 if view.sTop != nil {
-                    view.n_top = marginTop + Float(padding.top)
+                    view.n_top = marginTop + CGFloat(padding.top)
                 } else if view.sBottom != nil {
-                    view.n_bottom = self.n_height - Float(padding.bottom) - marginBottom
+                    view.n_bottom = self.n_height - CGFloat(padding.bottom) - marginBottom
                 } else {
                     view.n_centerY = self.n_height/2
                 }

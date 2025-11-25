@@ -58,10 +58,10 @@ open class SRelativeContainer: SContainer {
     /// - Parameter view: 视图
     func layoutAlignRules(view: UIView) {
         
-        let marginLeft: Float = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
-        let marginRight: Float = countSWValue(value: view.sRight, contentSize: self.sContentSize())
-        let marginTop: Float = countSWValue(value: view.sTop, contentSize: self.sContentSize())
-        let marginBottom: Float = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
+        let marginLeft: CGFloat = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
+        let marginRight: CGFloat = countSWValue(value: view.sRight, contentSize: self.sContentSize())
+        let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
+        let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
         
         if let alignRules = view.sAlignRules {
             // 计算x的位置，centerX优先级最高
@@ -99,14 +99,14 @@ open class SRelativeContainer: SContainer {
             }
         } else {
             if view.sLeft != nil {
-                view.n_left = marginLeft + Float(padding.left)
+                view.n_left = marginLeft + CGFloat(padding.left)
             } else if view.sRight != nil {
-                view.n_right = self.n_width - marginRight - Float(padding.right)
+                view.n_right = self.n_width - marginRight - CGFloat(padding.right)
             }
             if view.sTop != nil {
-                view.n_top = marginTop + Float(padding.top)
+                view.n_top = marginTop + CGFloat(padding.top)
             } else if view.sBottom != nil {
-                view.n_bottom = self.n_height - Float(padding.bottom) - marginBottom
+                view.n_bottom = self.n_height - CGFloat(padding.bottom) - marginBottom
             }
         }
     }
@@ -114,7 +114,7 @@ open class SRelativeContainer: SContainer {
     /// 获取对比对象的位置
     /// - Parameter anchorItem: 关联对象
     /// - Returns: 定位
-    func getAnchorPosition(anchorItem: SWAlignRuleItem) -> Float {
+    func getAnchorPosition(anchorItem: SWAlignRuleItem) -> CGFloat {
         
         if let anchor = self.getAnchor(anchor: anchorItem.anchor) {
             

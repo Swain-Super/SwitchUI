@@ -13,6 +13,7 @@ typealias SWView = SWeakRef<UIView>
 public enum StateValueType {
     case `Any`
     case Float
+    case CGFloat
     case Int
     case String
     case Double
@@ -58,8 +59,10 @@ public class SState: NSObject  {
     private func  checkValueType() {
         if value is Int {
             self.valueType = .Int
-        }else if value is Float {
+        } else if value is Float {
             self.valueType = .Float
+        } else if value is CGFloat {
+            self.valueType = .CGFloat
         } else if value is String {
             self.valueType = .String
         } else if value is Double {
@@ -83,6 +86,8 @@ public class SState: NSObject  {
             switch self.valueType {
                 case .Float:
                 convertedValue = "\(self.value as? Float ?? 0.0)"
+                case .CGFloat:
+                convertedValue = "\(self.value as? CGFloat ?? 0.0)"
                 case .Int:
                 convertedValue = "\(self.value as? Int ?? 0)"
                 case .Double:
@@ -124,6 +129,8 @@ public class SState: NSObject  {
         switch type {
             case .Float:
                 result = Float(value) ?? 0.0
+            case .CGFloat:
+                result = value.toCGFloat()
             case .Int:
                 if let intValue = Int(value) {
                     result = intValue // 直接是整数，转换成功
@@ -170,6 +177,12 @@ public class SState: NSObject  {
     public var floatValue: Float {
         get {
             return _value as? Float ?? (self.tryCovertValueType(type: .Float) as? Float ?? 0.0)
+        }
+    }
+
+    public var cgfloatValue: CGFloat {
+        get {
+            return _value as? CGFloat ?? (self.tryCovertValueType(type: .CGFloat) as? CGFloat ?? 0.0)
         }
     }
     

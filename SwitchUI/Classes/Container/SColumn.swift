@@ -37,14 +37,14 @@ open class SColumn: SContainer {
         contentRect = self.bounds
         
         // 子view自动计算尺寸
-        var totalSubViewHeight: Float = Float(self.padding.top + self.padding.bottom)
+        var totalSubViewHeight: CGFloat = CGFloat(self.padding.top + self.padding.bottom)
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
                 view.sw_layoutSize(contentSize: self.sContentSize(), padding: self.padding)
                 
-                let marginTop: Float = countSWValue(value: view.sTop, contentSize: self.sContentSize())
-                let marginBottom: Float = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
+                let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
+                let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                 
                 // 如果容器的子view也是SColum或SRow容器，并且宽高还需要计算的，就先去算一下
                 if let container = view as? SContainer, (view is SColumn || view is SRow) , (!view.isConstWidth || !view.isConstHeight)  {
@@ -55,12 +55,12 @@ open class SColumn: SContainer {
                     container.sTags = sTags
                 }
                 
-                totalSubViewHeight += marginTop + Float(view.n_height) + marginBottom
+                totalSubViewHeight += marginTop + CGFloat(view.n_height) + marginBottom
             }
         }
         // 设置Blank的值
         if self.blankViewCount > 0, isConstHeight {
-            var blankHeight: Float = (Float(self.n_height) - totalSubViewHeight)/Float(self.blankViewCount)
+            var blankHeight: CGFloat = (self.n_height - totalSubViewHeight)/CGFloat(self.blankViewCount)
             self.subviews.forEach { view in
                 if view is SBlank {
                     view.height(blankHeight)
@@ -70,19 +70,19 @@ open class SColumn: SContainer {
         }
         
         // 左边的开始位置
-        let startLeft: Float = Float(padding.left)
+        let startLeft: CGFloat = CGFloat(padding.left)
         // 右边的开始位置
-        let startRight: Float = Float(padding.right)
+        let startRight: CGFloat = CGFloat(padding.right)
         // 顶部开始位置
-        var startTop: Float = Float(0)
+        var startTop: CGFloat = CGFloat(0)
 
         self.subviews.forEach { view in
             if view.isUseSWUI(), view.sPosition == nil {
                 
-                let marginLeft: Float = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
-                let marginRight: Float = countSWValue(value: view.sRight, contentSize: self.sContentSize())
-                let marginTop: Float = countSWValue(value: view.sTop, contentSize: self.sContentSize())
-                let marginBottom: Float = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
+                let marginLeft: CGFloat = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
+                let marginRight: CGFloat = countSWValue(value: view.sRight, contentSize: self.sContentSize())
+                let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
+                let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                 
                 view.n_top = marginTop + startTop
                 if view.sRight != nil && view.sLeft == nil {
@@ -96,21 +96,21 @@ open class SColumn: SContainer {
                         view.n_right = self.n_width - marginRight - startRight
                     }
                 }
-                startTop = Float(view.n_bottom) + marginBottom
+                startTop = CGFloat(view.n_bottom) + marginBottom
             }
         }
         
         contentRect.origin.x = padding.left
         contentRect.origin.y = padding.top
-        contentRect.size.width = CGFloat(startLeft - Float(padding.left))
+        contentRect.size.width = CGFloat(startLeft - CGFloat(padding.left))
         contentRect.size.height = CGFloat(startTop)
         
         // 高度自适应
         if !isConstHeight {
-            self.n_height = Float(contentRect.origin.y + contentRect.size.height + padding.bottom)
+            self.n_height = CGFloat(contentRect.origin.y + contentRect.size.height + padding.bottom)
         } else {
             // 竖向自动滚动
-            if (self.n_height < Float(CGRectGetMaxY(contentRect))) {
+            if (self.n_height < CGFloat(CGRectGetMaxY(contentRect))) {
                 if (s_scrollType == .scrolly || s_scrollType == .auto) {
                     self.maskToBounds(true)
                     var size: CGSize = .zero
@@ -129,8 +129,8 @@ open class SColumn: SContainer {
             }
             self.subviews.forEach { view in
                 if view.isUseSWUI(), view.sPosition == nil {
-                    view.n_left = Float(contentRect.origin.x) + view.n_left
-                    view.n_top = Float(contentRect.origin.y) + view.n_top
+                    view.n_left = CGFloat(contentRect.origin.x) + view.n_left
+                    view.n_top = CGFloat(contentRect.origin.y) + view.n_top
                 }
             }
         }

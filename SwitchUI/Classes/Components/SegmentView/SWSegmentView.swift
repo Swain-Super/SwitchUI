@@ -33,7 +33,7 @@ open class SWSegmentView: UIView {
     /// 滑块宽度
     var segmentWidth: SState = SState(27.0)
     /// 滑块间隔
-    var segmentSpace: Float = 5.0
+    var segmentSpace: CGFloat = 5.0
     
     public init() {
         super.init(frame: .zero)
@@ -69,7 +69,7 @@ open class SWSegmentView: UIView {
             SReloader({[
                 // 当前选择滑块背景
                 UIView()
-                    .width({_ in self.segmentWidth.floatValue}, [self.segmentWidth])
+                    .width({_ in self.segmentWidth.cgfloatValue}, [self.segmentWidth])
                     .height("100%-8")
                     .backgroundColor({ _ in self.segmentBarBgColor.stringValue} , [self.segmentBarBgColor])
                     .position([.left: 0, .top: 4.0])
@@ -93,14 +93,14 @@ open class SWSegmentView: UIView {
                         .font({
                             _ in
                             if self.selectIndex.intValue == index {
-                                return UIFont.boldSystemFont(ofSize: CGFloat(self.segmentFont.floatValue))
+                                return UIFont.boldSystemFont(ofSize: CGFloat(self.segmentFont.cgfloatValue))
                             } else {
-                                return UIFont.systemFont(ofSize: CGFloat(self.segmentFont.floatValue))
+                                return UIFont.systemFont(ofSize: CGFloat(self.segmentFont.cgfloatValue))
                             }
                         }, [self.segmentFont])
                         .height("100%")
                         .left(self.segmentSpace)
-                        .width({_ in self.segmentWidth.floatValue}, [self.segmentWidth])
+                        .width({_ in self.segmentWidth.cgfloatValue}, [self.segmentWidth])
                         .onClick { [weak self] _ in
                             guard let self = self else { return }
                             self.selectIndex.value = index
@@ -123,7 +123,7 @@ open class SWSegmentView: UIView {
     // MARK: - 更新选择滑块
     func updateSelectsegment() {
         UIView.animate(withDuration: 0.3) {
-            self.segmentBGView?.n_centerX = Float(self.selectIndex.intValue + 1) * self.segmentSpace + self.segmentWidth.floatValue * 0.5 + Float(self.selectIndex.intValue) * self.segmentWidth.floatValue
+            self.segmentBGView?.n_centerX = CGFloat(self.selectIndex.intValue + 1) * self.segmentSpace + self.segmentWidth.cgfloatValue * 0.5 + CGFloat(self.selectIndex.intValue) * self.segmentWidth.cgfloatValue
         } completion: { _ in
             
         }
@@ -175,7 +175,7 @@ public extension SWSegmentView {
     }
     
     @discardableResult
-    func segmentWidth(_ value: Float) -> Self {
+    func segmentWidth(_ value: CGFloat) -> Self {
         self.segmentWidth.value = value
         return self
     }

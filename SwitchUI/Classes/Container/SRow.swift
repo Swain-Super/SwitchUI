@@ -39,14 +39,14 @@ open class SRow: SContainer {
         contentRect = self.bounds
         
         // 子view自动计算尺寸
-        var totalSubViewWidth: Float = Float(self.padding.left + self.padding.right)
+        var totalSubViewWidth: CGFloat = CGFloat(self.padding.left + self.padding.right)
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
                 view.sw_layoutSize(contentSize: self.sContentSize(), padding: self.padding)
                 
-                let marginLeft: Float = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
-                let marginRight: Float = countSWValue(value: view.sRight, contentSize: self.sContentSize())
+                let marginLeft: CGFloat = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
+                let marginRight: CGFloat = countSWValue(value: view.sRight, contentSize: self.sContentSize())
                 
                 // 如果容器的子view也是SColum或SRow容器，并且宽高还需要计算的，就先去算一下
                 if let container = view as? SContainer, (view is SColumn || view is SRow) , (!view.isConstWidth || !view.isConstHeight)  {
@@ -56,12 +56,12 @@ open class SRow: SContainer {
                     sTags["markLayout"] = true
                     container.sTags = sTags
                 }
-                totalSubViewWidth += marginLeft + Float(view.n_width) + marginRight
+                totalSubViewWidth += marginLeft + CGFloat(view.n_width) + marginRight
             }
         }
         // 设置Blank的值
         if self.blankViewCount > 0, isConstWidth {
-            let blankWidth: Float = (Float(self.n_width) - totalSubViewWidth)/Float(self.blankViewCount)
+            let blankWidth: CGFloat = (self.n_width - totalSubViewWidth)/CGFloat(self.blankViewCount)
             self.subviews.forEach { view in
                 if view is SBlank {
                     view.width(blankWidth)
@@ -71,21 +71,21 @@ open class SRow: SContainer {
         }
         
         // 左边的开始位置
-        var startLeft: Float = 0.0
+        var startLeft: CGFloat = 0.0
         // 顶部开始位置
-        var startTop: Float = 0.0
+        var startTop: CGFloat = 0.0
         // 自动布局行高
-        var cellHeight: Float = 0
+        var cellHeight: CGFloat = 0
         
         switch s_alignContent {
         case .left:
             self.subviews.forEach { view in
                 if view.isUseSWUI(), view.sPosition == nil {
                     
-                    let marginLeft: Float = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
-                    let marginRight: Float = countSWValue(value: view.sRight, contentSize: self.sContentSize())
-                    let marginTop: Float = countSWValue(value: view.sTop, contentSize: self.sContentSize())
-                    let marginBottom: Float = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
+                    let marginLeft: CGFloat = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
+                    let marginRight: CGFloat = countSWValue(value: view.sRight, contentSize: self.sContentSize())
+                    let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
+                    let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                     
                     let targertLeft = marginLeft + startLeft
                     
@@ -103,10 +103,10 @@ open class SRow: SContainer {
                     }
                     
                     // 获取每行排列最大的高
-                    if Float(view.n_bottom) + marginBottom > cellHeight {
-                        cellHeight = Float(view.n_bottom) + marginBottom
+                    if CGFloat(view.n_bottom) + marginBottom > cellHeight {
+                        cellHeight = CGFloat(view.n_bottom) + marginBottom
                     }
-                    startLeft = Float(view.n_right) + marginRight
+                    startLeft = CGFloat(view.n_right) + marginRight
                 }
             }
             startTop += cellHeight
@@ -121,19 +121,19 @@ open class SRow: SContainer {
              
             // 宽度自适应
             if !isConstWidth {
-                self.n_width = Float(contentRect.size.width + padding.left + padding.right)
+                self.n_width = CGFloat(contentRect.size.width + padding.left + padding.right)
             } else {
                 
-                if (s_scrollType == .scrollx || s_scrollType == .auto), Float(contentRect.size.width + padding.left + padding.right) > self.n_width  {
+                if (s_scrollType == .scrollx || s_scrollType == .auto), CGFloat(contentRect.size.width + padding.left + padding.right) > self.n_width  {
                     isScrollX = true
                 }
                 
             }
             // 高度自适应
             if !isConstHeight {
-                self.n_height = Float(contentRect.size.height + padding.top + padding.bottom)
+                self.n_height = CGFloat(contentRect.size.height + padding.top + padding.bottom)
             } else {
-                if (s_scrollType == .scrolly || s_scrollType == .auto), Float(contentRect.size.height + padding.top + padding.bottom) > self.n_height  {
+                if (s_scrollType == .scrolly || s_scrollType == .auto), CGFloat(contentRect.size.height + padding.top + padding.bottom) > self.n_height  {
                     isScrollY = true
                 }
             }
@@ -156,10 +156,10 @@ open class SRow: SContainer {
             self.subviews.forEach { view in
                 if view.isUseSWUI(), view.sPosition == nil {
                     
-                    let marginLeft: Float = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
-                    let marginRight: Float = countSWValue(value: view.sRight, contentSize: self.sContentSize())
-                    let marginTop: Float = countSWValue(value: view.sTop, contentSize: self.sContentSize())
-                    let marginBottom: Float = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
+                    let marginLeft: CGFloat = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
+                    let marginRight: CGFloat = countSWValue(value: view.sRight, contentSize: self.sContentSize())
+                    let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
+                    let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                     
                     let targertLeft = marginLeft + startLeft
                     
@@ -177,10 +177,10 @@ open class SRow: SContainer {
                     }
                     
                     // 获取每行排列最大的高
-                    if Float(view.n_bottom) + marginBottom > cellHeight {
-                        cellHeight = Float(view.n_bottom) + marginBottom
+                    if CGFloat(view.n_bottom) + marginBottom > cellHeight {
+                        cellHeight = CGFloat(view.n_bottom) + marginBottom
                     }
-                    startLeft = Float(view.n_right) + marginRight
+                    startLeft = CGFloat(view.n_right) + marginRight
                 }
             }
             startTop += cellHeight
@@ -192,14 +192,14 @@ open class SRow: SContainer {
             
             // 宽度自适应
             if !isConstWidth {
-                self.n_width = Float(contentRect.size.width + padding.left + padding.right)
+                self.n_width = CGFloat(contentRect.size.width + padding.left + padding.right)
             } else {
                 // 居中对齐
                 contentRect.origin.x = CGFloat(self.n_width)/2 - contentRect.size.width/2
             }
             // 高度自适应
             if !isConstHeight {
-                self.n_height = Float(contentRect.size.height + padding.top + padding.bottom)
+                self.n_height = CGFloat(contentRect.size.height + padding.top + padding.bottom)
             }
             break
         case .right:
@@ -207,12 +207,12 @@ open class SRow: SContainer {
             self.subviews.forEach { view in
                 if view.isUseSWUI(), view.sPosition == nil {
                     
-                    let marginLeft: Float = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
-                    let marginRight: Float = countSWValue(value: view.sRight, contentSize: self.sContentSize())
-                    let marginTop: Float = countSWValue(value: view.sTop, contentSize: self.sContentSize())
-                    let marginBottom: Float = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
+                    let marginLeft: CGFloat = countSWValue(value: view.sLeft, contentSize: self.sContentSize())
+                    let marginRight: CGFloat = countSWValue(value: view.sRight, contentSize: self.sContentSize())
+                    let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
+                    let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                     
-                    let targertLeft = startLeft - marginRight - Float(view.n_width)
+                    let targertLeft = startLeft - marginRight - CGFloat(view.n_width)
                     
                     view.n_left = targertLeft
                     switch s_justifyContent {
@@ -228,10 +228,10 @@ open class SRow: SContainer {
                     }
                     
                     // 获取每行排列最大的高
-                    if Float(view.n_bottom) + marginBottom > cellHeight {
-                        cellHeight = Float(view.n_bottom) + marginBottom
+                    if CGFloat(view.n_bottom) + marginBottom > cellHeight {
+                        cellHeight = CGFloat(view.n_bottom) + marginBottom
                     }
-                    startLeft = Float(view.n_left) - marginLeft
+                    startLeft = CGFloat(view.n_left) - marginLeft
                 }
             }
             startTop += cellHeight
@@ -241,7 +241,7 @@ open class SRow: SContainer {
             contentRect.size.width = CGFloat(-startLeft)
             contentRect.size.height = CGFloat(startTop)
             
-            let totalWidth: Float = startLeft
+            let totalWidth: CGFloat = startLeft
             // 数值回正
             self.subviews.forEach { view in
                 if view.isUseSWUI() {
@@ -254,17 +254,17 @@ open class SRow: SContainer {
              
             // 宽度自适应
             if !isConstWidth {
-                self.n_width = Float(contentRect.size.width + padding.left + padding.right)
+                self.n_width = CGFloat(contentRect.size.width + padding.left + padding.right)
             } else {
-                if (s_scrollType == .scrollx || s_scrollType == .auto), Float(contentRect.size.width + padding.left + padding.right) > self.n_width  {
+                if (s_scrollType == .scrollx || s_scrollType == .auto), CGFloat(contentRect.size.width + padding.left + padding.right) > self.n_width  {
                     isScrollX = true
                 }
             }
             // 高度自适应
             if !isConstHeight {
-                self.n_height = Float(contentRect.size.height + padding.top + padding.bottom)
+                self.n_height = CGFloat(contentRect.size.height + padding.top + padding.bottom)
             } else {
-                if (s_scrollType == .scrolly || s_scrollType == .auto), Float(contentRect.size.height + padding.top + padding.bottom) > self.n_height  {
+                if (s_scrollType == .scrolly || s_scrollType == .auto), CGFloat(contentRect.size.height + padding.top + padding.bottom) > self.n_height  {
                     isScrollY = true
                 }
             }
@@ -287,8 +287,8 @@ open class SRow: SContainer {
         // reset position
         self.subviews.forEach { view in
             if view.isUseSWUI(), view.sPosition == nil {
-                view.n_left = Float(contentRect.origin.x) + view.n_left
-                view.n_top = Float(contentRect.origin.y) + view.n_top
+                view.n_left = CGFloat(contentRect.origin.x) + view.n_left
+                view.n_top = CGFloat(contentRect.origin.y) + view.n_top
             }
         }
         

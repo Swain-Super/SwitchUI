@@ -39,4 +39,9 @@ public extension String {
             return UIColor.gray
         }
     }
+
+    func toCGFloat() -> CGFloat {
+        return CGFloat(Float(self) ?? 0)
+    }
+    
 }

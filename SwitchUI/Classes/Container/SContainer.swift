@@ -221,18 +221,18 @@ open class SContainer: UIScrollView {
         
         if root {
             if let sLeft = sLeft {
-                let marginLeft: Float = countSWValue(value: self.sLeft, contentSize: self.sContentSize())
+                let marginLeft: CGFloat = countSWValue(value: self.sLeft, contentSize: self.sContentSize())
                 self.n_left = marginLeft
             } else if let sRight = sRight {
-                let marginRight: Float = countSWValue(value: self.sRight, contentSize: self.sContentSize())
+                let marginRight: CGFloat = countSWValue(value: self.sRight, contentSize: self.sContentSize())
                 self.n_left = self.n_width - marginRight
             }
             
             if let sTop = sTop {
-                let marginTop: Float = countSWValue(value: self.sTop, contentSize: self.sContentSize())
+                let marginTop: CGFloat = countSWValue(value: self.sTop, contentSize: self.sContentSize())
                 self.n_top = marginTop
             } else if let sBottom = sBottom {
-                let marginBottom: Float = countSWValue(value: self.sBottom, contentSize: self.sContentSize())
+                let marginBottom: CGFloat = countSWValue(value: self.sBottom, contentSize: self.sContentSize())
                 self.n_top = self.n_height - marginBottom
             }
             
@@ -269,18 +269,18 @@ open class SContainer: UIScrollView {
         
         if let sLeft = self.sLeft, let sRight = self.sRight {
            // 同时设置了左和右,相当于确定了宽度
-           let left: Float = countSWValue(value: sLeft, contentSize: self.superContentSize())
-           let right: Float = countSWValue(value: sRight, contentSize: self.superContentSize())
-           let width = Float(self.superview?.n_width ?? 0) - left - right
+           let left: CGFloat = countSWValue(value: sLeft, contentSize: self.superContentSize())
+           let right: CGFloat = countSWValue(value: sRight, contentSize: self.superContentSize())
+           let width = CGFloat(self.superview?.n_width ?? 0) - left - right
            frame.size.width = CGFloat(width)
            // isConstWidth = true
        }
     
        if let sTop = self.sTop, let sBottom = self.sBottom {
            // 同时设置了上和下
-           let top: Float = countSWValue(value: sTop, contentSize: self.superContentSize())
-           let bottom: Float = countSWValue(value: sBottom, contentSize: self.superContentSize())
-           let height = Float(self.superview?.n_height ?? 0) - top - bottom
+           let top: CGFloat = countSWValue(value: sTop, contentSize: self.superContentSize())
+           let bottom: CGFloat = countSWValue(value: sBottom, contentSize: self.superContentSize())
+           let height = CGFloat(self.superview?.n_height ?? 0) - top - bottom
            frame.size.height = CGFloat(height)
            // isConstHeight = true
        }
@@ -292,28 +292,28 @@ open class SContainer: UIScrollView {
         if let position = view.sPosition {
             // 计算x的位置，centerX优先级最高
             if let centerX = position.centerX {
-                let centerX: Float = countSWValue(value: centerX, contentSize: self.sContentSize())
+                let centerX: CGFloat = countSWValue(value: centerX, contentSize: self.sContentSize())
                 view.n_centerX = centerX
             } else {
                 if let left = position.left {
-                    let left: Float = countSWValue(value: left, contentSize: self.superContentSize())
+                    let left: CGFloat = countSWValue(value: left, contentSize: self.superContentSize())
                     view.n_left = left
                 } else if let right = position.right {
-                    let right: Float = countSWValue(value: right, contentSize: self.superContentSize())
+                    let right: CGFloat = countSWValue(value: right, contentSize: self.superContentSize())
                     view.n_right = self.n_width - right
                 }
             }
             
             // 计算y的位置，centerY优先级最高
             if let centerY = position.centerY {
-                let centerY: Float = countSWValue(value: centerY, contentSize: self.sContentSize())
+                let centerY: CGFloat = countSWValue(value: centerY, contentSize: self.sContentSize())
                 view.n_centerY = centerY
             } else {
                 if let top = position.top {
-                    let top: Float = countSWValue(value: top, contentSize: self.superContentSize())
+                    let top: CGFloat = countSWValue(value: top, contentSize: self.superContentSize())
                     view.n_top = top
                 } else if let bottom = position.bottom {
-                    let bottom: Float = countSWValue(value: bottom, contentSize: self.superContentSize())
+                    let bottom: CGFloat = countSWValue(value: bottom, contentSize: self.superContentSize())
                     view.n_bottom = self.n_height - bottom
                 }
             }
@@ -380,7 +380,7 @@ open class SContainer: UIScrollView {
 extension SContainer {
 
     @discardableResult
-    public func padding(_ padding: Float) -> Self {
+    public func padding(_ padding: CGFloat) -> Self {
         self.padding = UIEdgeInsets(top: CGFloat(padding), left: CGFloat(padding), bottom: CGFloat(padding), right: CGFloat(padding))
         return self
     }
@@ -392,38 +392,38 @@ extension SContainer {
     }
     
     @discardableResult
-    public func paddingTop(_ value: Float) -> Self {
+    public func paddingTop(_ value: CGFloat) -> Self {
         self.padding.top = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingBottom(_ value: Float) -> Self {
+    public func paddingBottom(_ value: CGFloat) -> Self {
         self.padding.bottom = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingLeft(_ value: Float) -> Self {
+    public func paddingLeft(_ value: CGFloat) -> Self {
         self.padding.left = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingRight(_ value: Float) -> Self {
+    public func paddingRight(_ value: CGFloat) -> Self {
         self.padding.right = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingVertical(_ value: Float) -> Self {
+    public func paddingVertical(_ value: CGFloat) -> Self {
         self.padding.top = CGFloat(value)
         self.padding.bottom = CGFloat(value)
         return self
     }
     
     @discardableResult
-    public func paddingHorizontal(_ value: Float) -> Self {
+    public func paddingHorizontal(_ value: CGFloat) -> Self {
         self.padding.left = CGFloat(value)
         self.padding.right = CGFloat(value)
         return self

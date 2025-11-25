@@ -149,8 +149,8 @@ open class SList: SContainer {
     
     /// 列表间隙
     @discardableResult
-    public func space(_ value: Float) -> Self {
-        self.space = SWValue(value: String(value), .left)
+    public func space(_ value: CGFloat) -> Self {
+        self.space = SWValue(value: value.toString(), .left)
         return self
     }
     
@@ -182,7 +182,7 @@ open class SList: SContainer {
     func buildAllItemAndCountSize() {
         
         /// 间隙
-        let space: Float = countSWValue(value: self.space, contentSize: self.sContentSize())
+        let space: CGFloat = countSWValue(value: self.space, contentSize: self.sContentSize())
         
         /// =========================== 尺寸计算 ===========================
         _ = self.itemList.map { listItem in
@@ -203,13 +203,13 @@ open class SList: SContainer {
         /// =========================== 排版 ===========================
         if self.scrollType == .scrolly {
             /// 垂直排列
-            var top: Float = 0.0
+            var top: CGFloat = 0.0
             _ = self.itemList.map { listItem in
                 
-                let marginLeft: Float = countSWValue(value: listItem.sLeft, contentSize: self.sContentSize())
-                // let marginRight: Float = countSWValue(value: listItem.sRight, contentSize: self.sContentSize())
-                let marginTop: Float = countSWValue(value: listItem.sTop, contentSize: self.sContentSize())
-                let marginBottom: Float = countSWValue(value: listItem.sBottom, contentSize: self.sContentSize())
+                let marginLeft: CGFloat = countSWValue(value: listItem.sLeft, contentSize: self.sContentSize())
+                // let marginRight: CGFloat = countSWValue(value: listItem.sRight, contentSize: self.sContentSize())
+                let marginTop: CGFloat = countSWValue(value: listItem.sTop, contentSize: self.sContentSize())
+                let marginBottom: CGFloat = countSWValue(value: listItem.sBottom, contentSize: self.sContentSize())
                 
                 listItem.layout(self.sContentSize(), scrollType)
                 listItem.n_top = top + marginTop
@@ -222,13 +222,13 @@ open class SList: SContainer {
             self.contentSize = CGSizeMake(0, CGFloat(top))
         } else if self.scrollType == .scrollx {
             /// 水平排列
-            var left: Float = 0
+            var left: CGFloat = 0
             _ = self.itemList.map { listItem in
                 
-                let marginLeft: Float = countSWValue(value: listItem.sLeft, contentSize: self.sContentSize())
-                let marginRight: Float = countSWValue(value: listItem.sRight, contentSize: self.sContentSize())
-                let marginTop: Float = countSWValue(value: listItem.sTop, contentSize: self.sContentSize())
-                // let marginBottom: Float = countSWValue(value: listItem.sBottom, contentSize: self.sContentSize())
+                let marginLeft: CGFloat = countSWValue(value: listItem.sLeft, contentSize: self.sContentSize())
+                let marginRight: CGFloat = countSWValue(value: listItem.sRight, contentSize: self.sContentSize())
+                let marginTop: CGFloat = countSWValue(value: listItem.sTop, contentSize: self.sContentSize())
+                // let marginBottom: CGFloat = countSWValue(value: listItem.sBottom, contentSize: self.sContentSize())
                 
                 listItem.layout(self.sContentSize(), scrollType)
                 listItem.n_left = left + marginLeft
@@ -246,8 +246,8 @@ open class SList: SContainer {
         // reset position
         self.subviews.forEach { view in
             if view.isUseSWUI(), view.sPosition == nil {
-                view.n_left = Float(contentRect.origin.x) + view.n_left
-                view.n_top = Float(contentRect.origin.y) + view.n_top
+                view.n_left = CGFloat(contentRect.origin.x) + view.n_left
+                view.n_top = CGFloat(contentRect.origin.y) + view.n_top
             }
         }
     }

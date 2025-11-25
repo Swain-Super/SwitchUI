@@ -184,13 +184,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func shadowOpacity(_ shadowOpacity: Float) -> Self {
-        self.layer.shadowOpacity = shadowOpacity
+    func shadowOpacity(_ shadowOpacity: CGFloat) -> Self {
+        self.layer.shadowOpacity = Float(shadowOpacity)
         return self
     }
     
     @discardableResult
-    func shadowOpacity(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func shadowOpacity(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.shadowOpacity.rawValue, block: block, states: states)
         } else {
@@ -442,9 +442,9 @@ public extension UIView {
         }
     }
     
-    var sAspectRatio: Float? {
+    var sAspectRatio: CGFloat? {
         get {
-            return objc_getAssociatedObject(self, &_aspectRatio) as? Float
+            return objc_getAssociatedObject(self, &_aspectRatio) as? CGFloat
         }
         set {
             objc_setAssociatedObject(self, &_aspectRatio, newValue, .OBJC_ASSOCIATION_RETAIN)
@@ -513,13 +513,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func width(_ value: Float) -> Self {
-        self.sWidth = SWValue(value: String(value), .width)
+    func width(_ value: CGFloat) -> Self {
+        self.sWidth = SWValue(value: value.toString(), .width)
         return self
     }
     
     @discardableResult
-    func width(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func width(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_widthB.rawValue, block: block, states: states)
         } else {
@@ -545,13 +545,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func height(_ value: Float) -> Self {
-        self.sHeight = SWValue(value: String(value), .height)
+    func height(_ value: CGFloat) -> Self {
+        self.sHeight = SWValue(value: value.toString(), .height)
         return self
     }
     
     @discardableResult
-    func height(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func height(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_widthB.rawValue, block: block, states: states)
         } else {
@@ -577,13 +577,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func left(_ value: Float) -> Self {
-        self.sLeft = SWValue(value: String(value), .left)
+    func left(_ value: CGFloat) -> Self {
+        self.sLeft = SWValue(value: value.toString(), .left)
         return self
     }
     
     @discardableResult
-    func left(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func left(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_leftB.rawValue, block: block, states: states)
         } else {
@@ -609,13 +609,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func top(_ value: Float) -> Self {
-        self.sTop = SWValue(value: String(value), .top)
+    func top(_ value: CGFloat) -> Self {
+        self.sTop = SWValue(value: value.toString(), .top)
         return self
     }
     
     @discardableResult
-    func top(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func top(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_topA.rawValue, block: block, states: states)
         } else {
@@ -641,13 +641,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func right(_ value: Float) -> Self {
-        self.sRight = SWValue(value: String(value), .right)
+    func right(_ value: CGFloat) -> Self {
+        self.sRight = SWValue(value: value.toString(), .right)
         return self
     }
     
     @discardableResult
-    func right(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func right(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_rightB.rawValue, block: block, states: states)
         } else {
@@ -673,13 +673,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func bottom(_ value: Float) -> Self {
-        self.sBottom = SWValue(value: String(value), .bottom)
+    func bottom(_ value: CGFloat) -> Self {
+        self.sBottom = SWValue(value: value.toString(), .bottom)
         return self
     }
     
     @discardableResult
-    func bottom(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func bottom(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_bottomB.rawValue, block: block, states: states)
         } else {
@@ -705,13 +705,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func centerX(_ value: Float) -> Self {
-        self.sCenterX = SWValue(value: String(value), .centerX)
+    func centerX(_ value: CGFloat) -> Self {
+        self.sCenterX = SWValue(value: value.toString(), .centerX)
         return self
     }
     
     @discardableResult
-    func centerX(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func centerX(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_centerXB.rawValue, block: block, states: states)
         } else {
@@ -737,13 +737,13 @@ public extension UIView {
     }
     
     @discardableResult
-    func centerY(_ value: Float) -> Self {
-        self.sCenterY = SWValue(value: String(value), .centerY)
+    func centerY(_ value: CGFloat) -> Self {
+        self.sCenterY = SWValue(value: value.toString(), .centerY)
         return self
     }
     
     @discardableResult
-    func centerY(_ block: @escaping (UIView) -> Float,_ states: [SState]? = nil) -> Self {
+    func centerY(_ block: @escaping (UIView) -> CGFloat,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_centerYB.rawValue, block: block, states: states)
         } else {
@@ -753,7 +753,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func aspectRatio(_ value: Float) -> Self {
+    func aspectRatio(_ value: CGFloat) -> Self {
         self.sAspectRatio = value
         return self
     }
@@ -766,7 +766,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func position(_ value: [SWPositionType: Float]?) -> Self {
+    func position(_ value: [SWPositionType: CGFloat]?) -> Self {
         self.sPosition = SWPosition.init(value: value)
         return self
     }
@@ -782,7 +782,7 @@ public extension UIView {
     }
     
     @discardableResult
-    func position(_ block: @escaping (UIView) -> [SWPositionType: Float]?,_ states: [SState]? = nil) -> Self {
+    func position(_ block: @escaping (UIView) -> [SWPositionType: CGFloat]?,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
             self.autoBindAndRun(key: UIViewAKey.s_positionB.rawValue, block: block, states: states)
         } else {
@@ -821,7 +821,7 @@ public extension UIView {
     func sw_layoutSize(contentSize: CGSize, padding: UIEdgeInsets = .zero) {
         
         if let sWidth = self.sWidth, sWidth.type != .auto {
-            let width: Float = countSWValue(value: sWidth, contentSize: contentSize, padding)
+            let width: CGFloat = countSWValue(value: sWidth, contentSize: contentSize, padding)
             n_width = width
             isConstWidth = true
         } else {
@@ -829,7 +829,7 @@ public extension UIView {
         }
         
         if let sHeight = self.sHeight, sHeight.type != .auto {
-            let height: Float = countSWValue(value: sHeight, contentSize: contentSize, padding)
+            let height: CGFloat = countSWValue(value: sHeight, contentSize: contentSize, padding)
             n_height = height
             isConstHeight = true
         } else {
@@ -908,8 +908,8 @@ public extension UIView {
     }
     
     @discardableResult
-    func zIndex(_ zIndex: Float) -> Self {
-        self.layer.zPosition = CGFloat(zIndex)
+    func zIndex(_ zIndex: CGFloat) -> Self {
+        self.layer.zPosition = zIndex
         return self
     }
     
@@ -1000,75 +1000,75 @@ public extension UIView {
 // MARK: 基础布局快捷获取
 public extension UIView {
     
-    var n_left: Float {
+    var n_left: CGFloat {
         set {
-            self.frame = CGRect.init(origin: CGPoint.init(x: CGFloat(newValue), y: self.frame.origin.y), size: self.frame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: newValue, y: self.frame.origin.y), size: self.frame.size)
         }
         get {
-            return Float(self.frame.origin.x)
+            return self.frame.origin.x
         }
     }
     
-    var n_top: Float {
+    var n_top: CGFloat {
         set {
-            self.frame = CGRect.init(origin: CGPoint.init(x: self.frame.origin.x, y: CGFloat(newValue)), size: self.frame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: self.frame.origin.x, y: newValue), size: self.frame.size)
         }
         get {
-            return Float(self.frame.origin.y)
+            return self.frame.origin.y
         }
     }
     
-    var n_right: Float {
+    var n_right: CGFloat {
         set {
-            self.frame = CGRect.init(origin: CGPoint.init(x: CGFloat(newValue) - self.frame.size.width, y: self.frame.origin.y), size: self.frame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: newValue - self.frame.size.width, y: self.frame.origin.y), size: self.frame.size)
         }
         get {
-            return Float(self.frame.origin.x + self.frame.size.width)
+            return self.frame.origin.x + self.frame.size.width
         }
     }
     
-    var n_height: Float {
+    var n_height: CGFloat {
         set {
-            self.frame = CGRect.init(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: CGFloat(newValue))
+            self.frame = CGRect.init(x: self.frame.origin.x, y: self.frame.origin.y, width: self.frame.size.width, height: newValue)
         }
         get {
-            return Float(self.bounds.size.height)
+            return self.bounds.size.height
         }
     }
     
-    var n_width: Float {
+    var n_width: CGFloat {
         set {
-            self.frame = CGRect.init(x: self.frame.origin.x, y: self.frame.origin.y, width: CGFloat(newValue), height: self.frame.size.height)
+            self.frame = CGRect.init(x: self.frame.origin.x, y: self.frame.origin.y, width: newValue, height: self.frame.size.height)
         }
         get {
-            return Float(self.bounds.size.width)
+            return self.bounds.size.width
         }
     }
     
-    var n_bottom: Float {
+    var n_bottom: CGFloat {
         set {
-            self.frame = CGRect.init(origin: CGPoint.init(x: self.frame.origin.x, y: CGFloat(newValue) - self.frame.size.height), size: self.frame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: self.frame.origin.x, y: newValue - self.frame.size.height), size: self.frame.size)
         }
         get {
-            return Float(self.frame.size.height + self.frame.origin.y)
+            return self.frame.size.height + self.frame.origin.y
         }
     }
     
-    var n_centerX: Float {
+    var n_centerX: CGFloat {
         set {
-            self.center = CGPoint.init(x: CGFloat(newValue), y: self.center.y)
+            self.center = CGPoint.init(x: newValue, y: self.center.y)
         }
         get {
-            return Float(self.center.x)
+            return self.center.x
         }
     }
     
-    var n_centerY: Float {
+    var n_centerY: CGFloat {
         set {
-            self.center = CGPoint.init(x: self.center.x, y: CGFloat(newValue))
+            self.center = CGPoint.init(x: self.center.x, y: newValue)
         }
         get {
-            return Float(self.center.y)
+            return self.center.y
         }
     }
     

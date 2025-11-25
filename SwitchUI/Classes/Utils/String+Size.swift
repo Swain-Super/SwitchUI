@@ -30,27 +30,27 @@ public extension String {
     /// 过滤字符串中的单位符号
     ///  @param containerSize 父级容器宽高
     /// - return 处理后的字符串
-    func filterSizeValue(position: SWPositionType) -> (String, SWValueType, Float) {
+    func filterSizeValue(position: SWPositionType) -> (String, SWValueType, CGFloat) {
         
         if self == "auto" {
             return (self, SWValueType.auto, 0)
         }
         
         var target = self
-        var offset: Float = 0
+        var offset: CGFloat = 0
         
         // 判断有没有组合运算的，识别 + - 操作
         if target.contains(sSizeUnitPlus) {
             let splitArr = (target as NSString).components(separatedBy: sSizeUnitPlus)
             if splitArr.count == 2, splitArr[0].count > 0, splitArr[1].count > 0 {
                 target = splitArr[0].trim().replaceWhiteSpaces()
-                offset = Float(splitArr[1].trim().replaceWhiteSpaces()) ?? 0
+                offset = splitArr[1].trim().replaceWhiteSpaces().toCGFloat()
             }
         } else if target.contains(sSizeUnitReduce) {
             let splitArr = (target as NSString).components(separatedBy: sSizeUnitReduce)
             if splitArr.count == 2, splitArr[0].count > 0, splitArr[1].count > 0 {
                 target = splitArr[0].trim().replaceWhiteSpaces()
-                offset = (Float(splitArr[1].trim().replaceWhiteSpaces()) ?? 0) * -1
+                offset = splitArr[1].trim().replaceWhiteSpaces().toCGFloat() * -1
             }
         }
         

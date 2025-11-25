@@ -16,7 +16,7 @@ public class SLabel: UILabel {
     // 字体名称
     public var s_fontName: String?
     // 字体大小
-    public var s_fontSize: Float = 17
+    public var s_fontSize: CGFloat = 17
     // 字体
     public var s_font: UIFont?
     // 字体字重
@@ -24,14 +24,14 @@ public class SLabel: UILabel {
     // 隔断模式
     public var s_linkBreakMode: NSLineBreakMode?
     // 行间距
-    public var s_lineSpace: Float?
+    public var s_lineSpace: CGFloat?
     // 行高
-    public var s_lineHeight: Float?
+    public var s_lineHeight: CGFloat?
     // 文字横向排列方式
     public var s_textAlignment: NSTextAlignment?
     // Label控件的内容Padding
     public var padding: UIEdgeInsets = .zero
-    
+
     public override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -91,7 +91,7 @@ public class SLabel: UILabel {
     }
     
     @discardableResult
-    public func s_fontSize(object: Float) -> Self {
+    public func s_fontSize(object: CGFloat) -> Self {
         self.s_fontSize = object
         return self
     }
@@ -109,13 +109,13 @@ public class SLabel: UILabel {
     }
     
     @discardableResult
-    public func s_lineSpace(object: Float) -> Self {
+    public func s_lineSpace(object: CGFloat) -> Self {
         self.s_lineSpace = object
         return self
     }
     
     @discardableResult
-    public func s_lineHeight(object: Float) -> Self {
+    public func s_lineHeight(object: CGFloat) -> Self {
         self.s_lineHeight = object
         return self
     }
@@ -159,7 +159,7 @@ public class SLabel: UILabel {
         if let font = s_font {
             attributeString.addAttributes([NSAttributedString.Key.font : font], range: NSRange.init(location: 0, length: textCount))
         } else if var fontName = s_fontName {
-            let fontSize: Float = s_fontSize >= 0 ? s_fontSize : 17
+            let fontSize: CGFloat = s_fontSize >= 0 ? s_fontSize : 17
             
             let font = UIFont(name: fontName, size: CGFloat(fontSize)) ?? UIFont.systemFont(ofSize: CGFloat(fontSize))
             attributeString.addAttributes([NSAttributedString.Key.font : font], range: NSRange.init(location: 0, length: textCount))
