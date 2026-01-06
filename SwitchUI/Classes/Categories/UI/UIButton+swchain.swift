@@ -78,6 +78,23 @@ public extension UIButton {
     }
     
     @discardableResult
+    func setTitleColor(_ color: String, state: UIControl.State) -> Self {
+        self.setTitleColor(color.hexColor(), for: state)
+        return self
+    }
+    
+    @discardableResult
+    func setTitleColor(_ block: @escaping (UIView) -> (String, UIControl.State),_ states: [SState]? = nil) -> Self {
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UIButtonKey.setTitleColor2.rawValue, block: block, states: states)
+        } else {
+            let (color, state) = block(self)
+            self.setTitleColor(color, state: state)
+        }
+        return self
+    }
+    
+    @discardableResult
     func addEvent(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) -> Self {
         self.addTarget(target, action: action, for: controlEvents)
         return self

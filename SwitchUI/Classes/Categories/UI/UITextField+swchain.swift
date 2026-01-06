@@ -176,6 +176,22 @@ public extension UITextField {
         return self
     }
     
+    @discardableResult
+    func isSecureTextEntry(_ isSecure: Bool) -> Self {
+        self.isSecureTextEntry = isSecure
+        return self
+    }
+    
+    @discardableResult
+    func isSecureTextEntry(_ block: @escaping (UIView) -> Bool,_ states: [SState]? = nil) -> Self {
+        if let states, states.count > 0 {
+            self.autoBindAndRun(key: UITextFieldKey.isSecureTextEntry.rawValue, block: block, states: states)
+        } else {
+            self.isSecureTextEntry(block(self))
+        }
+        return self
+    }
+    
 }
 
 public extension UITextField {

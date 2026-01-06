@@ -29,15 +29,9 @@ open class SColumn: SContainer {
         
         self.layoutFrame()
         
-        // Colum布局必须有宽度，如果没有则设置为父级宽度
-        if !isConstWidth {
-            self.n_width = superview?.n_width ?? 0
-        }
-        
-        contentRect = self.bounds
-        
         // 子view自动计算尺寸
         var totalSubViewHeight: CGFloat = CGFloat(self.padding.top + self.padding.bottom)
+        var maxSubViewWidth: CGFloat = 0
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
@@ -56,6 +50,7 @@ open class SColumn: SContainer {
                 }
                 
                 totalSubViewHeight += marginTop + CGFloat(view.n_height) + marginBottom
+                maxSubViewWidth = max(maxSubViewWidth,  CGFloat(self.padding.left + self.padding.right) + CGFloat(view.n_width) + countSWValue(value: view.sLeft, contentSize: self.sContentSize()) + countSWValue(value: view.sRight, contentSize: self.sContentSize()))
             }
         }
         // 设置Blank的值
@@ -69,13 +64,19 @@ open class SColumn: SContainer {
             }
         }
         
+        // Colum布局没设置宽度时，宽度取子view的最大宽度
+        if !isConstWidth {
+            self.n_width = maxSubViewWidth
+        }
+        contentRect = self.bounds
+        
         // 左边的开始位置
-        let startLeft: CGFloat = CGFloat(padding.left)
+        var startLeft: CGFloat = CGFloat(padding.left)
         // 右边的开始位置
         let startRight: CGFloat = CGFloat(padding.right)
         // 顶部开始位置
         var startTop: CGFloat = CGFloat(0)
-
+        
         self.subviews.forEach { view in
             if view.isUseSWUI(), view.sPosition == nil {
                 
@@ -99,7 +100,6 @@ open class SColumn: SContainer {
                 startTop = CGFloat(view.n_bottom) + marginBottom
             }
         }
-        
         contentRect.origin.x = padding.left
         contentRect.origin.y = padding.top
         contentRect.size.width = CGFloat(startLeft - CGFloat(padding.left))

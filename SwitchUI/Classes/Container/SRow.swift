@@ -31,15 +31,9 @@ open class SRow: SContainer {
         // 先布局自身
         self.layoutFrame()
         
-        // 如果垂直布局设置为非顶部自定对齐，则高度自动设置为父view的高度
-        if !isConstHeight, s_justifyContent != .top {
-            self.n_height = superview?.n_height ?? 0
-        }
-        
-        contentRect = self.bounds
-        
         // 子view自动计算尺寸
         var totalSubViewWidth: CGFloat = CGFloat(self.padding.left + self.padding.right)
+        var maxSubViewHeight: CGFloat = 0
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
@@ -57,6 +51,7 @@ open class SRow: SContainer {
                     container.sTags = sTags
                 }
                 totalSubViewWidth += marginLeft + CGFloat(view.n_width) + marginRight
+                maxSubViewHeight = max(maxSubViewHeight,  CGFloat(self.padding.top + self.padding.bottom) + CGFloat(view.n_height) + countSWValue(value: view.sTop, contentSize: self.sContentSize()) + countSWValue(value: view.sBottom, contentSize: self.sContentSize()))
             }
         }
         // 设置Blank的值
@@ -69,6 +64,12 @@ open class SRow: SContainer {
                 }
             }
         }
+        
+        // Colum布局没设置高度时，高度取子view的最大高度
+        if !isConstHeight {
+            self.n_height = maxSubViewHeight
+        }
+        contentRect = self.bounds
         
         // 左边的开始位置
         var startLeft: CGFloat = 0.0

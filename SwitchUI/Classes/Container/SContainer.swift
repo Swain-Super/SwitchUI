@@ -117,13 +117,13 @@ open class SContainer: UIScrollView {
                     }
                 })
             } else if let sif = view as? SIF {
-                if sif.condition, let trueBlock = sif.trueBlock {
+                if sif.condition, let trueBlock = sif.getTrueStyle() {
                     trueBlock.map { x in
                         if let x = x as? UIView {
                             subViewAppendBlk(x)
                         }
                     }
-                } else if !sif.condition, let falseBlock = sif.falseBlock {
+                } else if !sif.condition, let falseBlock = sif.getFalseStyle() {
                     falseBlock.map { x in
                         if let x = x as? UIView {
                             subViewAppendBlk(x)

@@ -19,6 +19,7 @@ public enum UITextFieldKey: String {
     case adjustsFontSizeToFitWidth
     case placeholder
     case attributedPlaceholder
+    case isSecureTextEntry
 }
 
 public class UITextFieldUI {
@@ -108,6 +109,14 @@ public class UITextFieldUI {
             }
         }
         reflect[UITextFieldKey.attributedPlaceholder.rawValue] = attributedPlaceholderBlk
+        
+        // isSecureTextEntry
+        let isSecureTextEntryBlk: (UIView, Any) -> Void = { (view, block) -> Void in
+            if let block = block as? (UIView) -> Bool, let view = view as? UITextField {
+                view.isSecureTextEntry(block(view))
+            }
+        }
+        reflect[UITextFieldKey.isSecureTextEntry.rawValue] = isSecureTextEntryBlk
         
         return reflect
     }

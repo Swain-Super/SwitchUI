@@ -361,6 +361,13 @@ public extension UIView {
         object.pointee = self as? T
         return self
     }
+    
+    @discardableResult
+    func customInit(_ block: @escaping (UIView) -> Void) -> Self {
+        block(self)
+        return self
+    }
+    
 }
 
 
@@ -994,8 +1001,8 @@ public extension UIView {
         bindAction(states: states, viewId: self.sViewId, attribute: key, block: block)
         SUIManager.shared.runAttributeReflect(key: key, view: self, value: block)
     }
+    
 }
-
 
 // MARK: 基础布局快捷获取
 public extension UIView {
@@ -1080,57 +1087,4 @@ public extension UIView {
             return self.frame.size
         }
     }
-}
-
-class SUIViewClick : Any {
-    /// 点击事件
-    var click : (UIView) -> Void = {_ in return}
-    /// 点击手势识别器
-    var tap: UITapGestureRecognizer?
-}
-
-private var _sViewClick: Void?
-
-// MARK: 点击事件
-public extension UIView {
-    
-    /// 保存点击事件对象
-    internal var sViewClick : SUIViewClick? {
-        get {
-            return objc_getAssociatedObject(self, &_sViewClick) as? SUIViewClick
-        }
-        set {
-            objc_setAssociatedObject(self, &_sViewClick, newValue, .OBJC_ASSOCIATION_RETAIN)
-        }
-    }
-    
-    @discardableResult
-    /// 配置点击事件
-    /// - Parameter click: 点击
-    /// - Returns: 返回
-    func onClick(_ click: @escaping ((UIView) -> Void)) -> Self {
-        self.sViewClick = SUIViewClick()
-        self.sViewClick?.click = click
-        
-        if let self = self as? UIControl {
-            self.addTarget(self, action: #selector(onClickAction), for: .touchUpInside)
-        } else {
-            if let tap = self.sViewClick?.tap {
-                self.removeGestureRecognizer(tap)
-                self.sViewClick?.tap = nil
-            }
-            self.isUserInteractionEnabled = true
-            let tap = UITapGestureRecognizer.init(target: self, action: #selector(onClickAction))
-            self.sViewClick?.tap = tap
-            self.addGestureRecognizer(tap)
-        }
-        return self
-    }
-    
-    @objc func onClickAction() {
-        if let click = self.sViewClick?.click {
-            click(self)
-        }
-    }
-    
 }

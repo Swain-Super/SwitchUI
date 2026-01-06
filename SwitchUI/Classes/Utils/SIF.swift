@@ -13,12 +13,24 @@ public class SIF: NSObject  {
     
     /// 条件结果
     var condition: Bool = false
-    /// 真Block
-    var trueBlock: [UIView]?
-    /// 假Block
-    var falseBlock: [UIView]?
+    /// trueStyle
+    var trueStyle: [UIView]?
+    /// falseStyle
+    var falseStyle: [UIView]?
+    /// true Block
+    var trueBlock: (() -> [UIView]?)?
+    /// false Block
+    var falseBlock: (() -> [UIView]?)?
     
-    public init(condition: Bool, trueBlock: [UIView]?, falseBlock: [UIView]?) {
+    public init(condition: Bool, trueStyle: [UIView]?, falseStyle: [UIView]?) {
+        super.init()
+        
+        self.condition = condition
+        self.trueStyle = trueStyle
+        self.falseStyle = falseStyle
+    }
+    
+    public init(condition: Bool, trueBlock: (() -> [UIView]?)?, falseBlock: (() -> [UIView]?)?) {
         super.init()
         
         self.condition = condition
@@ -26,4 +38,17 @@ public class SIF: NSObject  {
         self.falseBlock = falseBlock
     }
     
+    public func getTrueStyle() -> [UIView]? {
+        if let trueBlock {
+            return trueBlock()
+        }
+        return trueStyle
+    }
+    
+    public func getFalseStyle() -> [UIView]? {
+        if let falseBlock {
+            return falseBlock()
+        }
+        return falseStyle
+    }
 }

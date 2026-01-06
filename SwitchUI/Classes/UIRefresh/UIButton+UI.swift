@@ -13,6 +13,7 @@ public enum UIButtonKey: String {
     case setTitle
     case titleFont
     case setTitleColor
+    case setTitleColor2
 }
 
 public class UIButtonUI {
@@ -57,6 +58,15 @@ public class UIButtonUI {
             }
         }
         reflect[UIButtonKey.setTitleColor.rawValue] = setTitleColorBlk
+        
+        // setTitleColor2
+        let setTitleColor2Blk: (UIView, Any) -> Void = { (view, block) -> Void in
+            if let block = block as? (UIView) -> (String, UIControl.State), let view = view as? UIButton {
+                let result = block(view)
+                view.setTitleColor(result.0, state: result.1)
+            }
+        }
+        reflect[UIButtonKey.setTitleColor2.rawValue] = setTitleColor2Blk
         
         return reflect
     }
