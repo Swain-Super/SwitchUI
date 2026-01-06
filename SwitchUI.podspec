@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwitchUI'
-    s.version          = "1.3.0"
+    s.version          = "1.5.0"
     s.summary          = 'A Swift declarative UI framework inspired by SwiftUI'
     s.description      = <<-DESC
     SwitchUI is a lightweight Swift declarative UI framework that provides a simple and elegant way to build user interfaces.
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
     DESC
     s.homepage         = 'https://github.com/Swain-Super/SwitchUI'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
-    s.author           = { 'swain' => 'shiwen@guanghe.tv' }
+    s.author           = { 'swain' => 'swain6@163.com' }
     s.source           = { :git => 'https://github.com/Swain-Super/SwitchUI.git',
         :tag => s.version.to_s
     }
