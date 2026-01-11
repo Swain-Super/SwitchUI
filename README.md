@@ -686,7 +686,7 @@ SStack([
 
 ![](images/image-1.png)
 
-##### columSpace
+##### columnSpace
 
 列间距
 
@@ -696,7 +696,7 @@ SStack([
 
 每行排列的子view数量
 
-##### columsNumber
+##### columnsNumber
 
 每列排列的子view数量
 
@@ -937,7 +937,7 @@ SUIManager.shared.findComponents(viewId: viewId)
 1. 容器尺寸计算：
    
    - 如果未设置固定尺寸，容器会自动计算所需尺寸
-   - 某些容器（如 SColum、SRow）需要设置宽度或高度才能正确布局
+   - 某些容器（如 SColumn、SRow）需要设置宽度或高度才能正确布局
 
 2. 滚动配置：
    

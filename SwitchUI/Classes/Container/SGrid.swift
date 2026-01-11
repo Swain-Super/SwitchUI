@@ -16,11 +16,11 @@ open class SGrid: SContainer {
     /// 行间距
     var rowSpace: SWValue?
     /// 列间距
-    var columSpace: SWValue?
+    var columnSpace: SWValue?
     /// 行中Item数量 默认：1个
     var rowsNumber: Int = 1
     /// 列中Item数量 默认：1个
-    var columsNumber: Int = 1
+    var columnsNumber: Int = 1
     /// 内容排列计算区域
     var contentRect: CGRect = .zero
     /// 每个网格的项目的高，设置后每个网格高都会指定为itemWidth
@@ -64,9 +64,9 @@ open class SGrid: SContainer {
         // 行间距
         var rowSpace: CGFloat = countSWValue(value: rowSpace, contentSize: self.sContentSize())
         // 列间距
-        var columSpace: CGFloat = countSWValue(value: columSpace, contentSize: self.sContentSize())
+        var columnSpace: CGFloat = countSWValue(value: columnSpace, contentSize: self.sContentSize())
         
-        var columIndex: Int = 0
+        var columnIndex: Int = 0
         var rowIndex: Int = 0
         var maxWidth: CGFloat = 0
         var maxHeight: CGFloat = 0
@@ -124,7 +124,7 @@ open class SGrid: SContainer {
                     view.width(itemWidth)
                     
                     view.n_left = CGFloat(startLeft + (rowIndex > 0 ? rowSpace : 0))
-                    view.n_top = CGFloat(startTop + (columIndex > 0 ? columSpace : 0))
+                    view.n_top = CGFloat(startTop + (columnIndex > 0 ? columnSpace : 0))
 
                     /// 高度最大值
                     if view.n_right > maxWidth {
@@ -136,7 +136,7 @@ open class SGrid: SContainer {
                     // 行排满了,换下一行
                     if rowIndex >= self.rowsNumber {
                         rowIndex = 0
-                        columIndex += 1
+                        columnIndex += 1
                         startTop = CGFloat(view.n_bottom)
                         startLeft = 0
                     } else {
@@ -157,19 +157,19 @@ open class SGrid: SContainer {
             var isItemSizeDependFirstView: Bool = false
             if self.autoSplit {
                 let contentHeight: CGFloat = self.n_height - padding.top - padding.bottom
-                if self.columSpace != nil, self.itemHeight == nil {
-                    itemHeight = (contentHeight - (CGFloat(self.columsNumber - 1) * columSpace)) / CGFloat(self.columsNumber)
-                } else if self.columSpace != nil, self.itemHeight != nil {
+                if self.columnSpace != nil, self.itemHeight == nil {
+                    itemHeight = (contentHeight - (CGFloat(self.columnsNumber - 1) * columnSpace)) / CGFloat(self.columnsNumber)
+                } else if self.columnSpace != nil, self.itemHeight != nil {
                     
-                } else if self.columSpace == nil, self.itemHeight == nil {
+                } else if self.columnSpace == nil, self.itemHeight == nil {
                     // 获取第一个item的宽高为所有 item 的宽高
-                    // splitHeight = (contentHeight - (Float(self.columsNumber - 1) * columSpace)) / CGFloat(self.columsNumber)
+                    // splitHeight = (contentHeight - (Float(self.columnsNumber - 1) * columnSpace)) / CGFloat(self.columnsNumber)
                     isItemSizeDependFirstView = true
-                } else if self.columSpace == nil, self.itemHeight != nil {
-                    if (self.totalViewCount > 1 && self.totalViewCount < self.columsNumber) {
-                        columSpace = (contentHeight - CGFloat(self.totalViewCount) * itemHeight)/CGFloat(self.totalViewCount-1)
-                    } else if self.columsNumber > 1 {
-                        columSpace = (contentHeight - CGFloat(self.columsNumber) * itemHeight)/CGFloat(self.columsNumber-1)
+                } else if self.columnSpace == nil, self.itemHeight != nil {
+                    if (self.totalViewCount > 1 && self.totalViewCount < self.columnsNumber) {
+                        columnSpace = (contentHeight - CGFloat(self.totalViewCount) * itemHeight)/CGFloat(self.totalViewCount-1)
+                    } else if self.columnsNumber > 1 {
+                        columnSpace = (contentHeight - CGFloat(self.columnsNumber) * itemHeight)/CGFloat(self.columnsNumber-1)
                     }
                 }
             }
@@ -198,18 +198,18 @@ open class SGrid: SContainer {
                     
                     
                     view.n_left = CGFloat(startLeft + (rowIndex > 0 ? rowSpace : 0))
-                    view.n_top = CGFloat(startTop + (columIndex > 0 ? columSpace : 0))
+                    view.n_top = CGFloat(startTop + (columnIndex > 0 ? columnSpace : 0))
 
                     /// 高度最大值
                     if view.n_bottom > maxHeight {
                         maxHeight = view.n_bottom
                     }
                     
-                    columIndex+=1
+                    columnIndex+=1
                     
                     // 列排满了,换下一列
-                    if columIndex >= self.columsNumber {
-                        columIndex = 0
+                    if columnIndex >= self.columnsNumber {
+                        columnIndex = 0
                         rowIndex += 1
                         startLeft = CGFloat(view.n_right)
                         startTop = 0
@@ -284,14 +284,14 @@ open class SGrid: SContainer {
     }
     
     @discardableResult
-    public func columSpace(_ value: String) -> Self {
-        self.columSpace = SWValue(value: value, .left)
+    public func columnSpace(_ value: String) -> Self {
+        self.columnSpace = SWValue(value: value, .left)
         return self
     }
     
     @discardableResult
-    public func columSpace(_ value: CGFloat) -> Self {
-        self.columSpace = SWValue(value: value.toString(), .left)
+    public func columnSpace(_ value: CGFloat) -> Self {
+        self.columnSpace = SWValue(value: value.toString(), .left)
         return self
     }
     
@@ -302,8 +302,8 @@ open class SGrid: SContainer {
     }
     
     @discardableResult
-    public func columsNumber(_ value: Int) -> Self {
-        self.columsNumber = value
+    public func columnsNumber(_ value: Int) -> Self {
+        self.columnsNumber = value
         return self
     }
     

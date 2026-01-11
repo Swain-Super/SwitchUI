@@ -1,5 +1,5 @@
 //
-//  SColum.swift
+//  SColumn.swift
 //  SWEasyLanguage-Online
 //
 //  Created by swain wang on 2024/5/11.
@@ -40,7 +40,7 @@ open class SColumn: SContainer {
                 let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
                 let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                 
-                // 如果容器的子view也是SColum或SRow容器，并且宽高还需要计算的，就先去算一下
+                // 如果容器的子view也是SColumn或SRow容器，并且宽高还需要计算的，就先去算一下
                 if let container = view as? SContainer, (view is SColumn || view is SRow) , (!view.isConstWidth || !view.isConstHeight)  {
                     container.layout()
                     // 标记已经布局完毕了
@@ -64,7 +64,7 @@ open class SColumn: SContainer {
             }
         }
         
-        // Colum布局没设置宽度时，宽度取子view的最大宽度
+        // Column布局没设置宽度时，宽度取子view的最大宽度
         if !isConstWidth {
             self.n_width = maxSubViewWidth
         }
