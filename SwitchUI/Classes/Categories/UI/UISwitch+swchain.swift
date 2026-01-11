@@ -92,4 +92,23 @@ public extension UISwitch {
         }
         return self
     }
+
+    /// 添加切换变化事件回调
+    @discardableResult
+    func onValueChanged(_ action: @escaping (UISwitch) -> Void) -> Self {
+        self.addTarget(ClosureSleeve(action: action), action: #selector(ClosureSleeve.invoke(_:)), for: .valueChanged)
+        return self
+    }
+    
+private class ClosureSleeve {
+    let action: (UISwitch) -> Void
+    
+    init(action: @escaping (UISwitch) -> Void) {
+        self.action = action
+    }
+    
+    @objc func invoke(_ sender: UISwitch) {
+        action(sender)
+    }
+}
 }

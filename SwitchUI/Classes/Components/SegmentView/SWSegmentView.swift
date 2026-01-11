@@ -180,4 +180,10 @@ public extension SWSegmentView {
         return self
     }
     
+    /// 设置切换回调
+    @discardableResult
+    func onChange(_ action: @escaping (Int, String) -> Void) -> Self {
+        self.changeAction = action
+        return self
+    }
 }
