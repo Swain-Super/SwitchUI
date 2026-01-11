@@ -201,6 +201,16 @@ open class SContainer: UIScrollView {
             self.subviews.forEach { view in
                 if view.sPosition != nil {
                     view.sw_layoutSize(contentSize: self.sContentSize(), padding: self.padding)
+                    
+                    // 如果容器的子view也是SColum或SRow容器，并且宽高还需要计算的，就先去算一下
+                    if let container = view as? SContainer, (view is SColumn || view is SRow) , (!view.isConstWidth || !view.isConstHeight)  {
+                        container.layout()
+                        // 标记已经布局完毕了
+                        var sTags = container.sTags ?? [:]
+                        sTags["markLayout"] = true
+                        container.sTags = sTags
+                    }
+                    
                     self.layoutPosition(view: view)
                 }
             }
