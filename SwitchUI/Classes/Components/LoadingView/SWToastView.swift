@@ -73,7 +73,7 @@ public class SWToastView: UIView {
 public extension SWWrapper where Base : UIView {
     
     /// 展示loading框(主线程中刷新UI)
-    func showToast(_ message: String = "", _ time: TimeInterval = 3.0) {
+    func showToast(_ message: String = "", _ time: TimeInterval = 2.0) {
         // 若当前视图已加载CCLoadingView,则先移除后,再添加;
         if let lastView = base.subviews.last as? SWToastView { lastView.removeFromSuperview() }
         
