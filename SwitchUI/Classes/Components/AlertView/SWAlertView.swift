@@ -21,6 +21,8 @@ public class SWAlertView: UIView {
     var confirmBlock: (() -> Void)?
     /// 取消按钮回调
     var cancelBlock: (() -> Void)?
+    /// 自定义内容视图
+    var coustomContentView: [UIView]?
     
     var container: UIView?
     
@@ -51,6 +53,26 @@ public class SWAlertView: UIView {
         self.createUI()
     }
     
+    // MARK: - 初始化器
+    init(frame: CGRect,
+         title: String = "提示",
+         customViews: [UIView]? = nil,
+         confirmTitle: String = "确定",
+         cancleTitle: String = "取消",
+         confirmBlock: (() -> Void)? = nil,
+         cancelBlock: (() -> Void)? = nil) {
+        super.init(frame: frame)
+        
+        self.title = title
+        self.coustomContentView = customViews
+        self.confirmTitle = confirmTitle
+        self.cancleTitle = cancleTitle
+        self.confirmBlock = confirmBlock
+        self.cancelBlock = cancelBlock
+        
+        self.createUI()
+    }
+    
     func createUI() {
         let container: SContainer = self.build()
         self.container = container
@@ -70,12 +92,17 @@ public class SWAlertView: UIView {
                     .top(30.0)
                     .numberOfLines(0),
                 
-                UILabel()
-                    .text(self.message)
-                    .numberOfLines(0)
-                    .textColor(.white)
-                    .top(15.0)
-                    .numberOfLines(0),
+                // 添加自定义控件区域
+                SIF(condition: self.message != nil, trueBlock: {
+                    [UILabel()
+                        .text(self.message)
+                        .numberOfLines(0)
+                        .textColor(.white)
+                        .top(15.0)
+                        .numberOfLines(0)]
+                }, falseBlock: {
+                    return self.coustomContentView ?? []
+                }),
                 
                 SRow(SReloader({ [weak self] in
                     guard let self = self else { return []}
@@ -155,7 +182,7 @@ public class SWAlertView: UIView {
 
 public extension SWWrapper where Base : UIView {
     
-        /// 展示loading框(主线程中刷新UI)
+    /// 展示loading框(主线程中刷新UI)
     func showAlert(title: String = "提示",
                    message: String = "",
                    confirmTitle: String = "确定",
@@ -171,6 +198,32 @@ public extension SWWrapper where Base : UIView {
             frame: base.bounds,
             title: title,
             message: message,
+            confirmTitle: confirmTitle,
+            cancleTitle: cancleTitle,
+            confirmBlock: confirmBlock,
+            cancelBlock: cancelBlock)
+        
+        base.addSubview(alert)
+        alert.show()
+        
+    }
+    
+    /// 展示loading框(主线程中刷新UI)
+    func showAlert(title: String = "提示",
+                   customViews: [UIView]? = nil,
+                   confirmTitle: String = "确定",
+                   cancleTitle: String = "取消",
+                   confirmBlock: (() -> Void)? = nil,
+                   cancelBlock: (() -> Void)? = nil) {
+            // 若当前视图已加载CCLoadingView,则先移除后,再添加;
+        if let lastView = base.subviews.last as? SWAlertView {
+            lastView.removeFromSuperview()
+        }
+        
+        let alert = SWAlertView(
+            frame: base.bounds,
+            title: title,
+            customViews: customViews,
             confirmTitle: confirmTitle,
             cancleTitle: cancleTitle,
             confirmBlock: confirmBlock,
