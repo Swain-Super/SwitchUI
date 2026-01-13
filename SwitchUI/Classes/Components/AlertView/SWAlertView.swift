@@ -93,7 +93,7 @@ public class SWAlertView: UIView {
                     .numberOfLines(0),
                 
                 // 添加自定义控件区域
-                SIF(condition: self.message != nil, trueBlock: {
+                SIF(condition: (self.message != nil && self.message.count > 0), trueBlock: {
                     [UILabel()
                         .text(self.message)
                         .numberOfLines(0)

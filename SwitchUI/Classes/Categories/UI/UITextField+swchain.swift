@@ -192,6 +192,31 @@ public extension UITextField {
         return self
     }
     
+    @discardableResult
+    func leftView(_ view: UIView?) -> Self {
+        self.leftView = view
+        return self
+    }
+    
+    @discardableResult
+    func rightView(_ view: UIView?) -> Self {
+        self.rightView = view
+        return self
+    }
+    
+    @discardableResult
+    func leftViewMode(_ viewMode: UITextField.ViewMode) -> Self {
+        self.leftViewMode = viewMode
+        return self
+    }
+    
+    @discardableResult
+    func rightViewMode(_ viewMode: UITextField.ViewMode) -> Self {
+        self.rightViewMode = viewMode
+        return self
+    }
+    
+    
 }
 
 public extension UITextField {
