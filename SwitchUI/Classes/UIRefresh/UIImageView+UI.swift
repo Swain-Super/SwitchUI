@@ -9,7 +9,7 @@ import UIKit
 
 /// UI自动刷新Key
 public enum UIImageViewKey: String {
-    case image
+    case imageObject
     case imageName
     case tintColor
     case tintColor2
@@ -29,7 +29,7 @@ public class UIImageViewUI {
                 view.image(block(view))
             }
         }
-        reflect[UIImageViewKey.image.rawValue] = imageBlk
+        reflect[UIImageViewKey.imageObject.rawValue] = imageBlk
         
         // imageName
         let imageNameBlk: (UIView, Any) -> Void = { (view, block) -> Void in
