@@ -26,18 +26,20 @@ public class UIButtonUI {
         
         // image
         let imageBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> (UIImage?, UIControl.State), let view = view as? UIButton {
-                let result = block(view)
-                view.image(result.0, state: result.1)
+            if let block = block as? ((UIView) -> (UIImage?, UIControl.State)?), let view = view as? UIButton {
+                if let result = block(view) {
+                    view.image(result.0, state: result.1)
+                }
             }
         }
         reflect[UIButtonKey.image.rawValue] = imageBlk
         
         // setTitle
         let setTitleBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> (String, UIControl.State), let view = view as? UIButton {
-                let result = block(view)
-                view.setTitle(result.0, state: result.1)
+            if let block = block as? ((UIView) -> (String, UIControl.State)?), let view = view as? UIButton {
+                if let result = block(view) {
+                    view.setTitle(result.0, state: result.1)
+                }
             }
         }
         reflect[UIButtonKey.setTitle.rawValue] = setTitleBlk
@@ -52,18 +54,20 @@ public class UIButtonUI {
         
         // setTitleColor
         let setTitleColorBlk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> (UIColor, UIControl.State), let view = view as? UIButton {
-                let result = block(view)
-                view.setTitleColor(result.0, state: result.1)
+            if let block = block as? ((UIView) -> (UIColor, UIControl.State)?), let view = view as? UIButton {
+                if let result = block(view) {
+                    view.setTitleColor(result.0, state: result.1)
+                }
             }
         }
         reflect[UIButtonKey.setTitleColor.rawValue] = setTitleColorBlk
         
         // setTitleColor2
         let setTitleColor2Blk: (UIView, Any) -> Void = { (view, block) -> Void in
-            if let block = block as? (UIView) -> (String, UIControl.State), let view = view as? UIButton {
-                let result = block(view)
-                view.setTitleColor(result.0, state: result.1)
+            if let block = block as? ((UIView) -> (String, UIControl.State)?), let view = view as? UIButton {
+                if let result = block(view) {
+                    view.setTitleColor(result.0, state: result.1)
+                }
             }
         }
         reflect[UIButtonKey.setTitleColor2.rawValue] = setTitleColor2Blk

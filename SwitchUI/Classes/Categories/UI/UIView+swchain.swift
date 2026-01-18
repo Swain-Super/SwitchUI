@@ -33,10 +33,12 @@ public extension UIView {
     
     /// 添加子容器
     /// - Parameter subViews: 容器的子View
-    func `as`(_ subViews: Array<UIView>? = nil) {
+    @discardableResult
+    func `as`(_ subViews: Array<UIView>? = nil) -> Self {
         subViews?.forEach { view in
             self.addSubview(view)
         }
+        return self
     }
     
     @discardableResult
@@ -368,6 +370,12 @@ public extension UIView {
         return self
     }
     
+    @discardableResult
+    func transform(trans: CGAffineTransform) -> Self {
+        self.transform = trans
+        return self
+    }
+
 }
 
 
@@ -522,6 +530,7 @@ public extension UIView {
     @discardableResult
     func width(_ value: CGFloat) -> Self {
         self.sWidth = SWValue(value: value.toString(), .width)
+        self.n_width = value
         return self
     }
     
@@ -554,6 +563,7 @@ public extension UIView {
     @discardableResult
     func height(_ value: CGFloat) -> Self {
         self.sHeight = SWValue(value: value.toString(), .height)
+        self.n_height = value
         return self
     }
     
@@ -586,6 +596,7 @@ public extension UIView {
     @discardableResult
     func left(_ value: CGFloat) -> Self {
         self.sLeft = SWValue(value: value.toString(), .left)
+        self.n_left = value
         return self
     }
     
@@ -618,6 +629,7 @@ public extension UIView {
     @discardableResult
     func top(_ value: CGFloat) -> Self {
         self.sTop = SWValue(value: value.toString(), .top)
+        self.n_top = value
         return self
     }
     
@@ -650,6 +662,7 @@ public extension UIView {
     @discardableResult
     func right(_ value: CGFloat) -> Self {
         self.sRight = SWValue(value: value.toString(), .right)
+        self.n_right = value
         return self
     }
     
@@ -682,6 +695,7 @@ public extension UIView {
     @discardableResult
     func bottom(_ value: CGFloat) -> Self {
         self.sBottom = SWValue(value: value.toString(), .bottom)
+        self.n_bottom = value
         return self
     }
     
@@ -714,6 +728,7 @@ public extension UIView {
     @discardableResult
     func centerX(_ value: CGFloat) -> Self {
         self.sCenterX = SWValue(value: value.toString(), .centerX)
+        self.n_centerX = value
         return self
     }
     
@@ -746,6 +761,7 @@ public extension UIView {
     @discardableResult
     func centerY(_ value: CGFloat) -> Self {
         self.sCenterY = SWValue(value: value.toString(), .centerY)
+        self.n_centerY = value
         return self
     }
     
@@ -908,7 +924,7 @@ public extension UIView {
         } else {
             let stack = SStack([
                 view
-            ])
+            ]).isUserInteractionEnabled(false)
             self.addSubview(stack)
         }
         return self

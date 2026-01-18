@@ -215,7 +215,7 @@ public extension UITextField {
         self.rightViewMode = viewMode
         return self
     }
-    
+
     
 }
 
@@ -235,6 +235,26 @@ public extension UITextField {
         return self
     }
     
+    /// 添加获得焦点监听（开始编辑），并支持链式调用
+    /// - Parameter block: 获得焦点时的回调，参数为 UITextField 本身
+    /// - Returns: Self，支持链式调用
+    @discardableResult
+    func onFocused(_ block: @escaping (UITextField) -> Void) -> Self {
+        self.focusedHandler = block
+        self.addTarget(self, action: #selector(UITextField._editingDidBegin), for: .editingDidBegin)
+        return self
+    }
+    
+    /// 添加失去焦点监听（结束编辑），并支持链式调用
+    /// - Parameter block: 失去焦点时的回调，参数为 UITextField 本身
+    /// - Returns: Self，支持链式调用
+    @discardableResult
+    func onBlurred(_ block: @escaping (UITextField) -> Void) -> Self {
+        self.blurredHandler = block
+        self.addTarget(self, action: #selector(UITextField._editingDidEnd), for: .editingDidEnd)
+        return self
+    }
+    
     // MARK: - Private
     
     // 用于存储闭包的属性
@@ -248,8 +268,38 @@ public extension UITextField {
         }
     }
     
+    private static var focusedKey: UInt8 = 0
+    private var focusedHandler: ((UITextField) -> Void)? {
+        get {
+            return objc_getAssociatedObject(self, &Self.focusedKey) as? (UITextField) -> Void
+        }
+        set {
+            objc_setAssociatedObject(self, &Self.focusedKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    private static var blurredKey: UInt8 = 0
+    private var blurredHandler: ((UITextField) -> Void)? {
+        get {
+            return objc_getAssociatedObject(self, &Self.blurredKey) as? (UITextField) -> Void
+        }
+        set {
+            objc_setAssociatedObject(self, &Self.blurredKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
     // 响应方法
     @objc private func _editingChanged() {
         editingChangedHandler?(self.text ?? "")
     }
+    
+    @objc private func _editingDidBegin() {
+        focusedHandler?(self)
+    }
+    
+    @objc private func _editingDidEnd() {
+        blurredHandler?(self)
+    }
+
+    
 }
