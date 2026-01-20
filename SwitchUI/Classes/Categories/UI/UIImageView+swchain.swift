@@ -19,7 +19,7 @@ public extension UIImageView {
     @discardableResult
     func image(_ block: @escaping (UIView) -> UIImage?,_ states: [SState]? = nil) -> Self {
         if let states, states.count > 0 {
-            self.autoBindAndRun(key: UIImageViewKey.image.rawValue, block: block, states: states)
+            self.autoBindAndRun(key: UIImageViewKey.imageA.rawValue, block: block, states: states)
         } else {
             self.image(block(self))
         }
