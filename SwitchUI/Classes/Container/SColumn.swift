@@ -32,6 +32,9 @@ open class SColumn: SContainer {
         // 子view自动计算尺寸
         var totalSubViewHeight: CGFloat = CGFloat(self.padding.top + self.padding.bottom)
         var maxSubViewWidth: CGFloat = 0
+        var countSubViews: Int = 0
+        var totalSubViewMargin: CGFloat = 0
+        var totoalFlexGrow: Int = 0
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
@@ -51,6 +54,9 @@ open class SColumn: SContainer {
                 
                 totalSubViewHeight += marginTop + CGFloat(view.n_height) + marginBottom
                 maxSubViewWidth = max(maxSubViewWidth,  CGFloat(self.padding.left + self.padding.right) + CGFloat(view.n_width) + countSWValue(value: view.sLeft, contentSize: self.sContentSize()) + countSWValue(value: view.sRight, contentSize: self.sContentSize()))
+                totalSubViewMargin += marginTop + marginBottom
+                totoalFlexGrow += view.sflexGrow
+                countSubViews = countSubViews + 1
             }
         }
         // 设置Blank的值
@@ -60,6 +66,26 @@ open class SColumn: SContainer {
                 if view is SBlank {
                     view.height(blankHeight)
                     view.sw_layoutSize(contentSize: self.sContentSize(), padding: self.padding)
+                }
+            }
+        }
+        
+        // 宽度等分
+        if s_alignContent == .equallyHeight, isConstHeight, countSubViews > 0 {
+            var averageHeight = (self.n_height - totalSubViewMargin) / CGFloat(countSubViews)
+            self.subviews.forEach { view in
+                if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
+                    view.n_height = averageHeight
+                }
+            }
+        }
+        
+        // FlexGrow
+        if totoalFlexGrow > 0, isConstHeight, countSubViews > 0, self.n_height > totalSubViewHeight {
+            var averageGrowHeight: CGFloat = (self.n_height - totalSubViewHeight) / CGFloat(totoalFlexGrow)
+            self.subviews.forEach { view in
+                if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil, view.sflexGrow > 0 {
+                    view.n_height = averageGrowHeight * CGFloat(view.sflexGrow)
                 }
             }
         }

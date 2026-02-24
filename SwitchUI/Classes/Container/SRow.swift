@@ -34,6 +34,9 @@ open class SRow: SContainer {
         // 子view自动计算尺寸
         var totalSubViewWidth: CGFloat = CGFloat(self.padding.left + self.padding.right)
         var maxSubViewHeight: CGFloat = 0
+        var countSubViews: Int = 0
+        var totalSubViewMargin: CGFloat = 0
+        var totoalFlexGrow: Int = 0
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
@@ -52,6 +55,9 @@ open class SRow: SContainer {
                 }
                 totalSubViewWidth += marginLeft + CGFloat(view.n_width) + marginRight
                 maxSubViewHeight = max(maxSubViewHeight,  CGFloat(self.padding.top + self.padding.bottom) + CGFloat(view.n_height) + countSWValue(value: view.sTop, contentSize: self.sContentSize()) + countSWValue(value: view.sBottom, contentSize: self.sContentSize()))
+                totalSubViewMargin += marginLeft + marginRight
+                totoalFlexGrow += view.sflexGrow
+                countSubViews = countSubViews + 1
             }
         }
         // 设置Blank的值
@@ -61,6 +67,26 @@ open class SRow: SContainer {
                 if view is SBlank {
                     view.width(blankWidth)
                     view.sw_layoutSize(contentSize: self.sContentSize(), padding: self.padding)
+                }
+            }
+        }
+        
+        // 宽度等分
+        if s_alignContent == .equallyWidth, isConstWidth, countSubViews > 0 {
+            var averageWidth = (self.n_width - totalSubViewMargin) / CGFloat(countSubViews)
+            self.subviews.forEach { view in
+                if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
+                    view.n_width = averageWidth
+                }
+            }
+        }
+        
+        // FlexGraw
+        if totoalFlexGrow > 0, isConstWidth, countSubViews > 0, self.n_width > totalSubViewWidth {
+            var averageGrowWidth: CGFloat = (self.n_width - totalSubViewWidth) / CGFloat(totoalFlexGrow)
+            self.subviews.forEach { view in
+                if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil, view.sflexGrow > 0 {
+                    view.n_width = averageGrowWidth * CGFloat(view.sflexGrow)
                 }
             }
         }
@@ -79,7 +105,7 @@ open class SRow: SContainer {
         var cellHeight: CGFloat = 0
         
         switch s_alignContent {
-        case .left:
+            case .left, .equallyWidth, .equallyHeight:
             self.subviews.forEach { view in
                 if view.isUseSWUI(), view.sPosition == nil {
                     

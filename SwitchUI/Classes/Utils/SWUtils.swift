@@ -15,16 +15,18 @@ public var swScreenHeight: CGFloat { UIScreen.main.bounds.size.height }
 
 /// 横向排列
 public enum SWAlign {
-    case left   // 左边
-    case center // 中间
-    case right  // 右边
+    case left          // 左边
+    case center        // 中间
+    case right         // 右边
+    case equallyWidth  // 等宽
+    case equallyHeight // 等高
 }
 
 /// 纵向排列
 public enum SWJustify {
-    case top   // 上边
-    case center // 中间
-    case bottom  // 下边
+    case top           // 上边
+    case center        // 中间
+    case bottom        // 下边
 }
 
 /// 布局的属性位置

@@ -27,6 +27,7 @@ private var _position: Void?
 private var _tags: Void?
 private var _markDirty: Void?
 private var _alignRules: Void?
+private var _flexGrow: Void?
 
 // MARK: 属性
 public extension UIView {
@@ -936,6 +937,11 @@ public extension UIView {
         return self
     }
     
+    @discardableResult
+    func flexGrow(_ value: Int) -> Self {
+        self.sflexGrow = value
+        return self
+    }
 }
 
 // MARK: 渲染
@@ -1018,6 +1024,15 @@ public extension UIView {
         SUIManager.shared.runAttributeReflect(key: key, view: self, value: block)
     }
     
+    /// 属性定义项目的放大比例，默认为 0
+    var sflexGrow: Int {
+        get {
+            return objc_getAssociatedObject(self, &_flexGrow) as? Int ?? 0
+        }
+        set {
+            objc_setAssociatedObject(self, &_flexGrow, newValue, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
 }
 
 // MARK: 基础布局快捷获取
