@@ -148,7 +148,7 @@ public class SWAlertView: UIView {
             .alignContent(.center)
             .backgroundColor("#D9000000")
             .cornerRadius(10)
-            .width("80%")
+            .width("70%")
         
     }
     
@@ -158,7 +158,7 @@ public class SWAlertView: UIView {
         self.container?.transform = CGAffineTransformMakeScale(0.2, 0.2);
         
         UIView.animate(
-                withDuration: 0.7,
+                withDuration: 0.3,
                 delay: 0,
                 usingSpringWithDamping: 0.6,
                 initialSpringVelocity: 0, options: .curveLinear) {
@@ -169,7 +169,7 @@ public class SWAlertView: UIView {
     func hide() {
         
         UIView.animate(
-            withDuration: 0.7,
+            withDuration: 0.2,
             delay: 0,
             usingSpringWithDamping: 0.6,
             initialSpringVelocity: 0, options: .curveLinear, animations: {

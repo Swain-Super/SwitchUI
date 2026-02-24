@@ -15,7 +15,7 @@ public class SWLoadingView: UIView {
     
     var timer: Timer?
     
-    var time: TimeInterval = 3.0
+    var time: TimeInterval = -1
     
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -25,7 +25,7 @@ public class SWLoadingView: UIView {
     deinit { print("SWLoadingView deinit~") }
     
     // MARK: - 初始化器
-    init(frame: CGRect, title: String, time: TimeInterval = 3.0) {
+    init(frame: CGRect, title: String, time: TimeInterval = -1) {
         super.init(frame: frame)
         self.title = title
         self.time = time
@@ -40,24 +40,23 @@ public class SWLoadingView: UIView {
     func createUI() {
         let container: SContainer = self.build()
         self.addSubview(container)
-        container.layout()
-        
+        container.layout(true)
     }
     
     @objc func autoHide() {
 
         self.removeFromSuperview()
     }
-    
-    
+
     func build() -> SContainer {
-        SRelativeContainer([
-            SColumn([
+        SColumn([
+            SRow([
                 UILabel()
                     .text(self.title)
-                    .numberOfLines(0)
+                    .font(UIFont(name: "PingFangSC-Regular", size: 15))
+                    .numberOfLines(1)
                     .textColor(.white)
-                    .bottom(10.0)
+                    .height(30)
                     .numberOfLines(0),
                 UIActivityIndicatorView(style: .white)
                     .width(30)
@@ -65,19 +64,19 @@ public class SWLoadingView: UIView {
                     .callSelf(&self.activity)
                     .start()
             ])
-            .alignContent(.center)
+            .backgroundColor("#D9000000")
+            .padding(UIEdgeInsets(top: 5, left: 15, bottom: 10, right: 15))
             .cornerRadius(10)
-            .padding(UIEdgeInsets(top: 30, left: 10, bottom: 30, right: 10))
-            .width("100")
-            .height("100%")
-            .alignRules([
-                .centerX : [SAnchor: SSuperContainer, SAlign: SWPositionType.centerX],
-                .centerY : [SAnchor: SSuperContainer, SAlign: SWPositionType.centerY]
-            ])
+            .alignContent(.center)
+            .justifyContent(.center)
+            .setLayoutHack {
+                print("")
+            }
         ])
+        .alignContent(.center)
+        .justifyContent(.center)
         .width("100%")
         .height("100%")
-        
     }
 }
 
