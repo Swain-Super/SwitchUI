@@ -45,6 +45,9 @@ public class SUIManager {
     ///   - component: 组件对象
     func add(viewId: String, component: UIView) {
         self.components[viewId] = SWView(value: component)
+        
+        // 清理一下已经销毁的组件
+        self.cleanDestroyedComponents()
     }
     
     /// 删除页面组件
@@ -67,6 +70,20 @@ public class SUIManager {
             return target.value
         }
         return nil
+    }
+    
+    /// 清理components中已经销毁的控件
+    func cleanDestroyedComponents() {
+        var keysToRemove: [String] = []
+        for (key, swView) in components {
+            // 检查SWView持有的UIView是否还存在
+            if swView.value == nil {
+                keysToRemove.append(key)
+            }
+        }
+        for key in keysToRemove {
+            components.removeValue(forKey: key)
+        }
     }
     
     /// UI刷新属性方法反射
@@ -217,6 +234,5 @@ public class SUIManager {
             }
         }
     }
-    
     
 }

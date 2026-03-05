@@ -19,6 +19,8 @@ open class SRow: SContainer {
     var s_scrollType: SWScrollType = .none
     /// 内容排列计算区域
     var contentRect: CGRect = .zero
+    /// 子元素的默认间距
+    var space: SWValue?
     
     /// Row 布局
     public override func layout() {
@@ -37,6 +39,10 @@ open class SRow: SContainer {
         var countSubViews: Int = 0
         var totalSubViewMargin: CGFloat = 0
         var totoalFlexGrow: Int = 0
+        // 子元素默认间距
+        let space: CGFloat = countSWValue(value: self.space, contentSize: self.sContentSize())
+        // 子元素索引
+        var itemIndex = 0
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
@@ -53,16 +59,17 @@ open class SRow: SContainer {
                     sTags["markLayout"] = true
                     container.sTags = sTags
                 }
-                totalSubViewWidth += marginLeft + CGFloat(view.n_width) + marginRight
+                totalSubViewWidth += marginLeft + CGFloat(view.n_width) + marginRight + (itemIndex > 0 ? space : 0)
                 maxSubViewHeight = max(maxSubViewHeight,  CGFloat(self.padding.top + self.padding.bottom) + CGFloat(view.n_height) + countSWValue(value: view.sTop, contentSize: self.sContentSize()) + countSWValue(value: view.sBottom, contentSize: self.sContentSize()))
                 totalSubViewMargin += marginLeft + marginRight
                 totoalFlexGrow += view.sflexGrow
                 countSubViews = countSubViews + 1
+                itemIndex+=1
             }
         }
         // 设置Blank的值
         if self.blankViewCount > 0, isConstWidth {
-            let blankWidth: CGFloat = (self.n_width - totalSubViewWidth)/CGFloat(self.blankViewCount)
+            let blankWidth: CGFloat = (self.n_width - totalSubViewWidth)/CGFloat(self.blankViewCount) - CGFloat(self.blankViewCount) * space
             self.subviews.forEach { view in
                 if view is SBlank {
                     view.width(blankWidth)
@@ -77,6 +84,10 @@ open class SRow: SContainer {
             self.subviews.forEach { view in
                 if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                     view.n_width = averageWidth
+                    view.width(averageWidth)
+                    var sTags = view.sTags ?? [:]
+                    sTags["markLayout"] = false
+                    view.sTags = sTags
                 }
             }
         }
@@ -86,7 +97,12 @@ open class SRow: SContainer {
             var averageGrowWidth: CGFloat = (self.n_width - totalSubViewWidth) / CGFloat(totoalFlexGrow)
             self.subviews.forEach { view in
                 if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil, view.sflexGrow > 0 {
-                    view.n_width = averageGrowWidth * CGFloat(view.sflexGrow)
+                    let cWidth = averageGrowWidth * CGFloat(view.sflexGrow)
+                    view.n_width = cWidth
+                    view.width(cWidth)
+                    var sTags = view.sTags ?? [:]
+                    sTags["markLayout"] = false
+                    view.sTags = sTags
                 }
             }
         }
@@ -103,6 +119,8 @@ open class SRow: SContainer {
         var startTop: CGFloat = 0.0
         // 自动布局行高
         var cellHeight: CGFloat = 0
+        // 子元素索引
+        itemIndex = 0
         
         switch s_alignContent {
             case .left, .equallyWidth, .equallyHeight:
@@ -114,7 +132,8 @@ open class SRow: SContainer {
                     let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
                     let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                     
-                    let targertLeft = marginLeft + startLeft
+                    
+                    let targertLeft = marginLeft + startLeft + (itemIndex > 0 ? space : 0)
                     
                     view.n_left = targertLeft
                     switch s_justifyContent {
@@ -134,6 +153,8 @@ open class SRow: SContainer {
                         cellHeight = CGFloat(view.n_bottom) + marginBottom
                     }
                     startLeft = CGFloat(view.n_right) + marginRight
+                    
+                    itemIndex+=1
                 }
             }
             startTop += cellHeight
@@ -188,7 +209,7 @@ open class SRow: SContainer {
                     let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
                     let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                     
-                    let targertLeft = marginLeft + startLeft
+                    let targertLeft = marginLeft + startLeft + (itemIndex > 0 ? space : 0)
                     
                     view.n_left = targertLeft
                     switch s_justifyContent {
@@ -208,6 +229,7 @@ open class SRow: SContainer {
                         cellHeight = CGFloat(view.n_bottom) + marginBottom
                     }
                     startLeft = CGFloat(view.n_right) + marginRight
+                    itemIndex+=1
                 }
             }
             startTop += cellHeight
@@ -239,7 +261,7 @@ open class SRow: SContainer {
                     let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
                     let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                     
-                    let targertLeft = startLeft - marginRight - CGFloat(view.n_width)
+                    let targertLeft = startLeft - marginRight - CGFloat(view.n_width) - (itemIndex > 0 ? space : 0)
                     
                     view.n_left = targertLeft
                     switch s_justifyContent {
@@ -259,6 +281,7 @@ open class SRow: SContainer {
                         cellHeight = CGFloat(view.n_bottom) + marginBottom
                     }
                     startLeft = CGFloat(view.n_left) - marginLeft
+                    itemIndex+=1
                 }
             }
             startTop += cellHeight
@@ -341,6 +364,20 @@ open class SRow: SContainer {
     @discardableResult
     public func justifyContent(_ value: SWJustify) -> Self {
         self.s_justifyContent = value
+        return self
+    }
+    
+    /// 列表间隙
+    @discardableResult
+    public func space(_ value: String) -> Self {
+        self.space = SWValue(value: value, .left)
+        return self
+    }
+    
+    /// 列表间隙
+    @discardableResult
+    public func space(_ value: CGFloat) -> Self {
+        self.space = SWValue(value: value.toString(), .left)
         return self
     }
     

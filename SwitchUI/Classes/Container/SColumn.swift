@@ -19,6 +19,8 @@ open class SColumn: SContainer {
     var s_justifyContent: SWJustify = .top
     /// 内容排列计算区域
     var contentRect: CGRect = .zero
+    /// 子元素的默认间距
+    var space: SWValue?
     
     public override func layout() {
         
@@ -35,6 +37,11 @@ open class SColumn: SContainer {
         var countSubViews: Int = 0
         var totalSubViewMargin: CGFloat = 0
         var totoalFlexGrow: Int = 0
+        // 子元素默认间距
+        let space: CGFloat = countSWValue(value: self.space, contentSize: self.sContentSize())
+        // 子元素索引
+        var itemIndex = 0
+        
         self.subviews.forEach { view in
             if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                 
@@ -52,16 +59,17 @@ open class SColumn: SContainer {
                     container.sTags = sTags
                 }
                 
-                totalSubViewHeight += marginTop + CGFloat(view.n_height) + marginBottom
+                totalSubViewHeight += marginTop + CGFloat(view.n_height) + marginBottom + (itemIndex > 0 ? space : 0)
                 maxSubViewWidth = max(maxSubViewWidth,  CGFloat(self.padding.left + self.padding.right) + CGFloat(view.n_width) + countSWValue(value: view.sLeft, contentSize: self.sContentSize()) + countSWValue(value: view.sRight, contentSize: self.sContentSize()))
                 totalSubViewMargin += marginTop + marginBottom
                 totoalFlexGrow += view.sflexGrow
                 countSubViews = countSubViews + 1
+                itemIndex+=1
             }
         }
         // 设置Blank的值
         if self.blankViewCount > 0, isConstHeight {
-            var blankHeight: CGFloat = (self.n_height - totalSubViewHeight)/CGFloat(self.blankViewCount)
+            var blankHeight: CGFloat = (self.n_height - totalSubViewHeight)/CGFloat(self.blankViewCount) - CGFloat(self.blankViewCount) * space
             self.subviews.forEach { view in
                 if view is SBlank {
                     view.height(blankHeight)
@@ -76,6 +84,10 @@ open class SColumn: SContainer {
             self.subviews.forEach { view in
                 if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil {
                     view.n_height = averageHeight
+                    view.height(averageHeight)
+                    var sTags = view.sTags ?? [:]
+                    sTags["markLayout"] = false
+                    view.sTags = sTags
                 }
             }
         }
@@ -85,7 +97,12 @@ open class SColumn: SContainer {
             var averageGrowHeight: CGFloat = (self.n_height - totalSubViewHeight) / CGFloat(totoalFlexGrow)
             self.subviews.forEach { view in
                 if view.isUseSWUI(), !(view is SBlank), view.sPosition == nil, view.sflexGrow > 0 {
-                    view.n_height = averageGrowHeight * CGFloat(view.sflexGrow)
+                    let cHeight = averageGrowHeight * CGFloat(view.sflexGrow)
+                    view.n_height = cHeight
+                    view.height(cHeight)
+                    var sTags = view.sTags ?? [:]
+                    sTags["markLayout"] = false
+                    view.sTags = sTags
                 }
             }
         }
@@ -103,6 +120,7 @@ open class SColumn: SContainer {
         // 顶部开始位置
         var startTop: CGFloat = CGFloat(0)
         
+        
         self.subviews.forEach { view in
             if view.isUseSWUI(), view.sPosition == nil {
                 
@@ -111,7 +129,7 @@ open class SColumn: SContainer {
                 let marginTop: CGFloat = countSWValue(value: view.sTop, contentSize: self.sContentSize())
                 let marginBottom: CGFloat = countSWValue(value: view.sBottom, contentSize: self.sContentSize())
                 
-                view.n_top = marginTop + startTop
+                view.n_top = marginTop + startTop + (itemIndex > 0 ? space : 0)
                 if view.sRight != nil && view.sLeft == nil {
                     view.n_right = self.n_width - marginRight - startRight
                 } else {
@@ -124,6 +142,7 @@ open class SColumn: SContainer {
                     }
                 }
                 startTop = CGFloat(view.n_bottom) + marginBottom
+                itemIndex+=1
             }
         }
         contentRect.origin.x = padding.left
@@ -183,6 +202,20 @@ open class SColumn: SContainer {
     @discardableResult
     public func justifyContent(_ value: SWJustify) -> Self {
         self.s_justifyContent = value
+        return self
+    }
+    
+    /// 列表间隙
+    @discardableResult
+    public func space(_ value: String) -> Self {
+        self.space = SWValue(value: value, .left)
+        return self
+    }
+    
+    /// 列表间隙
+    @discardableResult
+    public func space(_ value: CGFloat) -> Self {
+        self.space = SWValue(value: value.toString(), .left)
         return self
     }
 

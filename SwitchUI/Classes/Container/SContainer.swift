@@ -249,6 +249,22 @@ open class SContainer: UIScrollView {
         }
     }
     
+    /// 自动布局-以宽为比例
+    /// - Parameter root: 是否是根节点
+    public func layout(_ root: Bool = false, scaleByWidth: Bool = false) {
+        self.layout(root)
+        
+        SScreenAdapter.resizeWidthScale(view: self, isLandscape: false)
+    }
+    
+    /// 自动布局-以高为比例
+    /// - Parameter root: 是否是根节点
+    public func layout(_ root: Bool = false, scaleByHeight: Bool = false) {
+        self.layout(root)
+        
+        SScreenAdapter.resizeHeightScale(view: self, isLandscape: false)
+    }
+    
     func layoutSubViews(superView: UIView) {
           
         superView.subviews.forEach { view in
