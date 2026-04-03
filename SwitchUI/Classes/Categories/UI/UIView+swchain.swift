@@ -710,6 +710,56 @@ public extension UIView {
         return self
     }
     
+    // MARK: - margin*（语义别名，等价于 left / right / top / bottom）
+    
+    @discardableResult
+    func marginLeft(_ value: String) -> Self { left(value) }
+    
+    @discardableResult
+    func marginLeft(_ block: @escaping (UIView) -> String, _ states: [SState]? = nil) -> Self { left(block, states) }
+    
+    @discardableResult
+    func marginLeft(_ value: CGFloat) -> Self { left(value) }
+    
+    @discardableResult
+    func marginLeft(_ block: @escaping (UIView) -> CGFloat, _ states: [SState]? = nil) -> Self { left(block, states) }
+    
+    @discardableResult
+    func marginRight(_ value: String) -> Self { right(value) }
+    
+    @discardableResult
+    func marginRight(_ block: @escaping (UIView) -> String, _ states: [SState]? = nil) -> Self { right(block, states) }
+    
+    @discardableResult
+    func marginRight(_ value: CGFloat) -> Self { right(value) }
+    
+    @discardableResult
+    func marginRight(_ block: @escaping (UIView) -> CGFloat, _ states: [SState]? = nil) -> Self { right(block, states) }
+    
+    @discardableResult
+    func marginTop(_ value: String) -> Self { top(value) }
+    
+    @discardableResult
+    func marginTop(_ block: @escaping (UIView) -> String, _ states: [SState]? = nil) -> Self { top(block, states) }
+    
+    @discardableResult
+    func marginTop(_ value: CGFloat) -> Self { top(value) }
+    
+    @discardableResult
+    func marginTop(_ block: @escaping (UIView) -> CGFloat, _ states: [SState]? = nil) -> Self { top(block, states) }
+    
+    @discardableResult
+    func marginBottom(_ value: String) -> Self { bottom(value) }
+    
+    @discardableResult
+    func marginBottom(_ block: @escaping (UIView) -> String, _ states: [SState]? = nil) -> Self { bottom(block, states) }
+    
+    @discardableResult
+    func marginBottom(_ value: CGFloat) -> Self { bottom(value) }
+    
+    @discardableResult
+    func marginBottom(_ block: @escaping (UIView) -> CGFloat, _ states: [SState]? = nil) -> Self { bottom(block, states) }
+    
     @discardableResult
     func centerX(_ value: String) -> Self {
         self.sCenterX = SWValue(value: value, .centerX)
